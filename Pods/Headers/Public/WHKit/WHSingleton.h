@@ -1,0 +1,1 @@
+../../../WHKit/WHKit/WHSingleton.h
