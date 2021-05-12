@@ -114,8 +114,12 @@
     UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpLoginVC)];
     [self.loginImage addGestureRecognizer:tapGestureRecognizer1];
     
-    UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpLoginVC)];
-    [self.loginImage addGestureRecognizer:tapGestureRecognizer1];
+    UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpDetailVC)];
+    [self.profile addGestureRecognizer:tapGestureRecognizer2];
+    
+    UITapGestureRecognizer *tapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpDetailVC)];
+    [self.file addGestureRecognizer:tapGestureRecognizer3];
+    
 }
 
 - (void)jumpLoginVC {
