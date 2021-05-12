@@ -55,7 +55,7 @@
     [self addSubview:self.view];
     [self.view addSubview:self.profile];
     [self.view addSubview:self.file];
-    [self.contentView addSubview:self.loginImage];
+    [self addSubview:self.loginImage];
     CGFloat height = self.frame.size.height / 3;
     CGFloat leftMargan = 8.f;
     CGFloat topMargan = 4.f;
@@ -99,7 +99,9 @@
         make.height.equalTo(@(height-topMargan));
     }];
     [self.loginImage mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self.contentView);
+        make.top.equalTo(@0);
+        make.left.right.equalTo(self);
+        make.height.equalTo(self);
     }];
     [super updateConstraints];
     [self layoutIfNeeded];
@@ -112,14 +114,28 @@
     UITapGestureRecognizer *tapGestureRecognizer1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpLoginVC)];
     [self.loginImage addGestureRecognizer:tapGestureRecognizer1];
     
+    UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpLoginVC)];
+    [self.loginImage addGestureRecognizer:tapGestureRecognizer1];
 }
 
 - (void)jumpLoginVC {
     [self.delegate jumpLogin];
 }
 
-- (void)setLogin:(BOOL)login {
-    if (login) {
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    if (self.login && [self.login isEqual:@"0"]) {
+        [self jumpLoginVC];
+    }
+}
+
+- (void)jumpDetailVC {
+    [self.delegate jumpDetail];
+}
+
+- (void)setLogin:(NSString *)login {
+    _login = login;
+    if (login && [login isEqual:@"1"]) {
+        [self.loginImage removeFromSuperview];
         self.loginImage.hidden = YES;
     } else {
         self.loginImage.hidden = NO;

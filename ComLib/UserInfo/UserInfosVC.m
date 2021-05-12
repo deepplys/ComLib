@@ -12,6 +12,7 @@
 #import "UserInfosEditView.h"
 #import "NSObjectGetStatus.h"
 #import "UserLoginVC.h"
+#import <BmobSDK/Bmob.h>
 
 @interface UserInfosVC ()<HeadCellDelegate, UserInfosEditViewDelegate, UIImagePickerControllerDelegate, UserLoginVCDelegate>
 
@@ -65,12 +66,34 @@
     [self.navigationController pushViewController:vc animated:nil];
 }
 
+- (void)jumpDetail {
+    UserLoginVC *vc = [[UserLoginVC alloc] init];
+    vc.delegate = self;
+    [self.navigationController pushViewController:vc animated:nil];
+}
+
 - (void)backToVC {
     [self.navigationController popViewControllerAnimated:nil];
 }
 
 - (void)updateModel:(NSString *)loginId {
-    []
+    BmobQuery *bquery = [BmobQuery queryWithClassName:@"_User"];
+    [bquery whereKey:@"username" equalTo:loginId];
+    [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            //处理查询结果
+            for (BmobObject *obj in array) {
+                if ([obj objectForKey:@"U_NickName"]) {
+                    self.dataSources.userInfosModel.user.name = [obj objectForKey:@"U_NickName"];
+                }
+                if ([obj objectForKey:@"userIntro"]) {
+                    self.dataSources.userInfosModel.user.detail  = [obj objectForKey:@"userIntro"];
+                }
+            }
+            self.dataSources.isLogin = @"1";
+            [self backToVC];
+            [self.collectionView reloadData];
+        }];
+    
 }
 
 - (void)dispalyEditView {
@@ -202,7 +225,7 @@
         //delegate
         _dataSources = [[UserInfoDataSource alloc] init];
         _dataSources.collection = _collectionView;
-        _dataSources.isLogin = NO;
+        _dataSources.isLogin = @"0";
         [_dataSources registCollectionViewCells:_collectionView];
         _dataSources.delegate = self;
         _collectionView.delegate = _dataSources;

@@ -14,12 +14,13 @@ NS_ASSUME_NONNULL_BEGIN
 
 - (void)dispalyEditView;
 - (void)jumpLogin;
+- (void)jumpDetail;
 
 @end
 
 @interface HeadCell : UICollectionViewCell
 
-@property (nonatomic, assign) BOOL login;
+@property (nonatomic, strong)NSString *login;
 @property (nonatomic, weak) id<HeadCellDelegate> delegate;
 
 - (void)updataInfoWithModel:(UserInfosModel *)model;

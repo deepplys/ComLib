@@ -18,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) UserInfosModel *userInfosModel;
 @property (nonatomic, weak) id<HeadCellDelegate> delegate;
-@property (nonatomic, assign) BOOL isLogin;
+@property (nonatomic, strong) NSString *isLogin;
 @property (nonatomic, strong) UserInfoViewModel *viewmodel;
 
 - (void)updateInfos;

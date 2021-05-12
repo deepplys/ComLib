@@ -12,8 +12,8 @@
 - (void)fetchAllUserInfo:(void(^)(NSString * _Nullable string1))compltaion {
     
     UserModel *user = [[UserModel alloc] init];
-    user.name = @"中国飞人";
-    user.detail = @"淡泊以明志，宁静以致远";
+    user.name = @"SuperMan";
+    user.detail = @"To a better man!";
     self.obj2.user = user;
     NSMutableArray *arr = [[NSMutableArray alloc] init];
     MessageBoxModel *model1 = [[MessageBoxModel alloc] init];

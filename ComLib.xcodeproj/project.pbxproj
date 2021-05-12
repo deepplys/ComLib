@@ -62,6 +62,7 @@
 		CE2439E0264A5EFC0016D544 /* UserLoginAndRegisterVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2439DF264A5EFC0016D544 /* UserLoginAndRegisterVC.m */; };
 		CE2439E9264A631D0016D544 /* NSObject+Hint.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2439E8264A631D0016D544 /* NSObject+Hint.m */; };
 		CE2439EF264A7BAF0016D544 /* UserLoginVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2439EE264A7BAF0016D544 /* UserLoginVC.m */; };
+		CE2439FC264BA7790016D544 /* DetailInfoDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = CE2439FB264BA7790016D544 /* DetailInfoDataSources.m */; };
 		CE3DDA34262C3045003D66DF /* MainPageRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */; };
 		CE3DDA3E262C5321003D66DF /* MainRecommendCombineController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA3D262C5321003D66DF /* MainRecommendCombineController.m */; };
 		CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA43262C539C003D66DF /* SearchBarView.m */; };
@@ -194,6 +195,8 @@
 		CE2439E8264A631D0016D544 /* NSObject+Hint.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "NSObject+Hint.m"; sourceTree = "<group>"; };
 		CE2439ED264A7BAF0016D544 /* UserLoginVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserLoginVC.h; sourceTree = "<group>"; };
 		CE2439EE264A7BAF0016D544 /* UserLoginVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserLoginVC.m; sourceTree = "<group>"; };
+		CE2439FA264BA7790016D544 /* DetailInfoDataSources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailInfoDataSources.h; sourceTree = "<group>"; };
+		CE2439FB264BA7790016D544 /* DetailInfoDataSources.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailInfoDataSources.m; sourceTree = "<group>"; };
 		CE3DDA32262C3045003D66DF /* MainPageRecommendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageRecommendController.h; sourceTree = "<group>"; };
 		CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageRecommendController.m; sourceTree = "<group>"; };
 		CE3DDA3C262C5321003D66DF /* MainRecommendCombineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainRecommendCombineController.h; sourceTree = "<group>"; };
@@ -597,6 +600,7 @@
 		CE2439A5263FEF170016D544 /* DetailInfoVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE2439F9264BA74E0016D544 /* Services */,
 				CE2439AC26411E7A0016D544 /* View */,
 				CE2439A6263FEF430016D544 /* DerailInfoVC.h */,
 				CE2439A7263FEF430016D544 /* DerailInfoVC.m */,
@@ -629,6 +633,15 @@
 				CE2439C2264655C60016D544 /* FocusModel.m */,
 			);
 			path = FocusModel;
+			sourceTree = "<group>";
+		};
+		CE2439F9264BA74E0016D544 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE2439FA264BA7790016D544 /* DetailInfoDataSources.h */,
+				CE2439FB264BA7790016D544 /* DetailInfoDataSources.m */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 		CE3DDA31262C3005003D66DF /* MainPageRecommend */ = {
@@ -849,6 +862,7 @@
 				259D46D426049B4100D014E6 /* BuyCell.m in Sources */,
 				2567187825D11B9D0025258F /* ViewController.m in Sources */,
 				259D46CA26049AE000D014E6 /* BuyDataSources.m in Sources */,
+				CE2439FC264BA7790016D544 /* DetailInfoDataSources.m in Sources */,
 				25B3AED226149D4800B484DD /* UIFocusAndFansViewController.m in Sources */,
 				259D46C2260499D400D014E6 /* BuyViewController.m in Sources */,
 				CE2439EF264A7BAF0016D544 /* UserLoginVC.m in Sources */,
