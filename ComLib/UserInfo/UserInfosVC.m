@@ -12,9 +12,10 @@
 #import "UserInfosEditView.h"
 #import "NSObjectGetStatus.h"
 #import "UserLoginVC.h"
+#import "WatchComCombineVC.h"
 #import <BmobSDK/Bmob.h>
 
-@interface UserInfosVC ()<HeadCellDelegate, UserInfosEditViewDelegate, UIImagePickerControllerDelegate, UserLoginVCDelegate>
+@interface UserInfosVC ()<HeadCellDelegate, UserInfosEditViewDelegate, UIImagePickerControllerDelegate, UserLoginVCDelegate ,WatchComCombineVCDelegate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UserInfosEditView *editView; //个人资料展开面板
@@ -67,9 +68,13 @@
 }
 
 - (void)jumpDetail {
-    UserLoginVC *vc = [[UserLoginVC alloc] init];
+    WatchComCombineVC *vc = [[WatchComCombineVC alloc] init];
     vc.delegate = self;
     [self.navigationController pushViewController:vc animated:nil];
+}
+
+- (void)backVC {
+    [self.navigationController popViewControllerAnimated:nil];
 }
 
 - (void)backToVC {
@@ -242,4 +247,5 @@
     }
     return _editView;
 }
+
 @end

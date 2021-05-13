@@ -67,6 +67,11 @@
 		CE243A10264BD3E30016D544 /* WatchComDatasource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A0F264BD3E30016D544 /* WatchComDatasource.m */; };
 		CE243A16264BD3F90016D544 /* WatchComModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A15264BD3F90016D544 /* WatchComModel.m */; };
 		CE243A1C264BEF2D0016D544 /* WatchHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A1B264BEF2D0016D544 /* WatchHeadCell.m */; };
+		CE243A25264D0D020016D544 /* WatchComPageVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A24264D0D020016D544 /* WatchComPageVC.m */; };
+		CE243A2E264D0F140016D544 /* WatchComCombineVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A2D264D0F140016D544 /* WatchComCombineVC.m */; };
+		CE243A37264D11BC0016D544 /* CommonStyleFouCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A36264D11BC0016D544 /* CommonStyleFouCell.m */; };
+		CE243A3D264D19AE0016D544 /* CommonNavigationBackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A3C264D19AE0016D544 /* CommonNavigationBackBar.m */; };
+		CE243A43264D26B80016D544 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A42264D26B80016D544 /* HeadView.m */; };
 		CE3DDA34262C3045003D66DF /* MainPageRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */; };
 		CE3DDA3E262C5321003D66DF /* MainRecommendCombineController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA3D262C5321003D66DF /* MainRecommendCombineController.m */; };
 		CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA43262C539C003D66DF /* SearchBarView.m */; };
@@ -209,6 +214,16 @@
 		CE243A15264BD3F90016D544 /* WatchComModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchComModel.m; sourceTree = "<group>"; };
 		CE243A1A264BEF2D0016D544 /* WatchHeadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchHeadCell.h; sourceTree = "<group>"; };
 		CE243A1B264BEF2D0016D544 /* WatchHeadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchHeadCell.m; sourceTree = "<group>"; };
+		CE243A23264D0D020016D544 /* WatchComPageVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchComPageVC.h; sourceTree = "<group>"; };
+		CE243A24264D0D020016D544 /* WatchComPageVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchComPageVC.m; sourceTree = "<group>"; };
+		CE243A2C264D0F140016D544 /* WatchComCombineVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchComCombineVC.h; sourceTree = "<group>"; };
+		CE243A2D264D0F140016D544 /* WatchComCombineVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchComCombineVC.m; sourceTree = "<group>"; };
+		CE243A35264D11BC0016D544 /* CommonStyleFouCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonStyleFouCell.h; sourceTree = "<group>"; };
+		CE243A36264D11BC0016D544 /* CommonStyleFouCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonStyleFouCell.m; sourceTree = "<group>"; };
+		CE243A3B264D19AE0016D544 /* CommonNavigationBackBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommonNavigationBackBar.h; sourceTree = "<group>"; };
+		CE243A3C264D19AE0016D544 /* CommonNavigationBackBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommonNavigationBackBar.m; sourceTree = "<group>"; };
+		CE243A41264D26B80016D544 /* HeadView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HeadView.h; sourceTree = "<group>"; };
+		CE243A42264D26B80016D544 /* HeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
 		CE3DDA32262C3045003D66DF /* MainPageRecommendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageRecommendController.h; sourceTree = "<group>"; };
 		CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageRecommendController.m; sourceTree = "<group>"; };
 		CE3DDA3C262C5321003D66DF /* MainRecommendCombineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainRecommendCombineController.h; sourceTree = "<group>"; };
@@ -457,7 +472,7 @@
 		25B3AECF26149CF200B484DD /* CommonVc */ = {
 			isa = PBXGroup;
 			children = (
-				CE243A07264BD29E0016D544 /* WatchCom */,
+				CE243A20264D0C900016D544 /* WatchComCombine */,
 				CE243A06264BD27F0016D544 /* Focus */,
 				25B3AED926149E0100B484DD /* UIReadPageViewController.h */,
 				25B3AEDA26149E0100B484DD /* UIReadPageViewController.m */,
@@ -476,6 +491,8 @@
 				252F7A5726134E500051A965 /* CommonStyleTwoCell.m */,
 				25B3AEC9261488B300B484DD /* CommonStyleThrCell.h */,
 				25B3AECA261488B300B484DD /* CommonStyleThrCell.m */,
+				CE243A35264D11BC0016D544 /* CommonStyleFouCell.h */,
+				CE243A36264D11BC0016D544 /* CommonStyleFouCell.m */,
 			);
 			path = CommonCell;
 			sourceTree = "<group>";
@@ -704,6 +721,26 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		CE243A20264D0C900016D544 /* WatchComCombine */ = {
+			isa = PBXGroup;
+			children = (
+				CE243A2C264D0F140016D544 /* WatchComCombineVC.h */,
+				CE243A2D264D0F140016D544 /* WatchComCombineVC.m */,
+				CE243A22264D0CD80016D544 /* WatchComPageVC */,
+				CE243A07264BD29E0016D544 /* WatchCom */,
+			);
+			path = WatchComCombine;
+			sourceTree = "<group>";
+		};
+		CE243A22264D0CD80016D544 /* WatchComPageVC */ = {
+			isa = PBXGroup;
+			children = (
+				CE243A23264D0D020016D544 /* WatchComPageVC.h */,
+				CE243A24264D0D020016D544 /* WatchComPageVC.m */,
+			);
+			path = WatchComPageVC;
+			sourceTree = "<group>";
+		};
 		CE3DDA31262C3005003D66DF /* MainPageRecommend */ = {
 			isa = PBXGroup;
 			children = (
@@ -729,6 +766,10 @@
 			children = (
 				CE3DDA42262C539C003D66DF /* SearchBarView.h */,
 				CE3DDA43262C539C003D66DF /* SearchBarView.m */,
+				CE243A3B264D19AE0016D544 /* CommonNavigationBackBar.h */,
+				CE243A3C264D19AE0016D544 /* CommonNavigationBackBar.m */,
+				CE243A41264D26B80016D544 /* HeadView.h */,
+				CE243A42264D26B80016D544 /* HeadView.m */,
 			);
 			path = CommonView;
 			sourceTree = "<group>";
@@ -917,6 +958,7 @@
 				CE2439E0264A5EFC0016D544 /* UserLoginAndRegisterVC.m in Sources */,
 				CE2439E9264A631D0016D544 /* NSObject+Hint.m in Sources */,
 				25D50CB325D28F5D00C6E696 /* LikeItemDataSources.m in Sources */,
+				CE243A3D264D19AE0016D544 /* CommonNavigationBackBar.m in Sources */,
 				CE2439B9264655190016D544 /* FocusInfoDataSource.m in Sources */,
 				CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */,
 				25B9D758260B67F2003490DB /* MyFoucusCell.m in Sources */,
@@ -926,6 +968,7 @@
 				259D46CA26049AE000D014E6 /* BuyDataSources.m in Sources */,
 				CE2439FC264BA7790016D544 /* DetailInfoDataSources.m in Sources */,
 				25B3AED226149D4800B484DD /* UIFocusAndFansViewController.m in Sources */,
+				CE243A43264D26B80016D544 /* HeadView.m in Sources */,
 				259D46C2260499D400D014E6 /* BuyViewController.m in Sources */,
 				CE2439EF264A7BAF0016D544 /* UserLoginVC.m in Sources */,
 				25D50C7025D23BC500C6E696 /* UserInfoDataSource.m in Sources */,
@@ -934,12 +977,14 @@
 				25383BC725FF896D000C5073 /* NSObjectGetStatus.m in Sources */,
 				25D50CCA25D29F7500C6E696 /* SearchOpenListTableView.m in Sources */,
 				256718F325D14B1E0025258F /* UserInfosVC.m in Sources */,
+				CE243A37264D11BC0016D544 /* CommonStyleFouCell.m in Sources */,
 				256718E825D12DFB0025258F /* RecommendDataSources.m in Sources */,
 				CE2439A1263051D10016D544 /* BuyItemView.m in Sources */,
 				256718DF25D12D120025258F /* RecommendViewModel.m in Sources */,
 				25D50C8525D277F100C6E696 /* HeadCell.m in Sources */,
 				256718B325D11EFD0025258F /* MainRecommendVC.m in Sources */,
 				25D50C9B25D283D400C6E696 /* LikeItemCell.m in Sources */,
+				CE243A25264D0D020016D544 /* WatchComPageVC.m in Sources */,
 				CE24398E263024400016D544 /* LikeRecommendCombineController.m in Sources */,
 				CE243985263023640016D544 /* LikePageRecommendController.m in Sources */,
 				256718BC25D11F410025258F /* RecommendCell.m in Sources */,
@@ -963,6 +1008,7 @@
 				25C586FD25FF0AB9007FB91F /* UserInfosEditView.m in Sources */,
 				25D50CC325D29E1900C6E696 /* SearchVC.m in Sources */,
 				CE2439AF26411EE80016D544 /* DetailInfoHeaderVIew.m in Sources */,
+				CE243A2E264D0F140016D544 /* WatchComCombineVC.m in Sources */,
 				25D50CBC25D295F000C6E696 /* LikeItemsHeaderView.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

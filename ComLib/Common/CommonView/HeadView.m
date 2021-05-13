@@ -1,22 +1,15 @@
 //
-//  CommonStyleThrCell.m
+//  HeadView.m
 //  ComLib
 //
-//  Created by 崔祥龙 on 2021/3/31.
+//  Created by cuixianglong on 2021/5/13.
 //
 
-#import "CommonStyleThrCell.h"
+#import "HeadView.h"
 #import <Masonry/Masonry.h>
 #import <YYKit/YYKit.h>
 
-/*
- 
- 关注 headCell
- icon    name   status
-         detail
- */
-
-@interface CommonStyleThrCell ()
+@interface HeadView ()
 
 @property (nonatomic, strong)UIImageView *icon;
 @property (nonatomic, strong)UILabel *name;
@@ -27,7 +20,8 @@
 
 @end
 
-@implementation CommonStyleThrCell
+
+@implementation HeadView
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -41,7 +35,7 @@
 - (void)setupSubviews {
     self.backgroundColor = [UIColor whiteColor];
     self.userInteractionEnabled = YES;
-    self.contentView.userInteractionEnabled = YES;
+    self.userInteractionEnabled = YES;
     [self addSubview:self.icon];
     [self addSubview:self.name];
     [self addSubview:self.detail];
@@ -52,7 +46,7 @@
 
 - (void)makeConstraints {
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(self.contentView);
+        make.left.top.equalTo(self);
         make.height.width.equalTo(@(40));
     }];
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -69,7 +63,7 @@
     }];
     [self.status mas_makeConstraints:^(MASConstraintMaker *make) {
         make.centerY.equalTo(self.icon);
-        make.right.equalTo(self.contentView.mas_right);
+        make.right.equalTo(self.mas_right);
         make.width.equalTo(@50);
         make.height.equalTo(self.icon).offset(-10);
     }];
@@ -163,6 +157,5 @@
     }
     self.isfocus = self.isfocus ? NO : YES;
 }
-
 
 @end

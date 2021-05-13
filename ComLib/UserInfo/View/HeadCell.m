@@ -56,6 +56,8 @@
     [self.view addSubview:self.profile];
     [self.view addSubview:self.file];
     [self addSubview:self.loginImage];
+    self.userInteractionEnabled = YES;
+    self.view.userInteractionEnabled = YES;
     CGFloat height = self.frame.size.height / 3;
     CGFloat leftMargan = 8.f;
     CGFloat topMargan = 4.f;
@@ -117,8 +119,8 @@
     UITapGestureRecognizer *tapGestureRecognizer2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpDetailVC)];
     [self.profile addGestureRecognizer:tapGestureRecognizer2];
     
-    UITapGestureRecognizer *tapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpDetailVC)];
-    [self.file addGestureRecognizer:tapGestureRecognizer3];
+    /*UITapGestureRecognizer *tapGestureRecognizer3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpDetailVC)];
+    [self.file addGestureRecognizer:tapGestureRecognizer3];*/
     
 }
 
@@ -227,6 +229,7 @@
         _profile.font = [UIFont systemFontOfSize:12 weight:UIFontWeightRegular];
         _profile.text = @"个人主页";
         _profile.textColor = [UIColor grayColor];
+        _profile.userInteractionEnabled = YES;
     }
     return _profile;
 }

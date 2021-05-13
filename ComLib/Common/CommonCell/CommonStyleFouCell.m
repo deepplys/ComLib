@@ -1,33 +1,31 @@
 //
-//  CommonStyleThrCell.m
+//  CommonStyleFouCell.m
 //  ComLib
 //
-//  Created by 崔祥龙 on 2021/3/31.
+//  Created by cuixianglong on 2021/5/13.
 //
 
-#import "CommonStyleThrCell.h"
+#import "CommonStyleFouCell.h"
 #import <Masonry/Masonry.h>
 #import <YYKit/YYKit.h>
 
 /*
  
- 关注 headCell
+ 动态 headCell
  icon    name   status
          detail
  */
 
-@interface CommonStyleThrCell ()
+@interface CommonStyleFouCell ()
 
 @property (nonatomic, strong)UIImageView *icon;
 @property (nonatomic, strong)UILabel *name;
-@property (nonatomic, strong)UILabel *detail;
-//@property (nonatomic, strong)UILabel *status;
-@property (nonatomic, strong)UIImageView *status;
+@property (nonatomic, strong)UILabel *status;
 @property (nonatomic, assign)BOOL isfocus;
 
 @end
 
-@implementation CommonStyleThrCell
+@implementation CommonStyleFouCell
 
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
@@ -64,7 +62,7 @@
     [self.detail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.name);
         make.bottom.equalTo(self.icon);
-        make.width.equalTo(@(40));
+        make.width.equalTo(@(180));
         make.height.equalTo(@(20));
     }];
     [self.status mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -78,8 +76,8 @@
 }
 
 - (void)setGesture {
-    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(change)];
-    [self.status addGestureRecognizer:tap];
+    /*UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(change)];
+    [self.status addGestureRecognizer:tap];*/
 }
 
 - (void)updateData {
@@ -97,7 +95,7 @@
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday;
     dateComponents = [calendar components:unitFlags fromDate:localDate];
     NSString *data = [[NSString alloc]initWithFormat:@"%ld月 %ld日，星期%ld",dateComponents.month,dateComponents.month,dateComponents.weekday];
-    self.detail.text = @"text";
+    self.detail.text = data;
     CALayer *layer = [self.icon layer];
     [layer setMasksToBounds:YES];
     [layer setCornerRadius:2.0];
@@ -144,25 +142,25 @@
     return _detail;
 }
 
-- (UIImageView *)status {
+- (UILabel *)status {
     if (!_status) {
-        _status = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _status.image = [UIImage imageNamed:@"focus"];
-        //_status.highlightedImage = [UIImage imageNamed:@"focusdone"];
-        _isfocus = NO;
-        _status.userInteractionEnabled = YES;
+        _status = [[UILabel alloc] initWithFrame:CGRectZero];
+        _status.text = @"细节";
+        _status.numberOfLines = 1;
+        _status.font = [UIFont systemFontOfSize:18];
+        _status.textColor = [UIColor blackColor];
     }
     return _status;
 }
 
 - (void)change {
-    if (self.isfocus) {
-        self.status.image = [UIImage imageNamed:@"focus"];
-    } else {
-        self.status.image = [UIImage imageNamed:@"focusdone"];
+    if (self.num.intValue == 0 ){
+        self.status.text = @"发布了构件";
+    } else if (self.num.intValue  == 1) {
+        self.status.text = @"点赞了构件";
+    } else if (self.num.intValue  == 2) {
+        self.status.text = @"评论了构件";
     }
-    self.isfocus = self.isfocus ? NO : YES;
 }
-
 
 @end

@@ -1,24 +1,27 @@
 //
-//  MainRecommendCombineController.m
+//  WatchComCombineVC.m
 //  ComLib
 //
-//  Created by cuixianglong on 2021/4/18.
+//  Created by cuixianglong on 2021/5/13.
 //
 
-#import "MainRecommendCombineController.h"
+#import "WatchComCombineVC.h"
 #import "SearchBarView.h"
-#import "MainPageRecommendController.h"
+#import "WatchComPageVC.h"
 #import <YYKit/YYKit.h>
 #import "NSObjectGetStatus.h"
+#import "CommonNavigationBackBar.h"
 
-@interface MainRecommendCombineController ()
+@interface WatchComCombineVC () <CommonNavigationBackBarDelegate>
 
 @property (nonatomic, strong)SearchBarView *searchBar;
+@property (nonatomic, strong)CommonNavigationBackBar *backBar;
 @property (nonatomic, strong)UIView *pageView;
-@property (nonatomic, strong)MainPageRecommendController *pageViewController;
+@property (nonatomic, strong)WatchComPageVC *pageViewController;
+
 @end
 
-@implementation MainRecommendCombineController
+@implementation WatchComCombineVC
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -39,9 +42,9 @@
 - (void)setupSubviews {
     CGFloat height = [NSObjectGetStatus statusBarH];
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.searchBar];
+    [self.view addSubview:self.backBar];
     [self.view addSubview:self.pageView];
-    self.searchBar.frame = CGRectMake(0, height, self.view.width, 50);
+    self.backBar.frame = CGRectMake(0, height, self.view.width, 50);
     self.pageView.frame = CGRectMake(0, 50+height, self.view.width, self.view.height - 50-height);
     [self addChildViewController:self.pageViewController];
     self.pageViewController.view.frame = self.pageView.frame;
@@ -57,9 +60,17 @@
     return _searchBar;
 }
 
-- (MainPageRecommendController *)pageViewController {
+- (CommonNavigationBackBar *)backBar {
+    if (!_backBar) {
+        _backBar = [[CommonNavigationBackBar alloc] initWithFrame:CGRectZero];
+        _backBar.delegate = self;
+    }
+    return _backBar;
+}
+
+- (WatchComPageVC *)pageViewController {
     if (!_pageViewController) {
-        _pageViewController = [[MainPageRecommendController alloc]init];
+        _pageViewController = [[WatchComPageVC alloc]init];
     }
     return _pageViewController;
 }
@@ -69,6 +80,10 @@
         _pageView = [[UIView alloc] initWithFrame:CGRectZero];
     }
     return _pageView;
+}
+
+- (void)backToVC {
+    [self.delegate backVC];
 }
 
 @end

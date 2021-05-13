@@ -93,6 +93,9 @@ static NSString * const HeadCellIdentifier = @"HeadCellIdentifier";
     [self.delegate jumpLogin];
 }
 
+- (void)jumpDetail {
+    [self.delegate jumpDetail];
+}
 - (MessageBoxCell *)MessageBoxCellInCollectionView:(UICollectionView *)collectionView
                                                         atIndexPath:(NSIndexPath *)indexPath {
     MessageBoxCell *MessageBoxCell = [collectionView dequeueReusableCellWithReuseIdentifier:MessageBoxCellIdentifier forIndexPath:indexPath];
