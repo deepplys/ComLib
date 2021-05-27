@@ -170,6 +170,11 @@
             // 使用 Bmob后端云的 登陆服务
             [BmobUser loginWithUsernameInBackground:self.usernameTF.text password:self.passwdTF.text block:^(BmobUser *user, NSError *error) {
                 if (user) {
+                    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES)lastObject];
+                    // 拼接文件路径
+                    NSString *path = [doc stringByAppendingPathComponent:@"user.plist"];
+                    NSDictionary *dic = [NSDictionary dictionaryWithObject:self.usernameTF.text forKey:@"username"];
+                    [dic writeToFile:path atomically:YES];
                     [self.delegate updateModel:self.usernameTF.text];
                 }else {
                     if ([self.usernameTF.text isEqualToString:@""] && [self.passwdTF.text isEqualToString:@""]) {
@@ -187,6 +192,5 @@
     }
     return _loginBtn;
 }
-
 
 @end

@@ -6,12 +6,18 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComTrue.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 @interface CommonStyleOneCell : UICollectionViewCell
 
+- (void)configWithCom:(ComTrue *)item;
+
 + (CGSize)cellSizeWithWidth:(CGFloat)width;
+
++ (CGSize)cellSizeWithWidth:(CGFloat)width withInfo:(NSString *)info;
+
 
 @end
 

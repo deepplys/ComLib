@@ -7,6 +7,7 @@
 
 #import "DetailInfoHeaderVIew.h"
 #import <Masonry/Masonry.h>
+#import <YYKit/YYKit.h>
 
 @interface DetailInfoHeaderVIew ()
 
@@ -26,6 +27,7 @@
 - (instancetype)init {
     if (self = [super init]) {
         [self setupSubviews];
+        [self updateData];
     }
     return self;
 }
@@ -87,6 +89,8 @@
         make.width.equalTo(@(20));
         make.height.equalTo(@(20));
     }];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)updateData {
@@ -105,6 +109,13 @@
     dateComponents = [calendar components:unitFlags fromDate:localDate];
     NSString *data = [[NSString alloc]initWithFormat:@"%ld月 %ld日，星期%ld",dateComponents.month,dateComponents.month,dateComponents.weekday];
     self.time.text = data;
+    CALayer *layer = [self.icon layer];
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:2.0];
+    [layer setBorderWidth:1];
+    [layer setBorderColor:[[UIColor blackColor] CGColor]];
+    self.icon.layer.cornerRadius = self.icon.height/2;
+    self.icon.layer.masksToBounds = YES;
 }
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width {

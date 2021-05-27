@@ -8,14 +8,21 @@
 #import "RecommendDataSources.h"
 #import "RecommendCell.h"
 #import "RecommenHeadCell.h"
+#import "CommonStyleOneCell.h"
 
 static NSString * const RecommendCellIdentifier = @"RecommendCellIdentifier";
 static NSString * const RecommenHeadCellIdentifier = @"RecommenHeadCellIdentifier";
+static NSString * const CommonStyleOneCellIdentifier = @"CommonStyleOneCellIdentifier";
 
 @implementation RecommendDataSources
 
-- (void)updateInfos:(NSMutableArray *)Infos {
+- (void)setNewStyle {
+    NSLog(@"setNewStyle");
+    //[self.collection reloadData];
+}
 
+- (void)endFresh {
+    [self.delegate endRefresh];
 }
 
 - (void)registCollectionViewCells:(UICollectionView *)collectionView {
@@ -23,18 +30,19 @@ static NSString * const RecommenHeadCellIdentifier = @"RecommenHeadCellIdentifie
        forCellWithReuseIdentifier:RecommendCellIdentifier];
     [collectionView registerClass:[RecommenHeadCell class]
        forCellWithReuseIdentifier:RecommenHeadCellIdentifier];
+    [collectionView registerClass:[CommonStyleOneCell class] forCellWithReuseIdentifier:CommonStyleOneCellIdentifier];
 
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return self.recommendViewModel.model.array.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
         return [self recommendHeadCellInCollectionView:collectionView atIndexPath:indexPath];
     } else {
-        return [self recommendCellInCollectionView:collectionView atIndexPath:indexPath];
+        return [self commonStyleOneCellInCollectionView:collectionView atIndexPath:indexPath];
     }
 }
 
@@ -47,7 +55,8 @@ static NSString * const RecommenHeadCellIdentifier = @"RecommenHeadCellIdentifie
     if (indexPath.row == 0) {
         return [RecommenHeadCell cellSizeWithWidth:width];
     } else {
-        return [RecommendCell cellSizeWithWidth:width];
+        //return [CommonStyleOneCell cellSizeWithWidth:width];
+        return [CommonStyleOneCell cellSizeWithWidth:width withInfo:[self comTrueInArray:indexPath].base.comIntro];
     }
 }
 
@@ -68,6 +77,30 @@ static NSString * const RecommenHeadCellIdentifier = @"RecommenHeadCellIdentifie
                                                         atIndexPath:(NSIndexPath *)indexPath {
     RecommenHeadCell *recommenHeadCell = [collectionView dequeueReusableCellWithReuseIdentifier:RecommenHeadCellIdentifier forIndexPath:indexPath];
     return recommenHeadCell;
+}
+
+- (CommonStyleOneCell *)commonStyleOneCellInCollectionView:(UICollectionView *)collectionView
+                                                        atIndexPath:(NSIndexPath *)indexPath {
+    CommonStyleOneCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CommonStyleOneCellIdentifier forIndexPath:indexPath];
+    ComTrue *item = [self comTrueInArray:indexPath];
+    [cell configWithCom:item];
+    return cell;
+}
+
+- (RecommendMainViewModel *)recommendViewModel {
+    if (!_recommendViewModel) {
+        _recommendViewModel = [RecommendMainViewModel new];
+        _recommendViewModel.delegate = self;
+    }
+    return _recommendViewModel;
+}
+
+- (ComTrue *)comTrueInArray:(NSIndexPath *)indexPath {
+    if ([self.recommendViewModel.model.array[indexPath.row] isKindOfClass:[ComTrue class]]) {
+        return (ComTrue *)self.recommendViewModel.model.array[indexPath.row];
+    } else {
+        return nil;
+    }
 }
 
 @end

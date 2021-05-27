@@ -6,16 +6,14 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComTrue.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
 
 @interface RecommendModel : NSObject
 
-@property (nonatomic, copy) NSString *title;
-@property (nonatomic, copy) NSString *detailText;
-@property (nonatomic, copy) NSArray *imgUrls;
-@property (nonatomic, copy) NSString *jumpText;
+@property (nonatomic, copy) NSMutableArray *array; // ComTrue
 
 @end
 

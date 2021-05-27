@@ -8,11 +8,17 @@
 #import "DerailInfoVC.h"
 #import "DetailInfoHeaderVIew.h"
 #import <YYKit/YYKit.h>
+#import <Masonry/Masonry.h>
+#import "NSObjectGetStatus.h"
+#import "DetailInfoDataSources.h"
 
-@interface DerailInfoVC ()
+@interface DerailInfoVC () <DetailInfoDataSourcesDelegate>
 
 @property (nonatomic, copy)NSDictionary *dict;
 @property (nonatomic, strong)DetailInfoHeaderVIew *header;
+@property (nonatomic, strong) DetailInfoDataSources *dataSources;
+@property (nonatomic, strong) UICollectionView *collectionView;
+
 @end
 
 @implementation DerailInfoVC
@@ -37,9 +43,40 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self.view addSubview:self.header];
-    self.header.frame = CGRectMake(0, 0, self.view.width, 100);
+    //[self.view addSubview:self.header];
+    [self.view addSubview:self.collectionView];
+    //self.header.frame = CGRectMake(0, 0, self.view.width, 100);
+    self.collectionView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 100);
     // Do any additional setup after loading the view.
+}
+
+- (UICollectionView *)collectionView {
+    if (!_collectionView) {
+        UICollectionViewFlowLayout *flowLayout = [[UICollectionViewFlowLayout alloc] init];
+        flowLayout.minimumLineSpacing = 4.0;
+        flowLayout.minimumInteritemSpacing = 4.0;
+        //ui
+        _collectionView = [[UICollectionView alloc] initWithFrame:CGRectZero collectionViewLayout:flowLayout];
+        _collectionView.contentInset = UIEdgeInsetsZero;
+        _collectionView.backgroundColor = [UIColor clearColor];
+        _collectionView.backgroundView.backgroundColor = [UIColor clearColor];
+        _collectionView.showsVerticalScrollIndicator = NO;
+        //delegate
+        _dataSources = [[DetailInfoDataSources alloc] init];
+        _dataSources.collection = _collectionView;
+        [_dataSources registCollectionViewCells:_collectionView];
+        _dataSources.delegate = self;
+        _collectionView.delegate = _dataSources;
+        _collectionView.dataSource = _dataSources;
+    }
+    return _collectionView;
+}
+
+- (void)didSelectItemInfo:(NSDictionary *)dict {
+    DerailInfoVC *vc = [[DerailInfoVC alloc] initWithData:dict];
+    vc.title = @"test";
+    vc.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:vc animated:nil];
 }
 
 - (DetailInfoHeaderVIew *)header {

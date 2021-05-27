@@ -12,7 +12,7 @@
 #import "NSObjectGetStatus.h"
 #import "WMZPageProtocol.h"
 #import "DerailInfoVC.h"
-@interface MainRecommendVC ()<WMZPageProtocol>
+@interface MainRecommendVC ()<WMZPageProtocol, RecommendDataSourcesDelegate>
 
 @property (nonatomic, strong) RecommendDataSources *dataSources;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -57,12 +57,19 @@
 
 - (void)loadNewData {
     NSLog(@"wtf");
-    [self.collectionView.mj_header endRefreshing];
+    [self.dataSources.recommendViewModel updateModel];
+    [self.collectionView reloadData];
+    //[self.collectionView.mj_header endRefreshing];
 }
 
 - (void)loadMoreData {
     NSLog(@"tth");
     [self.collectionView.mj_footer beginRefreshing];
+}
+
+- (void)endRefresh {
+    [self.collectionView reloadData];
+    [self.collectionView.mj_header endRefreshing];
 }
 
 - (UICollectionView *)collectionView {

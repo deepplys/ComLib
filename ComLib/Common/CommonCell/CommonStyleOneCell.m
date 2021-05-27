@@ -7,7 +7,8 @@
 
 #import "CommonStyleOneCell.h"
 #import <Masonry/Masonry.h>
-
+#import <YYKit/YYKit.h>
+#import "UIColor+Hex.h"
 
 /*
  icon    name
@@ -35,6 +36,8 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         self.layer.cornerRadius = 2.f;
+        self.layer.borderColor=[UIColor blackColor].CGColor;
+        self.layer.borderWidth=0.5; 
         [self setupSubviews];
         [self updateData];
     }
@@ -52,7 +55,7 @@
     [self addSubview:self.like];
     [self addSubview:self.commit];
     [self makeConstraints];
-    [self.icon setImage:[UIImage imageNamed:@"headImage"]];
+    [self.icon setImage:[UIImage imageNamed:@"avatar_default"]];
 }
 
 - (void)makeConstraints {
@@ -69,7 +72,7 @@
     [self.time mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.name);
         make.bottom.equalTo(self.icon);
-        make.width.equalTo(@(50));
+        make.width.equalTo(@(180));
         make.height.equalTo(@(20));
     }];
     [self.status mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -84,20 +87,24 @@
     }];
     [self.info mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.title.mas_bottom);
-        make.bottom.equalTo(self.contentView);
+        make.bottom.equalTo(self.like.mas_top);
         make.left.right.equalTo(self.contentView);
     }];
     [self.like mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.info.mas_bottom);
         make.bottom.equalTo(self.contentView);
         make.right.equalTo(self.commit.mas_left);
         make.width.equalTo(@(20));
         make.height.equalTo(@(20));
     }];
     [self.commit mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.top.equalTo(self.info.mas_bottom);
         make.bottom.right.equalTo(self.contentView);
         make.width.equalTo(@(40));
         make.height.equalTo(@(20));
     }];
+    [self setNeedsLayout];
+    [self layoutIfNeeded];
 }
 
 - (void)updateData {
@@ -114,20 +121,47 @@
     // 给日期组件对象赋值
     NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday;
     dateComponents = [calendar components:unitFlags fromDate:localDate];
-    NSString *data = [[NSString alloc]initWithFormat:@"%ld月 %ld日，星期%ld",dateComponents.month,dateComponents.month,dateComponents.weekday];
+    NSString *data = [[NSString alloc]initWithFormat:@"%ld月 %ld日，%ld年",dateComponents.month,dateComponents.month,dateComponents.year];
     self.time.text = data;
+    CALayer *layer = [self.icon layer];
+    [layer setMasksToBounds:YES];
+    [layer setCornerRadius:2.0];
+    [layer setBorderWidth:1];
+    [layer setBorderColor:[[UIColor blackColor] CGColor]];
+    self.icon.layer.cornerRadius = self.icon.height/2;
+    self.icon.layer.masksToBounds = YES;
+}
+
+- (void)configWithCom:(ComTrue *)item {
+    self.title.text = item.base.comName;
+    self.info.text = item.base.comIntro;
+    self.info.preferredMaxLayoutWidth = self.width;
+    self.name.text = item.ownerID;
+    self.time.text = item.createdAt;
 }
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width {
-    CGSize size = CGSizeMake(width, 60);
+    CGSize size = CGSizeMake(width, 140);
     return size;
 }
+
++ (CGSize)cellSizeWithWidth:(CGFloat)width withInfo:(NSString *)info {
+    UILabel *fakelabel = [[UILabel alloc] init];
+    fakelabel.preferredMaxLayoutWidth = width;
+    fakelabel.text = info;
+    fakelabel.numberOfLines = 0;
+    fakelabel.font = [UIFont systemFontOfSize:14];
+    fakelabel.lineBreakMode = NSLineBreakByWordWrapping;
+    CGFloat height = [fakelabel sizeThatFits:CGSizeMake(width, MAXFLOAT)].height;
+    return CGSizeMake(width, height + 60 + 25);
+}
+
 
 - (UIImageView *)icon {
     if (!_icon) {
         _icon = [[UIImageView alloc] initWithFrame:CGRectZero];
         _icon.backgroundColor = [UIColor clearColor];
-        _icon.layer.cornerRadius = 8.f;
+        ////icon.layer.cornerRadius = 8.f;
     }
     return _icon;
 }
@@ -139,7 +173,7 @@
         _name.text = @"姓名";
         _name.numberOfLines = 1;
         _name.font = [UIFont systemFontOfSize:18];
-        _name.textColor = [UIColor blackColor];
+        _name.textColor = [UIColor colorWithHexString:ColorPrimaryText];;
     }
     return _name;
 }
@@ -149,8 +183,8 @@
         _time = [[UILabel alloc] initWithFrame:CGRectZero];
         _time.text = @"时间";
         _time.numberOfLines = 1;
-        _time.font = [UIFont systemFontOfSize:18];
-        _time.textColor = [UIColor blackColor];
+        _time.font = [UIFont systemFontOfSize:14];
+        _time.textColor = [UIColor colorWithHexString:ColorSecondaryText];
     }
     return _time;
 }
@@ -158,10 +192,10 @@
 - (UILabel *)status {
     if (!_status) {
         _status = [[UILabel alloc] initWithFrame:CGRectZero];
-        _status.text = @"状态";
+        _status.text = @"创建构件";
         _status.numberOfLines = 1;
-        _status.font = [UIFont systemFontOfSize:18];
-        _status.textColor = [UIColor blackColor];
+        _status.font = [UIFont systemFontOfSize:14];
+        _status.textColor = [UIColor colorWithHexString:ColorSecondaryText];
     }
     return _status;
 }
@@ -169,10 +203,10 @@
 - (UILabel *)title {
     if (!_title) {
         _title = [[UILabel alloc] initWithFrame:CGRectZero];
-        _title.text = @"题目";
+        _title.text = @"Search API USE";
         _title.numberOfLines = 1;
         _title.font = [UIFont systemFontOfSize:18];
-        _title.textColor = [UIColor blackColor];
+        _title.textColor = [UIColor colorWithHexString:ColorPrimaryText];
     }
     return _title;
 }
@@ -180,10 +214,11 @@
 - (UILabel *)info {
     if (!_info) {
         _info = [[UILabel alloc] initWithFrame:CGRectZero];
-        _info.text = @"信息";
+        _info.text = @"The Search API helps you search for the specific item you want to find. For example, you can find a user or a specific file in a repository. Think of it the way you think of performing a search on Google.";
         _info.numberOfLines = 0;
-        _info.font = [UIFont systemFontOfSize:18];
-        _info.textColor = [UIColor blackColor];
+        _info.lineBreakMode = NSLineBreakByWordWrapping;
+        _info.font = [UIFont systemFontOfSize:14];
+        _info.textColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _info;
 }

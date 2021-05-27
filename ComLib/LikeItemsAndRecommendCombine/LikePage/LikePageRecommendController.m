@@ -7,6 +7,7 @@
 
 #import "LikePageRecommendController.h"
 #import "LikeItemsVC.h"
+#import "CreateNewCom.h"
 
 @interface LikePageRecommendController ()
 
@@ -32,9 +33,14 @@
     .wTitleArrSet(@[@"收藏",@"新鲜",@"新构件"])
     .wMenuWidthSet(PageVCWidth - 100)
     .wViewControllerSet(^UIViewController *(NSInteger index) {
-        LikeItemsVC *vc = [LikeItemsVC new];
-         vc.page = index;
-         return vc;
+        if (index != 2) {
+            LikeItemsVC *vc = [LikeItemsVC new];
+             vc.page = index;
+             return vc;
+        } else {
+            CreateNewCom *vc = [CreateNewCom new];
+            return vc;
+        }
      })
     .wMenuTitleSelectColorSet([UIColor orangeColor])
     .wMenuPositionSet(PageMenuPositionCenter)

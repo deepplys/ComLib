@@ -203,8 +203,7 @@
          *filedata : 图片的data
          *name     : 后台的提供的字段
          *mimeType : 类型
-         */
-    /*    [formData appendPartWithFileData:imageData name:str fileName:fileName mimeType:mimetype];
+        [formData appendPartWithFileData:imageData name:str fileName:fileName mimeType:mimetype];
     } progress:NULL success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         //打印看下返回的是什么东西
         //WKLog(@"上传凭证成功:%@",responseObject);
@@ -230,7 +229,7 @@
         //delegate
         _dataSources = [[UserInfoDataSource alloc] init];
         _dataSources.collection = _collectionView;
-        _dataSources.isLogin = @"1";
+        _dataSources.isLogin = @"0";
         [_dataSources registCollectionViewCells:_collectionView];
         _dataSources.delegate = self;
         _collectionView.delegate = _dataSources;
