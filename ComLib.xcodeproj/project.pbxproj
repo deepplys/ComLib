@@ -74,9 +74,23 @@
 		CE243A49264FDC7E0016D544 /* DetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A48264FDC7E0016D544 /* DetailHeadCell.m */; };
 		CE243A5C264FE0DF0016D544 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A5B264FE0DF0016D544 /* SearchViewController.m */; };
 		CE243A63264FE12C0016D544 /* HotSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A62264FE12C0016D544 /* HotSearchView.m */; };
+		CE30E8C22660C3CE00134376 /* ComSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8C12660C3CE00134376 /* ComSearchBar.m */; };
+		CE30E8D72660C4DA00134376 /* DWQTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8D12660C4DA00134376 /* DWQTagView.m */; };
+		CE30E8D82660C4DA00134376 /* HistorySearchCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = CE30E8D32660C4DA00134376 /* HistorySearchCell.xib */; };
+		CE30E8D92660C4DA00134376 /* HistorySearchCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8D42660C4DA00134376 /* HistorySearchCell.m */; };
+		CE30E8DA2660C4DA00134376 /* HotSerachCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8D62660C4DA00134376 /* HotSerachCell.m */; };
+		CE30E8E02660C4F200134376 /* DWQSearchController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8DF2660C4F200134376 /* DWQSearchController.m */; };
+		CE30E8EF2660C51200134376 /* UIViewExt.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8E92660C51200134376 /* UIViewExt.m */; };
+		CE30E8F02660C51200134376 /* DWQSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8EA2660C51200134376 /* DWQSearchBar.m */; };
 		CE3DDA34262C3045003D66DF /* MainPageRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */; };
 		CE3DDA3E262C5321003D66DF /* MainRecommendCombineController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA3D262C5321003D66DF /* MainRecommendCombineController.m */; };
 		CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA43262C539C003D66DF /* SearchBarView.m */; };
+		CE4F9CCF26637CAB00DBF671 /* ComLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CCE26637CAB00DBF671 /* ComLikeCell.m */; };
+		CE4F9CD526637EE500DBF671 /* WatchComViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CD426637EE500DBF671 /* WatchComViewModel.m */; };
+		CE4F9CDC266384CB00DBF671 /* UserStatusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CDB266384CB00DBF671 /* UserStatusVC.m */; };
+		CE4F9CE3266385A100DBF671 /* UserStatusDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CE2266385A100DBF671 /* UserStatusDataSources.m */; };
+		CE4F9CED266385B800DBF671 /* UserStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CEC266385B800DBF671 /* UserStatusModel.m */; };
+		CE4F9CF7266386C300DBF671 /* UserStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CF6266386C300DBF671 /* UserStatusViewModel.m */; };
 		CE57DCE4265E1DAA00947FD9 /* NSUserNameStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57DCE3265E1DAA00947FD9 /* NSUserNameStatus.m */; };
 		CE57DCEA265E283600947FD9 /* RecommendMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57DCE9265E283600947FD9 /* RecommendMainViewModel.m */; };
 		CE57DD01265F7EA800947FD9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57DD00265F7EA800947FD9 /* UIColor+Hex.m */; };
@@ -246,12 +260,39 @@
 		CE243A5B264FE0DF0016D544 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		CE243A61264FE12C0016D544 /* HotSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotSearchView.h; sourceTree = "<group>"; };
 		CE243A62264FE12C0016D544 /* HotSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotSearchView.m; sourceTree = "<group>"; };
+		CE30E8C02660C3CE00134376 /* ComSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComSearchBar.h; sourceTree = "<group>"; };
+		CE30E8C12660C3CE00134376 /* ComSearchBar.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComSearchBar.m; sourceTree = "<group>"; };
+		CE30E8D02660C4DA00134376 /* HistorySearchCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HistorySearchCell.h; sourceTree = "<group>"; };
+		CE30E8D12660C4DA00134376 /* DWQTagView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQTagView.m; sourceTree = "<group>"; };
+		CE30E8D22660C4DA00134376 /* HotSerachCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = HotSerachCell.h; sourceTree = "<group>"; };
+		CE30E8D32660C4DA00134376 /* HistorySearchCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HistorySearchCell.xib; sourceTree = "<group>"; };
+		CE30E8D42660C4DA00134376 /* HistorySearchCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HistorySearchCell.m; sourceTree = "<group>"; };
+		CE30E8D52660C4DA00134376 /* DWQTagView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQTagView.h; sourceTree = "<group>"; };
+		CE30E8D62660C4DA00134376 /* HotSerachCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = HotSerachCell.m; sourceTree = "<group>"; };
+		CE30E8DE2660C4F200134376 /* DWQSearchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQSearchController.h; sourceTree = "<group>"; };
+		CE30E8DF2660C4F200134376 /* DWQSearchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQSearchController.m; sourceTree = "<group>"; };
+		CE30E8E82660C51200134376 /* DWQSearchBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DWQSearchBar.h; sourceTree = "<group>"; };
+		CE30E8E92660C51200134376 /* UIViewExt.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = UIViewExt.m; sourceTree = "<group>"; };
+		CE30E8EA2660C51200134376 /* DWQSearchBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DWQSearchBar.m; sourceTree = "<group>"; };
+		CE30E8EB2660C51200134376 /* UIViewExt.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UIViewExt.h; sourceTree = "<group>"; };
 		CE3DDA32262C3045003D66DF /* MainPageRecommendController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainPageRecommendController.h; sourceTree = "<group>"; };
 		CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainPageRecommendController.m; sourceTree = "<group>"; };
 		CE3DDA3C262C5321003D66DF /* MainRecommendCombineController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = MainRecommendCombineController.h; sourceTree = "<group>"; };
 		CE3DDA3D262C5321003D66DF /* MainRecommendCombineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainRecommendCombineController.m; sourceTree = "<group>"; };
 		CE3DDA42262C539C003D66DF /* SearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
 		CE3DDA43262C539C003D66DF /* SearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
+		CE4F9CCD26637CAB00DBF671 /* ComLikeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComLikeCell.h; sourceTree = "<group>"; };
+		CE4F9CCE26637CAB00DBF671 /* ComLikeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComLikeCell.m; sourceTree = "<group>"; };
+		CE4F9CD326637EE500DBF671 /* WatchComViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchComViewModel.h; sourceTree = "<group>"; };
+		CE4F9CD426637EE500DBF671 /* WatchComViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WatchComViewModel.m; sourceTree = "<group>"; };
+		CE4F9CDA266384CB00DBF671 /* UserStatusVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusVC.h; sourceTree = "<group>"; };
+		CE4F9CDB266384CB00DBF671 /* UserStatusVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusVC.m; sourceTree = "<group>"; };
+		CE4F9CE1266385A100DBF671 /* UserStatusDataSources.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusDataSources.h; sourceTree = "<group>"; };
+		CE4F9CE2266385A100DBF671 /* UserStatusDataSources.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusDataSources.m; sourceTree = "<group>"; };
+		CE4F9CEB266385B800DBF671 /* UserStatusModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusModel.h; sourceTree = "<group>"; };
+		CE4F9CEC266385B800DBF671 /* UserStatusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusModel.m; sourceTree = "<group>"; };
+		CE4F9CF5266386C300DBF671 /* UserStatusViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusViewModel.h; sourceTree = "<group>"; };
+		CE4F9CF6266386C300DBF671 /* UserStatusViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusViewModel.m; sourceTree = "<group>"; };
 		CE57DCE2265E1DAA00947FD9 /* NSUserNameStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserNameStatus.h; sourceTree = "<group>"; };
 		CE57DCE3265E1DAA00947FD9 /* NSUserNameStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSUserNameStatus.m; sourceTree = "<group>"; };
 		CE57DCE8265E283600947FD9 /* RecommendMainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendMainViewModel.h; sourceTree = "<group>"; };
@@ -708,6 +749,8 @@
 				CE243A48264FDC7E0016D544 /* DetailHeadCell.m */,
 				CEA294E6265B8779004EA906 /* ComTypeCell.h */,
 				CEA294E7265B8779004EA906 /* ComTypeCell.m */,
+				CE4F9CCD26637CAB00DBF671 /* ComLikeCell.h */,
+				CE4F9CCE26637CAB00DBF671 /* ComLikeCell.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -776,6 +819,8 @@
 			children = (
 				CE243A14264BD3F90016D544 /* WatchComModel.h */,
 				CE243A15264BD3F90016D544 /* WatchComModel.m */,
+				CE4F9CD326637EE500DBF671 /* WatchComViewModel.h */,
+				CE4F9CD426637EE500DBF671 /* WatchComViewModel.m */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -795,6 +840,7 @@
 				CE243A2C264D0F140016D544 /* WatchComCombineVC.h */,
 				CE243A2D264D0F140016D544 /* WatchComCombineVC.m */,
 				CE243A22264D0CD80016D544 /* WatchComPageVC */,
+				CE4F9CD92663849500DBF671 /* UserStatusVC */,
 				CE243A07264BD29E0016D544 /* WatchCom */,
 			);
 			path = WatchComCombine;
@@ -812,6 +858,10 @@
 		CE243A4D264FE0680016D544 /* SearchVC */ = {
 			isa = PBXGroup;
 			children = (
+				CE30E8DE2660C4F200134376 /* DWQSearchController.h */,
+				CE30E8DF2660C4F200134376 /* DWQSearchController.m */,
+				CE30E8E42660C51100134376 /* DWQSearchBar */,
+				CE30E8CF2660C4DA00134376 /* DWQTagView */,
 				CE243A60264FE1170016D544 /* View */,
 				CE243A5A264FE0DF0016D544 /* SearchViewController.h */,
 				CE243A5B264FE0DF0016D544 /* SearchViewController.m */,
@@ -824,8 +874,35 @@
 			children = (
 				CE243A61264FE12C0016D544 /* HotSearchView.h */,
 				CE243A62264FE12C0016D544 /* HotSearchView.m */,
+				CE30E8C02660C3CE00134376 /* ComSearchBar.h */,
+				CE30E8C12660C3CE00134376 /* ComSearchBar.m */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CE30E8CF2660C4DA00134376 /* DWQTagView */ = {
+			isa = PBXGroup;
+			children = (
+				CE30E8D02660C4DA00134376 /* HistorySearchCell.h */,
+				CE30E8D12660C4DA00134376 /* DWQTagView.m */,
+				CE30E8D22660C4DA00134376 /* HotSerachCell.h */,
+				CE30E8D32660C4DA00134376 /* HistorySearchCell.xib */,
+				CE30E8D42660C4DA00134376 /* HistorySearchCell.m */,
+				CE30E8D52660C4DA00134376 /* DWQTagView.h */,
+				CE30E8D62660C4DA00134376 /* HotSerachCell.m */,
+			);
+			path = DWQTagView;
+			sourceTree = "<group>";
+		};
+		CE30E8E42660C51100134376 /* DWQSearchBar */ = {
+			isa = PBXGroup;
+			children = (
+				CE30E8E82660C51200134376 /* DWQSearchBar.h */,
+				CE30E8E92660C51200134376 /* UIViewExt.m */,
+				CE30E8EA2660C51200134376 /* DWQSearchBar.m */,
+				CE30E8EB2660C51200134376 /* UIViewExt.h */,
+			);
+			path = DWQSearchBar;
 			sourceTree = "<group>";
 		};
 		CE3DDA31262C3005003D66DF /* MainPageRecommend */ = {
@@ -859,6 +936,45 @@
 				CE243A42264D26B80016D544 /* HeadView.m */,
 			);
 			path = CommonView;
+			sourceTree = "<group>";
+		};
+		CE4F9CD92663849500DBF671 /* UserStatusVC */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9CF4266385BB00DBF671 /* View */,
+				CE4F9CEA266385A600DBF671 /* Model */,
+				CE4F9CE02663858000DBF671 /* Services */,
+				CE4F9CDA266384CB00DBF671 /* UserStatusVC.h */,
+				CE4F9CDB266384CB00DBF671 /* UserStatusVC.m */,
+			);
+			path = UserStatusVC;
+			sourceTree = "<group>";
+		};
+		CE4F9CE02663858000DBF671 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9CE1266385A100DBF671 /* UserStatusDataSources.h */,
+				CE4F9CE2266385A100DBF671 /* UserStatusDataSources.m */,
+			);
+			path = Services;
+			sourceTree = "<group>";
+		};
+		CE4F9CEA266385A600DBF671 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9CEB266385B800DBF671 /* UserStatusModel.h */,
+				CE4F9CEC266385B800DBF671 /* UserStatusModel.m */,
+				CE4F9CF5266386C300DBF671 /* UserStatusViewModel.h */,
+				CE4F9CF6266386C300DBF671 /* UserStatusViewModel.m */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		CE4F9CF4266385BB00DBF671 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 		CE57DCF5265F7E1000947FD9 /* CommonColor */ = {
@@ -1045,6 +1161,7 @@
 			files = (
 				2567188025D11B9E0025258F /* LaunchScreen.storyboard in Resources */,
 				25D40DB225FB7360004744FF /* images.xcassets in Resources */,
+				CE30E8D82660C4DA00134376 /* HistorySearchCell.xib in Resources */,
 				CEA294E2265B860B004EA906 /* Assets.xcassets in Resources */,
 				2567187B25D11B9D0025258F /* Main.storyboard in Resources */,
 			);
@@ -1116,12 +1233,16 @@
 				25D50CAA25D28EC900C6E696 /* LikeItemsModel.m in Sources */,
 				CE2439A8263FEF430016D544 /* DerailInfoVC.m in Sources */,
 				CEA294942657A8C8004EA906 /* DetailModel.m in Sources */,
+				CE4F9CF7266386C300DBF671 /* UserStatusViewModel.m in Sources */,
+				CE30E8C22660C3CE00134376 /* ComSearchBar.m in Sources */,
 				25708007260367AD0028EC8C /* UserInfoViewModel.m in Sources */,
+				CE4F9CCF26637CAB00DBF671 /* ComLikeCell.m in Sources */,
 				CEA294EE265B8AC6004EA906 /* DetailViewModel.m in Sources */,
 				CEE3F5D3262A9AE800A8E97B /* MainRecommendHeadView.m in Sources */,
 				CE243A49264FDC7E0016D544 /* DetailHeadCell.m in Sources */,
 				25D50C6925D22B7A00C6E696 /* SubTabCell.m in Sources */,
 				CEA294B226588973004EA906 /* ComViewModel.m in Sources */,
+				CE30E8E02660C4F200134376 /* DWQSearchController.m in Sources */,
 				CE243A5C264FE0DF0016D544 /* SearchViewController.m in Sources */,
 				25CD2C722613168800367542 /* CommonStyleOneCell.m in Sources */,
 				CE243A10264BD3E30016D544 /* WatchComDatasource.m in Sources */,
@@ -1146,18 +1267,23 @@
 				CE2439EF264A7BAF0016D544 /* UserLoginVC.m in Sources */,
 				25D50C7025D23BC500C6E696 /* UserInfoDataSource.m in Sources */,
 				CE57DCEA265E283600947FD9 /* RecommendMainViewModel.m in Sources */,
+				CE30E8D72660C4DA00134376 /* DWQTagView.m in Sources */,
 				25D50C6025D22AD100C6E696 /* UserInfosModel.m in Sources */,
 				CE3DDA34262C3045003D66DF /* MainPageRecommendController.m in Sources */,
 				25383BC725FF896D000C5073 /* NSObjectGetStatus.m in Sources */,
+				CE4F9CED266385B800DBF671 /* UserStatusModel.m in Sources */,
 				25D50CCA25D29F7500C6E696 /* SearchOpenListTableView.m in Sources */,
+				CE30E8EF2660C51200134376 /* UIViewExt.m in Sources */,
 				256718F325D14B1E0025258F /* UserInfosVC.m in Sources */,
 				CE243A37264D11BC0016D544 /* CommonStyleFouCell.m in Sources */,
 				256718E825D12DFB0025258F /* RecommendDataSources.m in Sources */,
+				CE4F9CE3266385A100DBF671 /* UserStatusDataSources.m in Sources */,
 				CE2439A1263051D10016D544 /* BuyItemView.m in Sources */,
 				256718DF25D12D120025258F /* RecommendViewModel.m in Sources */,
 				25D50C8525D277F100C6E696 /* HeadCell.m in Sources */,
 				CE243A63264FE12C0016D544 /* HotSearchView.m in Sources */,
 				256718B325D11EFD0025258F /* MainRecommendVC.m in Sources */,
+				CE30E8D92660C4DA00134376 /* HistorySearchCell.m in Sources */,
 				25D50C9B25D283D400C6E696 /* LikeItemCell.m in Sources */,
 				CEA294A326588689004EA906 /* ComCell.m in Sources */,
 				CE243A25264D0D020016D544 /* WatchComPageVC.m in Sources */,
@@ -1165,12 +1291,14 @@
 				CE243985263023640016D544 /* LikePageRecommendController.m in Sources */,
 				CEA294E8265B8779004EA906 /* ComTypeCell.m in Sources */,
 				256718BC25D11F410025258F /* RecommendCell.m in Sources */,
+				CE4F9CDC266384CB00DBF671 /* UserStatusVC.m in Sources */,
 				25D50C9225D283B700C6E696 /* LikeItemsVC.m in Sources */,
 				2567187225D11B9D0025258F /* AppDelegate.m in Sources */,
 				252F7A5826134E500051A965 /* CommonStyleTwoCell.m in Sources */,
 				CE2439C3264655C60016D544 /* FocusModel.m in Sources */,
 				CE243998263034510016D544 /* CreateNewCom.m in Sources */,
 				2567188325D11B9E0025258F /* main.m in Sources */,
+				CE4F9CD526637EE500DBF671 /* WatchComViewModel.m in Sources */,
 				2567187525D11B9D0025258F /* SceneDelegate.m in Sources */,
 				256718FA25D14C250025258F /* MessageBoxCell.m in Sources */,
 				CEA294AC265886BB004EA906 /* ComModel.m in Sources */,
@@ -1188,7 +1316,9 @@
 				25C586FD25FF0AB9007FB91F /* UserInfosEditView.m in Sources */,
 				25D50CC325D29E1900C6E696 /* SearchVC.m in Sources */,
 				CE2439AF26411EE80016D544 /* DetailInfoHeaderVIew.m in Sources */,
+				CE30E8DA2660C4DA00134376 /* HotSerachCell.m in Sources */,
 				CE243A2E264D0F140016D544 /* WatchComCombineVC.m in Sources */,
+				CE30E8F02660C51200134376 /* DWQSearchBar.m in Sources */,
 				25D50CBC25D295F000C6E696 /* LikeItemsHeaderView.m in Sources */,
 				CEA294BF26588B65004EA906 /* ComDatasour.m in Sources */,
 				CEA294F5265B8D74004EA906 /* ComTrue.m in Sources */,

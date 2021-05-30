@@ -14,7 +14,8 @@
 #import "WMZPageProtocol.h"
 #import "DerailInfoVC.h"
 
-@interface WatchComVC ()
+
+@interface WatchComVC () <WatchComViewModelDelagate, WatchComDatasourceDelegate>
 
 @property (nonatomic, strong) WatchComDatasource *dataSources;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -57,9 +58,20 @@
     self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
+- (void)endFresh {
+    [self.collectionView.mj_header endRefreshing];
+}
+
+- (void)setName:(NSString *)name {
+    _name = name;
+    //设置完名字开始刷新
+    //[self.collectionView.mj_header beginRefreshing];
+}
+
 - (void)loadNewData {
     NSLog(@"wtf");
-    [self.collectionView.mj_header endRefreshing];
+    [self.dataSources.viewModel updateModelWithName:self.name];
+    [self.collectionView reloadData];
 }
 
 - (void)loadMoreData {
@@ -89,9 +101,9 @@
     return _collectionView;
 }
 
-- (void)didSelectItemInfo:(NSDictionary *)dict {
+- (void)didSelectItemInfo:(ComTrue *)dict {
     DerailInfoVC *vc = [[DerailInfoVC alloc] initWithData:dict];
-    vc.title = @"test";
+    vc.title = @"构件详情";
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:nil];
 }

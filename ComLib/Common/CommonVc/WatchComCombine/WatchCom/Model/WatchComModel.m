@@ -9,4 +9,11 @@
 
 @implementation WatchComModel
 
+- (NSMutableArray *)array {
+    if (!_array) {
+        _array = [NSMutableArray new];
+    }
+    return _array;
+}
+
 @end

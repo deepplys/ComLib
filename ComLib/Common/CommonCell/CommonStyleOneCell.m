@@ -192,7 +192,7 @@
 - (UILabel *)status {
     if (!_status) {
         _status = [[UILabel alloc] initWithFrame:CGRectZero];
-        _status.text = @"创建构件";
+        _status.text = @"发布了构件";
         _status.numberOfLines = 1;
         _status.font = [UIFont systemFontOfSize:14];
         _status.textColor = [UIColor colorWithHexString:ColorSecondaryText];

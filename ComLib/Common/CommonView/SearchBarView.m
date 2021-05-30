@@ -8,7 +8,7 @@
 #import "SearchBarView.h"
 #import <Masonry/Masonry.h>
 
-@interface SearchBarView ()
+@interface SearchBarView () <UITextFieldDelegate>
 
 @property (nonatomic, strong)UITextField *searchbar;
 @property (nonatomic, strong)UIImageView *search;
@@ -39,6 +39,11 @@
     }];
 }
 
+- (BOOL)textFieldShouldBeginEditing:(UITextField *)textField {
+    [self.delegate jumpSearchVC];
+    return NO;
+}
+
 - (UITextField *)searchbar {
     if (!_searchbar) {
         _searchbar = [[UITextField alloc] initWithFrame:CGRectZero];
@@ -46,7 +51,9 @@
         _searchbar.layer.borderColor = [UIColor grayColor].CGColor;
         _searchbar.layer.borderWidth = 0.5;
         _searchbar.leftViewMode = UITextFieldViewModeAlways;
+        _searchbar.userInteractionEnabled = YES;
         _searchbar.leftView = [[UIView alloc]initWithFrame:CGRectMake(0,0,8,0)];
+        _searchbar.delegate = self;
     }
     return _searchbar;
 }

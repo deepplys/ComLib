@@ -23,6 +23,10 @@
 
 @end
 
+@implementation ComUseInfo
+
+@end
+
 
 @implementation ComTrue
 

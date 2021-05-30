@@ -9,7 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SearchBarViewDelegate <NSObject>
+
+- (void)jumpSearchVC;
+
+@end
+
 @interface SearchBarView : UIView
+
+@property (nonatomic, weak)id<SearchBarViewDelegate> delegate;
 
 @end
 

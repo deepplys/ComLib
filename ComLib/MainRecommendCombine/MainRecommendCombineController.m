@@ -10,8 +10,9 @@
 #import "MainPageRecommendController.h"
 #import <YYKit/YYKit.h>
 #import "NSObjectGetStatus.h"
+#import "DWQSearchController.h"
 
-@interface MainRecommendCombineController ()
+@interface MainRecommendCombineController () <SearchBarViewDelegate>
 
 @property (nonatomic, strong)SearchBarView *searchBar;
 @property (nonatomic, strong)UIView *pageView;
@@ -49,10 +50,16 @@
     [self.pageViewController didMoveToParentViewController:self];
 }
 
+- (void)jumpSearchVC {
+    DWQSearchController *vc = [[DWQSearchController alloc] init];
+    [self.navigationController pushViewController:vc animated:nil];
+}
+
 - (SearchBarView *)searchBar {
     if (!_searchBar) {
         _searchBar = [[SearchBarView alloc] initWithFrame:CGRectZero];
         _searchBar.backgroundColor = [UIColor clearColor];
+        _searchBar.delegate = self;
     }
     return _searchBar;
 }

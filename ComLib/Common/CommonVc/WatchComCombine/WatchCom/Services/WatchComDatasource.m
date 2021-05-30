@@ -7,10 +7,11 @@
 
 #import "WatchComDatasource.h"
 #import "WatchHeadCell.h"
-#import "CommonStyleFouCell.h"
+#import "CommonStyleTwoCell.h"
+#import "ComTrue.h"
+#import "DerailInfoVC.h"
 
-static NSString * const WatchHeadCellIdentifier = @"WatchHeadCellIdentifier";
-static NSString * const CommonStyleFouCellIdentifier = @"CommonStyleFouCellIdentifier";
+static NSString * const CommonStyleTwoCellIdentifier = @"CommonStyleTwoCellIdentifier";
 
 @implementation WatchComDatasource
 
@@ -19,22 +20,16 @@ static NSString * const CommonStyleFouCellIdentifier = @"CommonStyleFouCellIdent
 }
 
 - (void)registCollectionViewCells:(UICollectionView *)collectionView {
-    [collectionView registerClass:[WatchHeadCell class]
-       forCellWithReuseIdentifier:WatchHeadCellIdentifier];
-    [collectionView registerClass:[CommonStyleFouCell class]
-       forCellWithReuseIdentifier:CommonStyleFouCellIdentifier];
+    [collectionView registerClass:[CommonStyleTwoCell class]
+       forCellWithReuseIdentifier:CommonStyleTwoCellIdentifier];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 8;
+    return self.viewModel.model.array.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row == 0) {
-        return [self WatchHeadCellInCollectionView:collectionView atIndexPath:indexPath];
-    } else {
-        return [self CommonStyleFouCellInCollectionView:collectionView atIndexPath:indexPath];
-    }
+    return [self CommonStyleTwoCellInCollectionView:collectionView atIndexPath:indexPath];
 }
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
@@ -43,30 +38,34 @@ static NSString * const CommonStyleFouCellIdentifier = @"CommonStyleFouCellIdent
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = collectionView.frame.size.width;
-    if (indexPath.row == 0) {
-        return [WatchHeadCell cellSizeWithWidth:width];
-    } else {
-        return [CommonStyleFouCell cellSizeWithWidth:width];
-    }
+    return [CommonStyleTwoCell cellSizeWithWidth:width withInfo:[self comTrueInArray:indexPath].base.comIntro];
 }
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
-    if (indexPath.row != 0) {
-        NSDictionary *dict = [NSDictionary new];
-        //[self.delegate didSelectItemInfo:dict];
+    [self.delegate didSelectItemInfo:[self comTrueInArray:indexPath]];
+}
+
+- (CommonStyleTwoCell *)CommonStyleTwoCellInCollectionView:(UICollectionView *)collectionView
+                                     atIndexPath:(NSIndexPath *)indexPath {
+    CommonStyleTwoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CommonStyleTwoCellIdentifier forIndexPath:indexPath];
+    [cell updataWithModel:[self comTrueInArray:indexPath]];
+    return cell;
+}
+
+- (ComTrue *)comTrueInArray:(NSIndexPath *)indexPath {
+    if ([self.viewModel.model.array[indexPath.row] isKindOfClass:[ComTrue class]]) {
+        return (ComTrue *)self.viewModel.model.array[indexPath.row];
+    } else {
+        return nil;
     }
 }
 
-- (WatchHeadCell *)WatchHeadCellInCollectionView:(UICollectionView *)collectionView
-                                     atIndexPath:(NSIndexPath *)indexPath {
-    WatchHeadCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:WatchHeadCellIdentifier forIndexPath:indexPath];
-    return cell;
+- (WatchComViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[WatchComViewModel alloc] init];
+    }
+    return _viewModel;
 }
 
-- (CommonStyleFouCell *)CommonStyleFouCellInCollectionView:(UICollectionView *)collectionView
-                                     atIndexPath:(NSIndexPath *)indexPath {
-    CommonStyleFouCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CommonStyleFouCellIdentifier forIndexPath:indexPath];
-    return cell;
-}
 
 @end

@@ -7,6 +7,7 @@
 
 #import "CommonStyleTwoCell.h"
 #import <Masonry/Masonry.h>
+#import "UIColor+Hex.h"
 
 /*
  title
@@ -45,6 +46,14 @@
     [self makeConstraints];
 }
 
+- (void)updataWithModel:(ComTrue *)item {
+    self.title.text = item.base.comName;
+    self.info.text = item.base.comIntro;
+    self.name.text = item.createdAt.description;
+    self.shownum.text = [NSString stringWithFormat:@"%@人点赞",item.like];
+    self.commit.text = [NSString stringWithFormat:@"%@人评论",item.commit];
+}
+
 - (void)makeConstraints {
     [self.title mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView);
@@ -54,44 +63,45 @@
     [self.info mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.right.equalTo(self.contentView);
         make.top.equalTo(self.title.mas_bottom);
-        make.height.equalTo(@(40));
+        make.bottom.equalTo(self.name.mas_top);
     }];
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.info.mas_bottom);
         make.left.equalTo(self.contentView);
         make.width.equalTo(@(40));
         make.height.equalTo(@(20));
+        make.bottom.equalTo(self.contentView);
     }];
     [self.shownum mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.name);
         make.left.equalTo(self.name.mas_right);
         make.width.equalTo(@(60));
         make.height.equalTo(@(20));
+        make.bottom.equalTo(self.contentView);
     }];
     [self.commit mas_makeConstraints:^(MASConstraintMaker *make) {
         make.right.equalTo(self.contentView);
         make.top.equalTo(self.name);
         make.width.equalTo(@(40));
         make.height.equalTo(@(20));
+        make.bottom.equalTo(self.contentView);
     }];
 }
 
-- (void)updateData {
-    // 通过日期组件对象获取日期某一部分,不需要给日期加8小时就能获取本地时间.这让笔者感到困惑.
-    //    获取当前时间(格林尼治时间)
-    NSDate *localDate = [NSDate date];
-    
-    // 创建日期组件对象
-    NSDateComponents *dateComponents = [[NSDateComponents alloc] init];
++ (CGSize)cellSizeWithWidth:(CGFloat)width withInfo:(NSString *)info {
+    UILabel *fakelabel = [[UILabel alloc] init];
+    fakelabel.preferredMaxLayoutWidth = width;
+    fakelabel.text = info;
+    fakelabel.numberOfLines = 0;
+    fakelabel.font = [UIFont systemFontOfSize:14];
+    fakelabel.lineBreakMode = NSLineBreakByWordWrapping;
+    CGFloat height = [fakelabel sizeThatFits:CGSizeMake(width, MAXFLOAT)].height;
+    return CGSizeMake(width, height + 45);
+}
 
-    // 创建日历对象
-    NSCalendar *calendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+
+- (void)updateData {
     
-    // 给日期组件对象赋值
-    NSInteger unitFlags = NSCalendarUnitYear | NSCalendarUnitMonth | NSCalendarUnitDay | NSCalendarUnitHour | NSCalendarUnitMinute | NSCalendarUnitSecond | NSCalendarUnitWeekday;
-    dateComponents = [calendar components:unitFlags fromDate:localDate];
-    NSString *data = [[NSString alloc]initWithFormat:@"%ld月 %ld日，星期%ld",dateComponents.month,dateComponents.month,dateComponents.weekday];
-    self.shownum.text = data;
 }
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width {
@@ -106,7 +116,7 @@
         _title.numberOfLines = 1;
         _title.font = [UIFont systemFontOfSize:18];
         _title.textColor = [UIColor blackColor];
-        _title.backgroundColor = [UIColor blueColor];
+        _title.backgroundColor = [UIColor colorWithHexString:ColorPrimaryText];
     }
     return _title;
 }
@@ -116,9 +126,10 @@
         _info = [[UILabel alloc] initWithFrame:CGRectZero];
         _info.text = @"简介";
         _info.numberOfLines = 0;
-        _info.font = [UIFont systemFontOfSize:18];
+        _info.font = [UIFont systemFontOfSize:14];
+        _info.lineBreakMode = NSLineBreakByWordWrapping;
         _info.textColor = [UIColor blackColor];
-        _info.backgroundColor = [UIColor redColor];
+        _info.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _info;
 }
@@ -128,9 +139,9 @@
         _name = [[UILabel alloc] initWithFrame:CGRectZero];
         _name.text = @"作者";
         _name.numberOfLines = 1;
-        _name.font = [UIFont systemFontOfSize:18];
+        _name.font = [UIFont systemFontOfSize:14];
         _name.textColor = [UIColor blackColor];
-        _name.backgroundColor = [UIColor blueColor];
+        _name.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _name;
 }
@@ -140,9 +151,9 @@
         _shownum = [[UILabel alloc] initWithFrame:CGRectZero];
         _shownum.text = @"时间";
         _shownum.numberOfLines = 1;
-        _shownum.font = [UIFont systemFontOfSize:18];
+        _shownum.font = [UIFont systemFontOfSize:14];
         _shownum.textColor = [UIColor blackColor];
-        _shownum.backgroundColor = [UIColor redColor];
+        _shownum.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _shownum;
 }
@@ -152,9 +163,9 @@
         _commit = [[UILabel alloc] initWithFrame:CGRectZero];
         _commit.text = @"评论";
         _commit.numberOfLines = 1;
-        _commit.font = [UIFont systemFontOfSize:18];
+        _commit.font = [UIFont systemFontOfSize:14];
         _commit.textColor = [UIColor blackColor];
-        _commit.backgroundColor = [UIColor blueColor];
+        _commit.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _commit;
 }

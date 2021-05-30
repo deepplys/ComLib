@@ -9,11 +9,12 @@
 #import "RecommendModel.h"
 #import <MJRefresh/MJRefresh.h>
 #import "RecommendMainViewModel.h"
+#import "ComTrue.h"
 NS_ASSUME_NONNULL_BEGIN
 @protocol RecommendDataSourcesDelegate <NSObject>
 
 @required
-- (void)didSelectItemInfo:(NSDictionary *)dict;
+- (void)didSelectItemInfo:(ComTrue *)dict;
 
 - (void)endRefresh;
 

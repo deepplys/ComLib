@@ -69,7 +69,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)ComUseInfo *use;
 @property (nonatomic, copy)NSString *url;
 @property (nonatomic, copy)NSNumber *like;
-@property (nonatomic, copy)NSString *commit;
+@property (nonatomic, copy)NSNumber *commit;
 @property (nonatomic, copy)NSString *ownerID;
 @property (nonatomic, copy)NSString *createdAt;
 @end

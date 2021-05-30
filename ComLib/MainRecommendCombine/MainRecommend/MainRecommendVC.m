@@ -94,9 +94,9 @@
     return _collectionView;
 }
 
-- (void)didSelectItemInfo:(NSDictionary *)dict {
+- (void)didSelectItemInfo:(ComTrue *)dict {
     DerailInfoVC *vc = [[DerailInfoVC alloc] initWithData:dict];
-    vc.title = @"test";
+    vc.title = @"构件详情";
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:nil];
 }

@@ -35,7 +35,7 @@ static NSString * const CommonStyleOneCellIdentifier = @"CommonStyleOneCellIdent
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return self.recommendViewModel.model.array.count;
+    return self.recommendViewModel.model.array.count + 1;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -62,8 +62,7 @@ static NSString * const CommonStyleOneCellIdentifier = @"CommonStyleOneCellIdent
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != 0) {
-        NSDictionary *dict = [NSDictionary new];
-        [self.delegate didSelectItemInfo:dict];
+        [self.delegate didSelectItemInfo:[self comTrueInArray:indexPath]];
     }
 }
 
@@ -95,9 +94,10 @@ static NSString * const CommonStyleOneCellIdentifier = @"CommonStyleOneCellIdent
     return _recommendViewModel;
 }
 
+
 - (ComTrue *)comTrueInArray:(NSIndexPath *)indexPath {
-    if ([self.recommendViewModel.model.array[indexPath.row] isKindOfClass:[ComTrue class]]) {
-        return (ComTrue *)self.recommendViewModel.model.array[indexPath.row];
+    if ([self.recommendViewModel.model.array[indexPath.row - 1] isKindOfClass:[ComTrue class]]) {
+        return (ComTrue *)self.recommendViewModel.model.array[indexPath.row - 1 ];
     } else {
         return nil;
     }

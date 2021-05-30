@@ -35,6 +35,7 @@
     a.url = @"";
     a.like = @(0);
     a.commit = @"";
+    
 }
 
 - (DetailModel *)model {

@@ -173,8 +173,11 @@
                 [user saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
                     //进行操作
                     if (isSuccessful) {
-                        UserInfosVC *vc = [UserInfosVC new];
-                        [self.navigationController pushViewController:vc animated:YES];
+                        //UserInfosVC *vc = [UserInfosVC new];
+                        //[self.delegate backToVC];
+                        [self showSuccessWithMsg:@"注册成功"];
+                        //[self backTo];
+                        //[self.navigationController pushViewController:vc animated:YES];
                     }else {
                         [self showSuccessWithMsg:@"用户名已存在"];
                     }

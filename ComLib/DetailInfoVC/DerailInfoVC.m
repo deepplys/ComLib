@@ -10,20 +10,19 @@
 #import <YYKit/YYKit.h>
 #import <Masonry/Masonry.h>
 #import "NSObjectGetStatus.h"
-#import "DetailInfoDataSources.h"
+#import "ComTrue.h"
 
 @interface DerailInfoVC () <DetailInfoDataSourcesDelegate>
 
-@property (nonatomic, copy)NSDictionary *dict;
+@property (nonatomic, strong)ComTrue *dict;
 @property (nonatomic, strong)DetailInfoHeaderVIew *header;
-@property (nonatomic, strong) DetailInfoDataSources *dataSources;
 @property (nonatomic, strong) UICollectionView *collectionView;
 
 @end
 
 @implementation DerailInfoVC
 
-- (instancetype)initWithData:(NSDictionary *)dict {
+- (instancetype)initWithData:(ComTrue *)dict {
     if (self = [super init]) {
         self.dict = dict;
     }
@@ -63,6 +62,7 @@
         _collectionView.showsVerticalScrollIndicator = NO;
         //delegate
         _dataSources = [[DetailInfoDataSources alloc] init];
+        _dataSources.recommendModel.dict = self.dict;
         _dataSources.collection = _collectionView;
         [_dataSources registCollectionViewCells:_collectionView];
         _dataSources.delegate = self;
@@ -73,10 +73,11 @@
 }
 
 - (void)didSelectItemInfo:(NSDictionary *)dict {
-    DerailInfoVC *vc = [[DerailInfoVC alloc] initWithData:dict];
-    vc.title = @"test";
+    /*DerailInfoVC *vc = [[DerailInfoVC alloc] initWithData:dict];
+    vc.title = @"构件详情";
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:nil];
+     */
 }
 
 - (DetailInfoHeaderVIew *)header {
@@ -84,6 +85,13 @@
         _header = [[DetailInfoHeaderVIew alloc] init];
     }
     return _header;
+}
+
+- (ComTrue *)dict {
+    if (!_dict) {
+        _dict = [[ComTrue alloc] init];
+    }
+    return _dict;
 }
 
 @end

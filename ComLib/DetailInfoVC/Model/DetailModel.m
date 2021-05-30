@@ -16,4 +16,12 @@
     }
     return _array;
 }
+
+- (ComTrue *)dict {
+    if (!_dict) {
+        _dict = [[ComTrue alloc] init];
+    }
+    return _dict;
+}
+
 @end

@@ -7,6 +7,10 @@
 
 #import "HotSearchView.h"
 
+
+/*
+ "DWQSearchBar.h ”"DWQTagView.h" "HistorySearchCell.h" "HotSerachCell.h"
+ */
 @implementation HotSearchView
 
 /*

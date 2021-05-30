@@ -6,7 +6,6 @@
 //
 
 #import "WatchComCombineVC.h"
-#import "SearchBarView.h"
 #import "WatchComPageVC.h"
 #import <YYKit/YYKit.h>
 #import "NSObjectGetStatus.h"
@@ -14,7 +13,6 @@
 
 @interface WatchComCombineVC () <CommonNavigationBackBarDelegate>
 
-@property (nonatomic, strong)SearchBarView *searchBar;
 @property (nonatomic, strong)CommonNavigationBackBar *backBar;
 @property (nonatomic, strong)UIView *pageView;
 @property (nonatomic, strong)WatchComPageVC *pageViewController;
@@ -50,14 +48,6 @@
     self.pageViewController.view.frame = self.pageView.frame;
     [self.view addSubview:self.pageViewController.view];
     [self.pageViewController didMoveToParentViewController:self];
-}
-
-- (SearchBarView *)searchBar {
-    if (!_searchBar) {
-        _searchBar = [[SearchBarView alloc] initWithFrame:CGRectZero];
-        _searchBar.backgroundColor = [UIColor clearColor];
-    }
-    return _searchBar;
 }
 
 - (CommonNavigationBackBar *)backBar {

@@ -6,6 +6,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ComTrue.h"
 
 NS_ASSUME_NONNULL_BEGIN
 
@@ -13,6 +14,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width;
 
++ (CGSize)cellSizeWithWidth:(CGFloat)width
+                   withType:(NSString *)type
+                  withModel:(ComTrue *)dict;
+- (void)updateDataWithType:(NSString *)type
+                  withModel:(ComTrue *)dict;
 @end
 
 NS_ASSUME_NONNULL_END

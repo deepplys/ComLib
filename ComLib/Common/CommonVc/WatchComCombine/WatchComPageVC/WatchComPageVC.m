@@ -10,6 +10,7 @@
 #import "HeadView.h"
 #import "NSObjectGetStatus.h"
 #import <YYKit/YYKit.h>
+#import "NSUserNameStatus.h"
 @interface WatchComPageVC ()
 
 @property (nonatomic, strong)HeadView *header;
@@ -39,7 +40,8 @@
     .wTitleArrSet(@[@"动态",@"构件库"])
     .wMenuWidthSet(PageVCWidth - 100)
     .wViewControllerSet(^UIViewController *(NSInteger index) {
-        WatchComVC *vc = [WatchComVC new];
+         WatchComVC *vc = [WatchComVC new];
+         vc.name = [NSUserNameStatus getForName];
          vc.page = index;
          return vc;
      })
