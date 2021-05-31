@@ -14,6 +14,7 @@
 #import "DWQTagView.h"
 #import "HistorySearchCell.h"
 #import "HotSerachCell.h"
+#import "SearchResultVC.h"
 
 static NSString *const HotCellID = @"HotCellID";
 static NSString *const HistoryCellID = @"HistoryCellID";
@@ -289,7 +290,10 @@ static NSString *const HistoryCellID = @"HistoryCellID";
 //textfield的代理方法：自行写逻辑
 - (BOOL)textFieldShouldReturn:(UITextField *)textField{
     //点击return之后的处理
-       return YES;
+    SearchResultVC *vc = [[SearchResultVC alloc] init];
+    vc.name = textField.text;
+    [self.navigationController pushViewController:vc animated:nil];
+    return YES;
 }
 - (BOOL)textFieldShouldBeginEditing:(UITextField *)textField;{
     

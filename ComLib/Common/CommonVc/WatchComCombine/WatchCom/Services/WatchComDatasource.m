@@ -19,6 +19,10 @@ static NSString * const CommonStyleTwoCellIdentifier = @"CommonStyleTwoCellIdent
 
 }
 
+- (void)endFresh {
+    [self.delegate endFresh];
+}
+
 - (void)registCollectionViewCells:(UICollectionView *)collectionView {
     [collectionView registerClass:[CommonStyleTwoCell class]
        forCellWithReuseIdentifier:CommonStyleTwoCellIdentifier];
@@ -63,6 +67,7 @@ static NSString * const CommonStyleTwoCellIdentifier = @"CommonStyleTwoCellIdent
 - (WatchComViewModel *)viewModel {
     if (!_viewModel) {
         _viewModel = [[WatchComViewModel alloc] init];
+        _viewModel.delegate = self;
     }
     return _viewModel;
 }

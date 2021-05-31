@@ -15,7 +15,7 @@
 #import "DerailInfoVC.h"
 
 
-@interface WatchComVC () <WatchComViewModelDelagate, WatchComDatasourceDelegate>
+@interface WatchComVC () <WatchComDatasourceDelegate>
 
 @property (nonatomic, strong) WatchComDatasource *dataSources;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -50,6 +50,7 @@
     }];
     self.collectionView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
         NSLog(@"reFresh");
+        [self.collectionView reloadData];
     }];
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     // 马上进入刷新状态
@@ -59,6 +60,7 @@
 }
 
 - (void)endFresh {
+    [self.collectionView reloadData];
     [self.collectionView.mj_header endRefreshing];
 }
 

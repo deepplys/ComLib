@@ -15,10 +15,11 @@ NS_ASSUME_NONNULL_BEGIN
 @protocol WatchComDatasourceDelegate <NSObject>
 
 - (void)didSelectItemInfo:(ComTrue *)dict;
+- (void)endFresh;
 
 @end
 
-@interface WatchComDatasource : NSObject <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource>
+@interface WatchComDatasource : NSObject <UICollectionViewDelegateFlowLayout, UICollectionViewDataSource, WatchComViewModelDelagate>
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) WatchComModel *watchModel;

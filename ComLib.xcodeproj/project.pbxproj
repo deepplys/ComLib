@@ -72,7 +72,6 @@
 		CE243A3D264D19AE0016D544 /* CommonNavigationBackBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A3C264D19AE0016D544 /* CommonNavigationBackBar.m */; };
 		CE243A43264D26B80016D544 /* HeadView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A42264D26B80016D544 /* HeadView.m */; };
 		CE243A49264FDC7E0016D544 /* DetailHeadCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A48264FDC7E0016D544 /* DetailHeadCell.m */; };
-		CE243A5C264FE0DF0016D544 /* SearchViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A5B264FE0DF0016D544 /* SearchViewController.m */; };
 		CE243A63264FE12C0016D544 /* HotSearchView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE243A62264FE12C0016D544 /* HotSearchView.m */; };
 		CE30E8C22660C3CE00134376 /* ComSearchBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8C12660C3CE00134376 /* ComSearchBar.m */; };
 		CE30E8D72660C4DA00134376 /* DWQTagView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE30E8D12660C4DA00134376 /* DWQTagView.m */; };
@@ -91,6 +90,27 @@
 		CE4F9CE3266385A100DBF671 /* UserStatusDataSources.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CE2266385A100DBF671 /* UserStatusDataSources.m */; };
 		CE4F9CED266385B800DBF671 /* UserStatusModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CEC266385B800DBF671 /* UserStatusModel.m */; };
 		CE4F9CF7266386C300DBF671 /* UserStatusViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CF6266386C300DBF671 /* UserStatusViewModel.m */; };
+		CE4F9CFE2664B90A00DBF671 /* SearchResultVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CFD2664B90A00DBF671 /* SearchResultVC.m */; };
+		CE4F9D082664B94A00DBF671 /* SearchResultDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9D072664B94A00DBF671 /* SearchResultDataSource.m */; };
+		CE4F9D0F2664B96700DBF671 /* SearchResultModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9D0E2664B96700DBF671 /* SearchResultModel.m */; };
+		CE4F9D152664B97E00DBF671 /* SearchResultViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9D142664B97E00DBF671 /* SearchResultViewModel.m */; };
+		CE4F9DCB2664D76400DBF671 /* UIView+CommentViewFrame.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DC32664D76300DBF671 /* UIView+CommentViewFrame.m */; };
+		CE4F9DCC2664D76400DBF671 /* UIViewController+KeyBoardObserver.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DC42664D76300DBF671 /* UIViewController+KeyBoardObserver.m */; };
+		CE4F9DCD2664D76400DBF671 /* CommentTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DC52664D76300DBF671 /* CommentTextView.m */; };
+		CE4F9DCE2664D76400DBF671 /* CommentKeyBoardToolBar.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DC82664D76400DBF671 /* CommentKeyBoardToolBar.m */; };
+		CE4F9DD82664D85C00DBF671 /* NSCommitDefine.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DD72664D85C00DBF671 /* NSCommitDefine.m */; };
+		CE4F9E092664DA0200DBF671 /* ZMPlaceholderTextView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DF52664DA0200DBF671 /* ZMPlaceholderTextView.m */; };
+		CE4F9E0A2664DA0200DBF671 /* ZMCusCommentListContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DF62664DA0200DBF671 /* ZMCusCommentListContentCell.m */; };
+		CE4F9E0B2664DA0200DBF671 /* ZMCusCommentListReplyContentCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DF82664DA0200DBF671 /* ZMCusCommentListReplyContentCell.m */; };
+		CE4F9E0C2664DA0200DBF671 /* ZMCusCommentToolView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DF92664DA0200DBF671 /* ZMCusCommentToolView.m */; };
+		CE4F9E0D2664DA0200DBF671 /* ZMCusCommentListTableHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DFA2664DA0200DBF671 /* ZMCusCommentListTableHeaderView.m */; };
+		CE4F9E0E2664DA0200DBF671 /* ZMCusCommentView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DFD2664DA0200DBF671 /* ZMCusCommentView.m */; };
+		CE4F9E0F2664DA0200DBF671 /* ZMCusCommentListView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9DFE2664DA0200DBF671 /* ZMCusCommentListView.m */; };
+		CE4F9E102664DA0200DBF671 /* UIView+QJLayout.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9E062664DA0200DBF671 /* UIView+QJLayout.m */; };
+		CE4F9E112664DA0200DBF671 /* NSString+Size.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9E082664DA0200DBF671 /* NSString+Size.m */; };
+		CE4F9E222664DC5100DBF671 /* CommitViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9E212664DC5100DBF671 /* CommitViewModel.m */; };
+		CE4F9E2E2664DC6100DBF671 /* CommitModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9E2D2664DC6100DBF671 /* CommitModel.m */; };
+		CE4F9E342664DD7D00DBF671 /* CommitLikeCombineView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9E332664DD7D00DBF671 /* CommitLikeCombineView.m */; };
 		CE57DCE4265E1DAA00947FD9 /* NSUserNameStatus.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57DCE3265E1DAA00947FD9 /* NSUserNameStatus.m */; };
 		CE57DCEA265E283600947FD9 /* RecommendMainViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57DCE9265E283600947FD9 /* RecommendMainViewModel.m */; };
 		CE57DD01265F7EA800947FD9 /* UIColor+Hex.m in Sources */ = {isa = PBXBuildFile; fileRef = CE57DD00265F7EA800947FD9 /* UIColor+Hex.m */; };
@@ -256,8 +276,6 @@
 		CE243A42264D26B80016D544 /* HeadView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HeadView.m; sourceTree = "<group>"; };
 		CE243A47264FDC7E0016D544 /* DetailHeadCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DetailHeadCell.h; sourceTree = "<group>"; };
 		CE243A48264FDC7E0016D544 /* DetailHeadCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailHeadCell.m; sourceTree = "<group>"; };
-		CE243A5A264FE0DF0016D544 /* SearchViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchViewController.h; sourceTree = "<group>"; };
-		CE243A5B264FE0DF0016D544 /* SearchViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchViewController.m; sourceTree = "<group>"; };
 		CE243A61264FE12C0016D544 /* HotSearchView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HotSearchView.h; sourceTree = "<group>"; };
 		CE243A62264FE12C0016D544 /* HotSearchView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = HotSearchView.m; sourceTree = "<group>"; };
 		CE30E8C02660C3CE00134376 /* ComSearchBar.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComSearchBar.h; sourceTree = "<group>"; };
@@ -293,6 +311,49 @@
 		CE4F9CEC266385B800DBF671 /* UserStatusModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusModel.m; sourceTree = "<group>"; };
 		CE4F9CF5266386C300DBF671 /* UserStatusViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = UserStatusViewModel.h; sourceTree = "<group>"; };
 		CE4F9CF6266386C300DBF671 /* UserStatusViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = UserStatusViewModel.m; sourceTree = "<group>"; };
+		CE4F9CFC2664B90A00DBF671 /* SearchResultVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultVC.h; sourceTree = "<group>"; };
+		CE4F9CFD2664B90A00DBF671 /* SearchResultVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultVC.m; sourceTree = "<group>"; };
+		CE4F9D062664B94A00DBF671 /* SearchResultDataSource.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultDataSource.h; sourceTree = "<group>"; };
+		CE4F9D072664B94A00DBF671 /* SearchResultDataSource.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultDataSource.m; sourceTree = "<group>"; };
+		CE4F9D0D2664B96700DBF671 /* SearchResultModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultModel.h; sourceTree = "<group>"; };
+		CE4F9D0E2664B96700DBF671 /* SearchResultModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultModel.m; sourceTree = "<group>"; };
+		CE4F9D132664B97E00DBF671 /* SearchResultViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchResultViewModel.h; sourceTree = "<group>"; };
+		CE4F9D142664B97E00DBF671 /* SearchResultViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchResultViewModel.m; sourceTree = "<group>"; };
+		CE4F9DC32664D76300DBF671 /* UIView+CommentViewFrame.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+CommentViewFrame.m"; sourceTree = "<group>"; };
+		CE4F9DC42664D76300DBF671 /* UIViewController+KeyBoardObserver.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIViewController+KeyBoardObserver.m"; sourceTree = "<group>"; };
+		CE4F9DC52664D76300DBF671 /* CommentTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentTextView.m; sourceTree = "<group>"; };
+		CE4F9DC62664D76300DBF671 /* CommentKeyBoardToolBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentKeyBoardToolBar.h; sourceTree = "<group>"; };
+		CE4F9DC72664D76300DBF671 /* UIViewController+KeyBoardObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIViewController+KeyBoardObserver.h"; sourceTree = "<group>"; };
+		CE4F9DC82664D76400DBF671 /* CommentKeyBoardToolBar.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CommentKeyBoardToolBar.m; sourceTree = "<group>"; };
+		CE4F9DC92664D76400DBF671 /* UIView+CommentViewFrame.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+CommentViewFrame.h"; sourceTree = "<group>"; };
+		CE4F9DCA2664D76400DBF671 /* CommentTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CommentTextView.h; sourceTree = "<group>"; };
+		CE4F9DD62664D85C00DBF671 /* NSCommitDefine.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSCommitDefine.h; sourceTree = "<group>"; };
+		CE4F9DD72664D85C00DBF671 /* NSCommitDefine.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSCommitDefine.m; sourceTree = "<group>"; };
+		CE4F9DF42664DA0200DBF671 /* ZMCusCommentView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCusCommentView.h; sourceTree = "<group>"; };
+		CE4F9DF52664DA0200DBF671 /* ZMPlaceholderTextView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMPlaceholderTextView.m; sourceTree = "<group>"; };
+		CE4F9DF62664DA0200DBF671 /* ZMCusCommentListContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCusCommentListContentCell.m; sourceTree = "<group>"; };
+		CE4F9DF72664DA0200DBF671 /* ZMCusCommentListView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCusCommentListView.h; sourceTree = "<group>"; };
+		CE4F9DF82664DA0200DBF671 /* ZMCusCommentListReplyContentCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCusCommentListReplyContentCell.m; sourceTree = "<group>"; };
+		CE4F9DF92664DA0200DBF671 /* ZMCusCommentToolView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCusCommentToolView.m; sourceTree = "<group>"; };
+		CE4F9DFA2664DA0200DBF671 /* ZMCusCommentListTableHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCusCommentListTableHeaderView.m; sourceTree = "<group>"; };
+		CE4F9DFB2664DA0200DBF671 /* ZMCusCommentListContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCusCommentListContentCell.h; sourceTree = "<group>"; };
+		CE4F9DFC2664DA0200DBF671 /* ZMPlaceholderTextView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMPlaceholderTextView.h; sourceTree = "<group>"; };
+		CE4F9DFD2664DA0200DBF671 /* ZMCusCommentView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCusCommentView.m; sourceTree = "<group>"; };
+		CE4F9DFE2664DA0200DBF671 /* ZMCusCommentListView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZMCusCommentListView.m; sourceTree = "<group>"; };
+		CE4F9DFF2664DA0200DBF671 /* ZMCusCommentListReplyContentCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCusCommentListReplyContentCell.h; sourceTree = "<group>"; };
+		CE4F9E002664DA0200DBF671 /* ZMCusCommentListTableHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCusCommentListTableHeaderView.h; sourceTree = "<group>"; };
+		CE4F9E012664DA0200DBF671 /* ZMCusCommentToolView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMCusCommentToolView.h; sourceTree = "<group>"; };
+		CE4F9E032664DA0200DBF671 /* UIView+QJLayout.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIView+QJLayout.h"; sourceTree = "<group>"; };
+		CE4F9E042664DA0200DBF671 /* ZMColorDefine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZMColorDefine.h; sourceTree = "<group>"; };
+		CE4F9E052664DA0200DBF671 /* NSString+Size.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+Size.h"; sourceTree = "<group>"; };
+		CE4F9E062664DA0200DBF671 /* UIView+QJLayout.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIView+QJLayout.m"; sourceTree = "<group>"; };
+		CE4F9E082664DA0200DBF671 /* NSString+Size.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+Size.m"; sourceTree = "<group>"; };
+		CE4F9E202664DC5100DBF671 /* CommitViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommitViewModel.h; sourceTree = "<group>"; };
+		CE4F9E212664DC5100DBF671 /* CommitViewModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommitViewModel.m; sourceTree = "<group>"; };
+		CE4F9E2C2664DC6100DBF671 /* CommitModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommitModel.h; sourceTree = "<group>"; };
+		CE4F9E2D2664DC6100DBF671 /* CommitModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommitModel.m; sourceTree = "<group>"; };
+		CE4F9E322664DD7D00DBF671 /* CommitLikeCombineView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CommitLikeCombineView.h; sourceTree = "<group>"; };
+		CE4F9E332664DD7D00DBF671 /* CommitLikeCombineView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CommitLikeCombineView.m; sourceTree = "<group>"; };
 		CE57DCE2265E1DAA00947FD9 /* NSUserNameStatus.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSUserNameStatus.h; sourceTree = "<group>"; };
 		CE57DCE3265E1DAA00947FD9 /* NSUserNameStatus.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSUserNameStatus.m; sourceTree = "<group>"; };
 		CE57DCE8265E283600947FD9 /* RecommendMainViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RecommendMainViewModel.h; sourceTree = "<group>"; };
@@ -365,6 +426,7 @@
 		25383BC125FF863A000C5073 /* Common */ = {
 			isa = PBXGroup;
 			children = (
+				CE4F9D202664C56000DBF671 /* CommonCommit */,
 				CE57DCF5265F7E1000947FD9 /* CommonColor */,
 				CEA294F2265B8D56004EA906 /* CommonModel */,
 				CE3DDA4B262C54FD003D66DF /* CommonView */,
@@ -570,6 +632,7 @@
 		25B3AECF26149CF200B484DD /* CommonVc */ = {
 			isa = PBXGroup;
 			children = (
+				CE4F9CFB2664B8E500DBF671 /* SearchResultVC */,
 				CE243A4D264FE0680016D544 /* SearchVC */,
 				CE243A20264D0C900016D544 /* WatchComCombine */,
 				CE243A06264BD27F0016D544 /* Focus */,
@@ -751,6 +814,8 @@
 				CEA294E7265B8779004EA906 /* ComTypeCell.m */,
 				CE4F9CCD26637CAB00DBF671 /* ComLikeCell.h */,
 				CE4F9CCE26637CAB00DBF671 /* ComLikeCell.m */,
+				CE4F9E322664DD7D00DBF671 /* CommitLikeCombineView.h */,
+				CE4F9E332664DD7D00DBF671 /* CommitLikeCombineView.m */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -863,8 +928,6 @@
 				CE30E8E42660C51100134376 /* DWQSearchBar */,
 				CE30E8CF2660C4DA00134376 /* DWQTagView */,
 				CE243A60264FE1170016D544 /* View */,
-				CE243A5A264FE0DF0016D544 /* SearchViewController.h */,
-				CE243A5B264FE0DF0016D544 /* SearchViewController.m */,
 			);
 			path = SearchVC;
 			sourceTree = "<group>";
@@ -975,6 +1038,109 @@
 			children = (
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		CE4F9CFB2664B8E500DBF671 /* SearchResultVC */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9D0C2664B94E00DBF671 /* Model */,
+				CE4F9D052664B91A00DBF671 /* Services */,
+				CE4F9CFC2664B90A00DBF671 /* SearchResultVC.h */,
+				CE4F9CFD2664B90A00DBF671 /* SearchResultVC.m */,
+			);
+			path = SearchResultVC;
+			sourceTree = "<group>";
+		};
+		CE4F9D052664B91A00DBF671 /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9D062664B94A00DBF671 /* SearchResultDataSource.h */,
+				CE4F9D072664B94A00DBF671 /* SearchResultDataSource.m */,
+			);
+			name = Services;
+			sourceTree = "<group>";
+		};
+		CE4F9D0C2664B94E00DBF671 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9D0D2664B96700DBF671 /* SearchResultModel.h */,
+				CE4F9D0E2664B96700DBF671 /* SearchResultModel.m */,
+				CE4F9D132664B97E00DBF671 /* SearchResultViewModel.h */,
+				CE4F9D142664B97E00DBF671 /* SearchResultViewModel.m */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		CE4F9D202664C56000DBF671 /* CommonCommit */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9E1F2664DC0600DBF671 /* CommitModel */,
+				CE4F9E022664DA0200DBF671 /* Common */,
+				CE4F9DF32664DA0200DBF671 /* ZMCusCommentView */,
+				CE4F9DC22664D73E00DBF671 /* CommitView */,
+				CE4F9DD62664D85C00DBF671 /* NSCommitDefine.h */,
+				CE4F9DD72664D85C00DBF671 /* NSCommitDefine.m */,
+			);
+			path = CommonCommit;
+			sourceTree = "<group>";
+		};
+		CE4F9DC22664D73E00DBF671 /* CommitView */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9DC62664D76300DBF671 /* CommentKeyBoardToolBar.h */,
+				CE4F9DC82664D76400DBF671 /* CommentKeyBoardToolBar.m */,
+				CE4F9DCA2664D76400DBF671 /* CommentTextView.h */,
+				CE4F9DC52664D76300DBF671 /* CommentTextView.m */,
+				CE4F9DC92664D76400DBF671 /* UIView+CommentViewFrame.h */,
+				CE4F9DC32664D76300DBF671 /* UIView+CommentViewFrame.m */,
+				CE4F9DC72664D76300DBF671 /* UIViewController+KeyBoardObserver.h */,
+				CE4F9DC42664D76300DBF671 /* UIViewController+KeyBoardObserver.m */,
+			);
+			path = CommitView;
+			sourceTree = "<group>";
+		};
+		CE4F9DF32664DA0200DBF671 /* ZMCusCommentView */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9DFB2664DA0200DBF671 /* ZMCusCommentListContentCell.h */,
+				CE4F9DF62664DA0200DBF671 /* ZMCusCommentListContentCell.m */,
+				CE4F9DFF2664DA0200DBF671 /* ZMCusCommentListReplyContentCell.h */,
+				CE4F9DF82664DA0200DBF671 /* ZMCusCommentListReplyContentCell.m */,
+				CE4F9E002664DA0200DBF671 /* ZMCusCommentListTableHeaderView.h */,
+				CE4F9DFA2664DA0200DBF671 /* ZMCusCommentListTableHeaderView.m */,
+				CE4F9DF72664DA0200DBF671 /* ZMCusCommentListView.h */,
+				CE4F9DFE2664DA0200DBF671 /* ZMCusCommentListView.m */,
+				CE4F9E012664DA0200DBF671 /* ZMCusCommentToolView.h */,
+				CE4F9DF92664DA0200DBF671 /* ZMCusCommentToolView.m */,
+				CE4F9DF42664DA0200DBF671 /* ZMCusCommentView.h */,
+				CE4F9DFD2664DA0200DBF671 /* ZMCusCommentView.m */,
+				CE4F9DFC2664DA0200DBF671 /* ZMPlaceholderTextView.h */,
+				CE4F9DF52664DA0200DBF671 /* ZMPlaceholderTextView.m */,
+			);
+			path = ZMCusCommentView;
+			sourceTree = "<group>";
+		};
+		CE4F9E022664DA0200DBF671 /* Common */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9E032664DA0200DBF671 /* UIView+QJLayout.h */,
+				CE4F9E042664DA0200DBF671 /* ZMColorDefine.h */,
+				CE4F9E052664DA0200DBF671 /* NSString+Size.h */,
+				CE4F9E062664DA0200DBF671 /* UIView+QJLayout.m */,
+				CE4F9E082664DA0200DBF671 /* NSString+Size.m */,
+			);
+			path = Common;
+			sourceTree = "<group>";
+		};
+		CE4F9E1F2664DC0600DBF671 /* CommitModel */ = {
+			isa = PBXGroup;
+			children = (
+				CE4F9E202664DC5100DBF671 /* CommitViewModel.h */,
+				CE4F9E212664DC5100DBF671 /* CommitViewModel.m */,
+				CE4F9E2C2664DC6100DBF671 /* CommitModel.h */,
+				CE4F9E2D2664DC6100DBF671 /* CommitModel.m */,
+			);
+			path = CommitModel;
 			sourceTree = "<group>";
 		};
 		CE57DCF5265F7E1000947FD9 /* CommonColor */ = {
@@ -1236,6 +1402,7 @@
 				CE4F9CF7266386C300DBF671 /* UserStatusViewModel.m in Sources */,
 				CE30E8C22660C3CE00134376 /* ComSearchBar.m in Sources */,
 				25708007260367AD0028EC8C /* UserInfoViewModel.m in Sources */,
+				CE4F9E0A2664DA0200DBF671 /* ZMCusCommentListContentCell.m in Sources */,
 				CE4F9CCF26637CAB00DBF671 /* ComLikeCell.m in Sources */,
 				CEA294EE265B8AC6004EA906 /* DetailViewModel.m in Sources */,
 				CEE3F5D3262A9AE800A8E97B /* MainRecommendHeadView.m in Sources */,
@@ -1243,14 +1410,17 @@
 				25D50C6925D22B7A00C6E696 /* SubTabCell.m in Sources */,
 				CEA294B226588973004EA906 /* ComViewModel.m in Sources */,
 				CE30E8E02660C4F200134376 /* DWQSearchController.m in Sources */,
-				CE243A5C264FE0DF0016D544 /* SearchViewController.m in Sources */,
 				25CD2C722613168800367542 /* CommonStyleOneCell.m in Sources */,
 				CE243A10264BD3E30016D544 /* WatchComDatasource.m in Sources */,
 				CE2439E0264A5EFC0016D544 /* UserLoginAndRegisterVC.m in Sources */,
+				CE4F9E0F2664DA0200DBF671 /* ZMCusCommentListView.m in Sources */,
 				CE2439E9264A631D0016D544 /* NSObject+Hint.m in Sources */,
+				CE4F9DCB2664D76400DBF671 /* UIView+CommentViewFrame.m in Sources */,
 				25D50CB325D28F5D00C6E696 /* LikeItemDataSources.m in Sources */,
+				CE4F9D152664B97E00DBF671 /* SearchResultViewModel.m in Sources */,
 				CE243A3D264D19AE0016D544 /* CommonNavigationBackBar.m in Sources */,
 				CE2439B9264655190016D544 /* FocusInfoDataSource.m in Sources */,
+				CE4F9E0C2664DA0200DBF671 /* ZMCusCommentToolView.m in Sources */,
 				CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */,
 				25B9D758260B67F2003490DB /* MyFoucusCell.m in Sources */,
 				CEA294B826588A5B004EA906 /* enterButCell.m in Sources */,
@@ -1263,17 +1433,24 @@
 				CE2439FC264BA7790016D544 /* DetailInfoDataSources.m in Sources */,
 				25B3AED226149D4800B484DD /* UIFocusAndFansViewController.m in Sources */,
 				CE243A43264D26B80016D544 /* HeadView.m in Sources */,
+				CE4F9E222664DC5100DBF671 /* CommitViewModel.m in Sources */,
 				259D46C2260499D400D014E6 /* BuyViewController.m in Sources */,
 				CE2439EF264A7BAF0016D544 /* UserLoginVC.m in Sources */,
+				CE4F9E342664DD7D00DBF671 /* CommitLikeCombineView.m in Sources */,
 				25D50C7025D23BC500C6E696 /* UserInfoDataSource.m in Sources */,
 				CE57DCEA265E283600947FD9 /* RecommendMainViewModel.m in Sources */,
 				CE30E8D72660C4DA00134376 /* DWQTagView.m in Sources */,
 				25D50C6025D22AD100C6E696 /* UserInfosModel.m in Sources */,
+				CE4F9E0B2664DA0200DBF671 /* ZMCusCommentListReplyContentCell.m in Sources */,
+				CE4F9E2E2664DC6100DBF671 /* CommitModel.m in Sources */,
+				CE4F9E0D2664DA0200DBF671 /* ZMCusCommentListTableHeaderView.m in Sources */,
 				CE3DDA34262C3045003D66DF /* MainPageRecommendController.m in Sources */,
 				25383BC725FF896D000C5073 /* NSObjectGetStatus.m in Sources */,
 				CE4F9CED266385B800DBF671 /* UserStatusModel.m in Sources */,
 				25D50CCA25D29F7500C6E696 /* SearchOpenListTableView.m in Sources */,
+				CE4F9E112664DA0200DBF671 /* NSString+Size.m in Sources */,
 				CE30E8EF2660C51200134376 /* UIViewExt.m in Sources */,
+				CE4F9E092664DA0200DBF671 /* ZMPlaceholderTextView.m in Sources */,
 				256718F325D14B1E0025258F /* UserInfosVC.m in Sources */,
 				CE243A37264D11BC0016D544 /* CommonStyleFouCell.m in Sources */,
 				256718E825D12DFB0025258F /* RecommendDataSources.m in Sources */,
@@ -1282,6 +1459,7 @@
 				256718DF25D12D120025258F /* RecommendViewModel.m in Sources */,
 				25D50C8525D277F100C6E696 /* HeadCell.m in Sources */,
 				CE243A63264FE12C0016D544 /* HotSearchView.m in Sources */,
+				CE4F9DCC2664D76400DBF671 /* UIViewController+KeyBoardObserver.m in Sources */,
 				256718B325D11EFD0025258F /* MainRecommendVC.m in Sources */,
 				CE30E8D92660C4DA00134376 /* HistorySearchCell.m in Sources */,
 				25D50C9B25D283D400C6E696 /* LikeItemCell.m in Sources */,
@@ -1292,30 +1470,38 @@
 				CEA294E8265B8779004EA906 /* ComTypeCell.m in Sources */,
 				256718BC25D11F410025258F /* RecommendCell.m in Sources */,
 				CE4F9CDC266384CB00DBF671 /* UserStatusVC.m in Sources */,
+				CE4F9DD82664D85C00DBF671 /* NSCommitDefine.m in Sources */,
 				25D50C9225D283B700C6E696 /* LikeItemsVC.m in Sources */,
 				2567187225D11B9D0025258F /* AppDelegate.m in Sources */,
 				252F7A5826134E500051A965 /* CommonStyleTwoCell.m in Sources */,
 				CE2439C3264655C60016D544 /* FocusModel.m in Sources */,
 				CE243998263034510016D544 /* CreateNewCom.m in Sources */,
 				2567188325D11B9E0025258F /* main.m in Sources */,
+				CE4F9CFE2664B90A00DBF671 /* SearchResultVC.m in Sources */,
 				CE4F9CD526637EE500DBF671 /* WatchComViewModel.m in Sources */,
 				2567187525D11B9D0025258F /* SceneDelegate.m in Sources */,
+				CE4F9E0E2664DA0200DBF671 /* ZMCusCommentView.m in Sources */,
 				256718FA25D14C250025258F /* MessageBoxCell.m in Sources */,
 				CEA294AC265886BB004EA906 /* ComModel.m in Sources */,
+				CE4F9DCD2664D76400DBF671 /* CommentTextView.m in Sources */,
 				CE57DCE4265E1DAA00947FD9 /* NSUserNameStatus.m in Sources */,
 				CE3DDA3E262C5321003D66DF /* MainRecommendCombineController.m in Sources */,
 				259D46DD26049C0800D014E6 /* BuyModel.m in Sources */,
 				25B3AECB261488B300B484DD /* CommonStyleThrCell.m in Sources */,
+				CE4F9DCE2664D76400DBF671 /* CommentKeyBoardToolBar.m in Sources */,
 				25B3AEDB26149E0100B484DD /* UIReadPageViewController.m in Sources */,
 				CE243A1C264BEF2D0016D544 /* WatchHeadCell.m in Sources */,
+				CE4F9D082664B94A00DBF671 /* SearchResultDataSource.m in Sources */,
 				259D46E32604A1B000D014E6 /* BuyHeaderView.m in Sources */,
 				CEA294CD2658ABC1004EA906 /* SearchDataSources.m in Sources */,
 				CE243A16264BD3F90016D544 /* WatchComModel.m in Sources */,
 				256718D625D12AAE0025258F /* RecommendModel.m in Sources */,
+				CE4F9D0F2664B96700DBF671 /* SearchResultModel.m in Sources */,
 				256718CF25D124CD0025258F /* RecommenHeadCell.m in Sources */,
 				25C586FD25FF0AB9007FB91F /* UserInfosEditView.m in Sources */,
 				25D50CC325D29E1900C6E696 /* SearchVC.m in Sources */,
 				CE2439AF26411EE80016D544 /* DetailInfoHeaderVIew.m in Sources */,
+				CE4F9E102664DA0200DBF671 /* UIView+QJLayout.m in Sources */,
 				CE30E8DA2660C4DA00134376 /* HotSerachCell.m in Sources */,
 				CE243A2E264D0F140016D544 /* WatchComCombineVC.m in Sources */,
 				CE30E8F02660C51200134376 /* DWQSearchBar.m in Sources */,

@@ -15,7 +15,7 @@
 
 - (void)updateModelWithName:(NSString *)name {
     BmobQuery   *bquery = [BmobQuery queryWithClassName:@"Component"];
-    [bquery whereKey:@"C_OwnerID" equalTo:@"Biz"];
+    [bquery whereKey:@"C_OwnerID" equalTo:name];
     //查找Component表的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         for (BmobObject *obj in array) {

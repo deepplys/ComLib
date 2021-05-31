@@ -11,12 +11,15 @@
 #import <Masonry/Masonry.h>
 #import "NSObjectGetStatus.h"
 #import "ComTrue.h"
+#import "CommitLikeCombineView.h"
+#import "ZMCusCommentView.h"
 
-@interface DerailInfoVC () <DetailInfoDataSourcesDelegate>
+@interface DerailInfoVC () <DetailInfoDataSourcesDelegate, CommitLikeCombineViewDelegate>
 
 @property (nonatomic, strong)ComTrue *dict;
 @property (nonatomic, strong)DetailInfoHeaderVIew *header;
 @property (nonatomic, strong) UICollectionView *collectionView;
+@property (nonatomic, strong) CommitLikeCombineView *bottomBar;
 
 @end
 
@@ -44,8 +47,10 @@
     [super viewDidLoad];
     //[self.view addSubview:self.header];
     [self.view addSubview:self.collectionView];
+    [self.view addSubview:self.bottomBar];
     //self.header.frame = CGRectMake(0, 0, self.view.width, 100);
-    self.collectionView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 100);
+    self.collectionView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 200);
+    self.bottomBar.frame = CGRectMake(0, self.view.height - 200, self.view.width, 200);
     // Do any additional setup after loading the view.
 }
 
@@ -80,6 +85,18 @@
      */
 }
 
+- (void)jumpCommitVC {
+    [[ZMCusCommentManager shareManager] showCommentWithSourceId:nil];
+}
+
+- (CommitLikeCombineView *)bottomBar {
+    if (!_bottomBar) {
+        _bottomBar = [[CommitLikeCombineView alloc] initWithFrame:CGRectZero];
+        _bottomBar.delegate = self;
+    }
+    return _bottomBar;
+}
+ 
 - (DetailInfoHeaderVIew *)header {
     if (!_header) {
         _header = [[DetailInfoHeaderVIew alloc] init];

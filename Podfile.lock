@@ -41,6 +41,7 @@ PODS:
   - SDWebImage (3.7.6):
     - SDWebImage/Core (= 3.7.6)
   - SDWebImage/Core (3.7.6)
+  - SVProgressHUD (2.2.5)
   - TouchJSON (1.1)
   - "UITableView+FDTemplateLayoutCell (1.6)"
   - WHKit (1.8.0)
@@ -60,6 +61,7 @@ DEPENDENCIES:
   - MJExtension
   - MJRefresh
   - SDWebImage (~> 3.7.1)
+  - SVProgressHUD
   - TouchJSON (~> 1.1)
   - "UITableView+FDTemplateLayoutCell (~> 1.4)"
   - WHKit
@@ -78,6 +80,7 @@ SPEC REPOS:
     - MJExtension
     - MJRefresh
     - SDWebImage
+    - SVProgressHUD
     - TouchJSON
     - "UITableView+FDTemplateLayoutCell"
     - WHKit
@@ -95,12 +98,13 @@ SPEC CHECKSUMS:
   MJExtension: 88e0900751b6cac8de1cf724ca9838a0b28d5acb
   MJRefresh: 6afc955813966afb08305477dd7a0d9ad5e79a16
   SDWebImage: c325cf02c30337336b95beff20a13df489ec0ec9
+  SVProgressHUD: 1428aafac632c1f86f62aa4243ec12008d7a51d6
   TouchJSON: 39be3595ebe489095311d97ce0c824417324cb74
   "UITableView+FDTemplateLayoutCell": 5c949b4a5059c404b442926c0e80f81d10a2d66f
   WHKit: acb591b38798ffd858586c0b85863b24cd61dcc5
   WMZPageController: 07f31659ab149220bd1a7ba86b9377d446b32178
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 7dc072e33947b9dce7798e1bab91692c066fb8de
+PODFILE CHECKSUM: f158023e43dadac428816c7fc9b6d96ce007800f
 
 COCOAPODS: 1.10.1

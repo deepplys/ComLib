@@ -17,6 +17,7 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     // Override point for customization after application launch.
+    //[Bmob resetDomain:@"http://joedz.cn"];
     [Bmob registerWithAppKey:@"7d9c72442652edac191d822271ba730a"];
     return YES;
 }

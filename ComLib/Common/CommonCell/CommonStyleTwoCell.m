@@ -128,8 +128,8 @@
         _info.numberOfLines = 0;
         _info.font = [UIFont systemFontOfSize:14];
         _info.lineBreakMode = NSLineBreakByWordWrapping;
-        _info.textColor = [UIColor blackColor];
-        _info.backgroundColor = [UIColor colorWithHexString:ColorInfo];
+        _info.textColor = [UIColor colorWithHexString:ColorInfo];
+        //_info.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _info;
 }
@@ -140,8 +140,8 @@
         _name.text = @"作者";
         _name.numberOfLines = 1;
         _name.font = [UIFont systemFontOfSize:14];
-        _name.textColor = [UIColor blackColor];
-        _name.backgroundColor = [UIColor colorWithHexString:ColorInfo];
+        _name.textColor = [UIColor colorWithHexString:ColorInfo];
+        //_name.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _name;
 }
@@ -152,8 +152,8 @@
         _shownum.text = @"时间";
         _shownum.numberOfLines = 1;
         _shownum.font = [UIFont systemFontOfSize:14];
-        _shownum.textColor = [UIColor blackColor];
-        _shownum.backgroundColor = [UIColor colorWithHexString:ColorInfo];
+        _shownum.textColor = [UIColor colorWithHexString:ColorInfo];
+        //_shownum.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _shownum;
 }
@@ -164,8 +164,8 @@
         _commit.text = @"评论";
         _commit.numberOfLines = 1;
         _commit.font = [UIFont systemFontOfSize:14];
-        _commit.textColor = [UIColor blackColor];
-        _commit.backgroundColor = [UIColor colorWithHexString:ColorInfo];
+        _commit.textColor = [UIColor colorWithHexString:ColorInfo];
+        //_commit.backgroundColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _commit;
 }
