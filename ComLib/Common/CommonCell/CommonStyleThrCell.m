@@ -8,7 +8,8 @@
 #import "CommonStyleThrCell.h"
 #import <Masonry/Masonry.h>
 #import <YYKit/YYKit.h>
-
+#import <BmobSDK/Bmob.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 /*
  
  关注 headCell
@@ -24,6 +25,7 @@
 //@property (nonatomic, strong)UILabel *status;
 @property (nonatomic, strong)UIImageView *status;
 @property (nonatomic, assign)BOOL isfocus;
+@property (nonatomic, copy)NSString *foucsObject;
 
 @end
 
@@ -80,6 +82,16 @@
 - (void)setGesture {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(change)];
     [self.status addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpUserVC)];
+    [self.name addGestureRecognizer:tap1];
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpUserVC)];
+    [self.detail addGestureRecognizer:tap2];
+    UITapGestureRecognizer *tap3 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpUserVC)];
+    [self.icon addGestureRecognizer:tap3];
+}
+
+- (void)jumpUserVC {
+    [self.delegate jumpDetailVC];
 }
 
 - (void)updateData {
@@ -107,9 +119,70 @@
     self.icon.layer.masksToBounds = YES;
 }
 
+
+- (void)configWithModel:(NSDictionary *)dict {
+    NSMutableDictionary *dict1 = [NSMutableDictionary new];
+    [dict1 setValue:@"Biz" forKey:@"name"];
+    [dict1 setValue:@"totoooooo " forKey:@"detail"];
+    [dict1 setValue:@"0" forKey:@"status"];
+    self.name.text = [dict valueForKey:@"name"];
+    self.detail.text = [dict valueForKey:@"detail"];
+    NSString *temp = [dict valueForKey:@"status"];
+    if (temp && [temp isEqual:@"1"]) {
+        self.isfocus = YES;
+        self.status.image = [UIImage imageNamed:@"focusdone"];
+    } else {
+        self.isfocus = NO;
+        self.status.image = [UIImage imageNamed:@"focus"];
+    }
+}
+
 + (CGSize)cellSizeWithWidth:(CGFloat)width {
     CGSize size = CGSizeMake(width, 50);
     return size;
+}
+
+
+- (void)change {
+    BOOL status = self.isfocus;
+    BmobUser *user = [BmobUser currentUser];
+    if (!status) {
+        //点赞
+        BmobObject *like = [[BmobObject alloc] initWithClassName:@"FocusDemo"];
+        [like setObject:user forKey:@"user"];
+        [like setObject:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.foucsObject] forKey:@"post"];
+        [like saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            if (error) {
+                NSString *errorDetail = error.description;
+                [SVProgressHUD showErrorWithStatus:errorDetail];
+            } else {
+                self.isfocus = YES;
+                self.status.image = [UIImage imageNamed:@"focusdone"];
+            }
+        }];
+    } else {
+        BmobQuery *query = [[BmobQuery alloc] initWithClassName:@"LikeDemo"];
+        [query whereKey:@"user" equalTo:user];
+        [query whereKey:@"post" equalTo:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.foucsObject]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            if (error) {
+                NSString *errorDetail = error.description;
+                [SVProgressHUD showErrorWithStatus:errorDetail];
+            } else {
+                //删除关注记录
+                BmobObject *object = [array firstObject];
+                [object deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+                    if (error) {
+                        NSString *errorDetail = error.description;
+                        [SVProgressHUD showErrorWithStatus:errorDetail];
+                    } else {
+                        self.isfocus = NO;
+                        self.status.image = [UIImage imageNamed:@"focus"];
+                    }
+                }];
+            }
+        }];
+    }
 }
 
 - (UIImageView *)icon {
@@ -118,6 +191,7 @@
         _icon.backgroundColor = [UIColor clearColor];
         _icon.layer.cornerRadius = 8.f;
         _icon.image = [UIImage imageNamed:@"headImage"];
+        _icon.userInteractionEnabled = YES;
     }
     return _icon;
 }
@@ -129,6 +203,7 @@
         _name.numberOfLines = 1;
         _name.font = [UIFont systemFontOfSize:18];
         _name.textColor = [UIColor blackColor];
+        _name.userInteractionEnabled = YES;
     }
     return _name;
 }
@@ -140,6 +215,7 @@
         _detail.numberOfLines = 1;
         _detail.font = [UIFont systemFontOfSize:18];
         _detail.textColor = [UIColor blackColor];
+        _detail.userInteractionEnabled = YES;
     }
     return _detail;
 }
@@ -154,15 +230,5 @@
     }
     return _status;
 }
-
-- (void)change {
-    if (self.isfocus) {
-        self.status.image = [UIImage imageNamed:@"focus"];
-    } else {
-        self.status.image = [UIImage imageNamed:@"focusdone"];
-    }
-    self.isfocus = self.isfocus ? NO : YES;
-}
-
 
 @end

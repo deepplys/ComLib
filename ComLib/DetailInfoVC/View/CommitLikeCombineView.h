@@ -9,15 +9,20 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+typedef void(^CommitLikeCombineBlock)(void);
+
 @protocol CommitLikeCombineViewDelegate <NSObject>
 
 - (void)jumpCommitVC;
 
 @end
 
+
 @interface CommitLikeCombineView : UIView
 
 @property (nonatomic, weak)id<CommitLikeCombineViewDelegate> delegate;
+@property (nonatomic, copy)CommitLikeCombineBlock block;
+@property (nonatomic, copy)NSString *proObjectId;
 
 @end
 

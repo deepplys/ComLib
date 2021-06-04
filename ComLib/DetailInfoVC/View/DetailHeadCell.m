@@ -37,6 +37,11 @@
     [super layoutIfNeeded];
 }
 
+- (void)configWithModel:(ComTrue *)item {
+    self.header.name.text = item.ownerID;
+    //self.header.
+}
+
 - (void)updateData {
     // 通过日期组件对象获取日期某一部分,不需要给日期加8小时就能获取本地时间.这让笔者感到困惑.
     //    获取当前时间(格林尼治时间)

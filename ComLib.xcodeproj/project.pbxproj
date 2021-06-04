@@ -84,6 +84,7 @@
 		CE3DDA34262C3045003D66DF /* MainPageRecommendController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA33262C3045003D66DF /* MainPageRecommendController.m */; };
 		CE3DDA3E262C5321003D66DF /* MainRecommendCombineController.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA3D262C5321003D66DF /* MainRecommendCombineController.m */; };
 		CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */ = {isa = PBXBuildFile; fileRef = CE3DDA43262C539C003D66DF /* SearchBarView.m */; };
+		CE42F5842669C90300B477B0 /* NSString+check.m in Sources */ = {isa = PBXBuildFile; fileRef = CE42F5832669C90200B477B0 /* NSString+check.m */; };
 		CE4F9CCF26637CAB00DBF671 /* ComLikeCell.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CCE26637CAB00DBF671 /* ComLikeCell.m */; };
 		CE4F9CD526637EE500DBF671 /* WatchComViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CD426637EE500DBF671 /* WatchComViewModel.m */; };
 		CE4F9CDC266384CB00DBF671 /* UserStatusVC.m in Sources */ = {isa = PBXBuildFile; fileRef = CE4F9CDB266384CB00DBF671 /* UserStatusVC.m */; };
@@ -299,6 +300,8 @@
 		CE3DDA3D262C5321003D66DF /* MainRecommendCombineController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = MainRecommendCombineController.m; sourceTree = "<group>"; };
 		CE3DDA42262C539C003D66DF /* SearchBarView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SearchBarView.h; sourceTree = "<group>"; };
 		CE3DDA43262C539C003D66DF /* SearchBarView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SearchBarView.m; sourceTree = "<group>"; };
+		CE42F5822669C90200B477B0 /* NSString+check.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+check.h"; sourceTree = "<group>"; };
+		CE42F5832669C90200B477B0 /* NSString+check.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+check.m"; sourceTree = "<group>"; };
 		CE4F9CCD26637CAB00DBF671 /* ComLikeCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ComLikeCell.h; sourceTree = "<group>"; };
 		CE4F9CCE26637CAB00DBF671 /* ComLikeCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ComLikeCell.m; sourceTree = "<group>"; };
 		CE4F9CD326637EE500DBF671 /* WatchComViewModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WatchComViewModel.h; sourceTree = "<group>"; };
@@ -438,6 +441,8 @@
 				CE2439E8264A631D0016D544 /* NSObject+Hint.m */,
 				CE57DCE2265E1DAA00947FD9 /* NSUserNameStatus.h */,
 				CE57DCE3265E1DAA00947FD9 /* NSUserNameStatus.m */,
+				CE42F5822669C90200B477B0 /* NSString+check.h */,
+				CE42F5832669C90200B477B0 /* NSString+check.m */,
 			);
 			path = Common;
 			sourceTree = "<group>";
@@ -1419,6 +1424,7 @@
 				25D50CB325D28F5D00C6E696 /* LikeItemDataSources.m in Sources */,
 				CE4F9D152664B97E00DBF671 /* SearchResultViewModel.m in Sources */,
 				CE243A3D264D19AE0016D544 /* CommonNavigationBackBar.m in Sources */,
+				CE42F5842669C90300B477B0 /* NSString+check.m in Sources */,
 				CE2439B9264655190016D544 /* FocusInfoDataSource.m in Sources */,
 				CE4F9E0C2664DA0200DBF671 /* ZMCusCommentToolView.m in Sources */,
 				CE3DDA44262C539C003D66DF /* SearchBarView.m in Sources */,
@@ -1613,7 +1619,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
@@ -1660,13 +1666,14 @@
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = s;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
 				GCC_WARN_UNDECLARED_SELECTOR = YES;
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
 				SDKROOT = iphoneos;

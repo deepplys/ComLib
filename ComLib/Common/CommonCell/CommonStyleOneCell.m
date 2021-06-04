@@ -26,7 +26,7 @@
 @property (nonatomic, strong)UILabel *status;
 @property (nonatomic, strong)UILabel *title;
 @property (nonatomic, strong)UILabel *info;
-@property (nonatomic, strong)UIButton *like;
+@property (nonatomic, strong)UILabel *like;
 @property (nonatomic, strong)UILabel *commit;
 
 @end
@@ -94,7 +94,7 @@
         make.top.equalTo(self.info.mas_bottom);
         make.bottom.equalTo(self.contentView);
         make.right.equalTo(self.commit.mas_left);
-        make.width.equalTo(@(20));
+        make.width.equalTo(@(80));
         make.height.equalTo(@(20));
     }];
     [self.commit mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -138,6 +138,7 @@
     self.info.preferredMaxLayoutWidth = self.width;
     self.name.text = item.ownerID;
     self.time.text = item.createdAt;
+    self.like.text = [[NSString alloc] initWithFormat:@"%d人点赞",item.like.intValue];
 }
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width {
@@ -223,10 +224,13 @@
     return _info;
 }
 
-- (UIButton *)like {
+- (UILabel *)like {
     if (!_like) {
-        _like = [[UIButton alloc] initWithFrame:CGRectZero];
-        _like.backgroundColor = [UIColor redColor];
+        _like = [[UILabel alloc] initWithFrame:CGRectZero];
+        _like.text = @"点赞";
+        _like.numberOfLines = 1;
+        _like.font = [UIFont systemFontOfSize:14];
+        _like.textColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _like;
 }
@@ -236,8 +240,8 @@
         _commit = [[UILabel alloc] initWithFrame:CGRectZero];
         _commit.text = @"评论";
         _commit.numberOfLines = 1;
-        _commit.font = [UIFont systemFontOfSize:18];
-        _commit.textColor = [UIColor blackColor];
+        _commit.font = [UIFont systemFontOfSize:14];
+        _commit.textColor = [UIColor colorWithHexString:ColorInfo];
     }
     return _commit;
 }

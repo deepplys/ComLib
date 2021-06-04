@@ -9,7 +9,17 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol CommonStyleThrCellDelegate <NSObject>
+
+- (void)jumpDetailVC;
+
+@end
+
 @interface CommonStyleThrCell : UICollectionViewCell
+
+@property (nonatomic, weak) id delegate;
+
+- (void)configWithModel:(NSDictionary *)dict;
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width;
 

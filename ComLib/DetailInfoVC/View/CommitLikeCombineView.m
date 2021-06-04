@@ -6,7 +6,9 @@
 //
 
 #import "CommitLikeCombineView.h"
+#import <BmobSDK/Bmob.h>
 #import <Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 @interface CommitLikeCombineView () <UITextFieldDelegate>
 
@@ -43,17 +45,17 @@
     }];
     [self.commit mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.top.equalTo(self);
-        make.left.equalTo(self.commitInput).offset(-5);
+        make.left.equalTo(self.commitInput.mas_right).offset(-5);
         make.width.equalTo(@50);
     }];
     [self.addLike mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.top.equalTo(self);
-        make.left.equalTo(self.commit).offset(-5);
+        make.left.equalTo(self.commit.mas_right).offset(-5);
         make.width.equalTo(@50);
     }];
     [self.like mas_makeConstraints:^(MASConstraintMaker *make) {
         make.bottom.top.right.equalTo(self);
-        make.left.equalTo(self.addLike).offset(-5);
+        make.left.equalTo(self.addLike.mas_right).offset(-5);
     }];
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -63,9 +65,65 @@
     
 }
 
+- (void)setActionGes {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setLikeStatus)];
+    [self.like addGestureRecognizer:tap];
+}
+
 + (CGSize)cellSizeWithWidth:(CGFloat)width {
     CGSize size = CGSizeMake(width, 60);
     return size;
+}
+
+- (void)setLikeStatus {
+    BOOL status = YES;
+    if ([self.like.backgroundColor isEqual:[UIColor redColor]]) {
+        status = YES;
+    } else {
+        status = NO;
+    }
+    BmobUser *user = [BmobUser currentUser];
+    if (status) {
+        //点赞
+        BmobObject *like = [[BmobObject alloc] initWithClassName:@"LikeDemo"];
+        [like setObject:user forKey:@"user"];
+        [like setObject:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.proObjectId] forKey:@"post"];
+        [like saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            if (error) {
+                NSString *errorDetail = error.description;
+                [SVProgressHUD showErrorWithStatus:errorDetail];
+            } else {
+                self.like.backgroundColor = [UIColor blueColor];
+                if (self.block) {
+                    self.block();
+                }
+            }
+        }];
+    } else {
+        BmobQuery *query = [[BmobQuery alloc] initWithClassName:@"LikeDemo"];
+        [query whereKey:@"user" equalTo:user];
+        [query whereKey:@"post" equalTo:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.proObjectId]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            if (error) {
+                NSString *errorDetail = error.description;
+                [SVProgressHUD showErrorWithStatus:errorDetail];
+            } else {
+                //删除点赞记录
+                BmobObject *object = [array firstObject];
+                [object deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+                    if (error) {
+                        NSString *errorDetail = error.description;
+                        [SVProgressHUD showErrorWithStatus:errorDetail];
+                    } else {
+                        self.like.backgroundColor = [UIColor redColor];
+                        if (self.block) {
+                            self.block();
+                        }
+                    }
+                }];
+            }
+        }];
+    }
 }
 
 - (UITextField *)commitInput {
@@ -98,7 +156,7 @@
 - (UIImageView *)addLike {
     if (!_commit) {
         _commit = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _commit.backgroundColor = [UIColor redColor];
+        _commit.backgroundColor = [UIColor blueColor];
     }
     return _commit;
 }
@@ -106,7 +164,8 @@
 - (UIImageView *)like {
     if (!_like) {
         _like = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _like.backgroundColor = [UIColor redColor];
+        _like.backgroundColor = [UIColor blackColor];
+        _like.userInteractionEnabled = YES;
     }
     return _like;
 }

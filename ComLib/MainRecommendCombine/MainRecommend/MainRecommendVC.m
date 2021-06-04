@@ -58,6 +58,7 @@
 - (void)loadNewData {
     NSLog(@"wtf");
     [self.dataSources.recommendViewModel updateModel];
+    [self.dataSources.recommendViewModel updateModelWithTabId:@"Objectivce-C"];
     [self.collectionView reloadData];
     //[self.collectionView.mj_header endRefreshing];
 }

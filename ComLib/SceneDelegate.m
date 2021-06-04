@@ -56,6 +56,7 @@
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:tabBarViewController];
     self.window.rootViewController = navigationController;
     [self.window makeKeyAndVisible];
+    [UIApplication sharedApplication].delegate.window = self.window;
 }
 
 

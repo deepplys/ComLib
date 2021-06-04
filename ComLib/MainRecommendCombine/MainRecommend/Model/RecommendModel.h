@@ -15,6 +15,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSMutableArray *array; // ComTrue
 
+@property (nonatomic, copy) NSMutableArray *likeArray;
+
+- (void)sortArray1;
+
 @end
 
 NS_ASSUME_NONNULL_END

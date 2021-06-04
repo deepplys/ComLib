@@ -13,8 +13,10 @@
 #import "ComTrue.h"
 #import "CommitLikeCombineView.h"
 #import "ZMCusCommentView.h"
+#import "NSCommitDefine.h"
+#import "WatchComCombineVC.h"
 
-@interface DerailInfoVC () <DetailInfoDataSourcesDelegate, CommitLikeCombineViewDelegate>
+@interface DerailInfoVC () <DetailInfoDataSourcesDelegate, CommitLikeCombineViewDelegate, WatchComCombineVCDelegate>
 
 @property (nonatomic, strong)ComTrue *dict;
 @property (nonatomic, strong)DetailInfoHeaderVIew *header;
@@ -50,8 +52,7 @@
     [self.view addSubview:self.bottomBar];
     //self.header.frame = CGRectMake(0, 0, self.view.width, 100);
     self.collectionView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 200);
-    self.bottomBar.frame = CGRectMake(0, self.view.height - 200, self.view.width, 200);
-    // Do any additional setup after loading the view.
+    self.bottomBar.frame = CGRectMake(0, self.view.height - 200, self.view.width, 100);
 }
 
 - (UICollectionView *)collectionView {
@@ -83,6 +84,21 @@
     vc.view.backgroundColor = [UIColor whiteColor];
     [self.navigationController pushViewController:vc animated:nil];
      */
+}
+
+- (void)jumpDetailVC {
+    WatchComCombineVC *vc = [[WatchComCombineVC alloc] init];
+    [self.navigationController pushViewController:vc animated:nil];
+    vc.delegate = self;
+}
+
+- (void)backVC {
+    [self.navigationController popViewControllerAnimated:nil];
+}
+
+- (void)didReceiveMemoryWarning {
+    [super didReceiveMemoryWarning];
+    // Dispose of any resources that can be recreated.
 }
 
 - (void)jumpCommitVC {

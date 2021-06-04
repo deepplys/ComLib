@@ -72,6 +72,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSNumber *commit;
 @property (nonatomic, copy)NSString *ownerID;
 @property (nonatomic, copy)NSString *createdAt;
+
+- (NSComparisonResult)compareComTrue: (ComTrue *)com;
 @end
 
 NS_ASSUME_NONNULL_END

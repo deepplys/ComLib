@@ -229,18 +229,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "063D45F3-BF42-403D-B938-5D012CEC14BA"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "2CA0A078-0146-42F7-846D-1E0ACAE6DE74"
@@ -337,18 +325,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "26D1D84D-4900-4C95-8404-FD0ABAC82003"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "0F3DF1EC-9D98-4009-9927-833F6BA9F718"
@@ -377,22 +353,6 @@
             startingLineNumber = "80"
             endingLineNumber = "80"
             landmarkName = "-backTo"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "5292030E-2F13-4247-BEE1-DBD157632CCA"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ComLib/Common/CommonCell/CommonStyleThrCell.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "159"
-            endingLineNumber = "159"
-            landmarkName = "-change"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
@@ -934,8 +894,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/MainRecommendVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "101"
-            endingLineNumber = "101"
+            startingLineNumber = "102"
+            endingLineNumber = "102"
             landmarkName = "-didSelectItemInfo:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1030,8 +990,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "57"
-            endingLineNumber = "57"
+            startingLineNumber = "58"
+            endingLineNumber = "58"
             landmarkName = "-updateModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -1040,7 +1000,7 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "9B750A39-47D8-45A4-A5E9-E29E0C07CF46"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
@@ -1062,8 +1022,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "17"
-            endingLineNumber = "17"
+            startingLineNumber = "20"
+            endingLineNumber = "20"
             landmarkName = "-updateModel"
             landmarkType = "7">
             <Locations>
@@ -1133,18 +1093,6 @@
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
-         <BreakpointContent
-            uuid = "BB2D4A3C-B249-4DCC-BA3A-1E5E7E10B2AB"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            breakpointStackSelectionBehavior = "1"
-            scope = "1"
-            stopOnStyle = "0">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "243FA561-4D1A-43F1-BF71-998CE9149112"
@@ -1154,8 +1102,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "21"
-            endingLineNumber = "21"
+            startingLineNumber = "24"
+            endingLineNumber = "24"
             landmarkName = "-updateModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -1170,8 +1118,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "26"
-            endingLineNumber = "26"
+            startingLineNumber = "29"
+            endingLineNumber = "29"
             landmarkName = "-updateModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -1202,58 +1150,10 @@
             filePath = "ComLib/Common/CommonCell/CommonStyleOneCell.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "156"
-            endingLineNumber = "156"
+            startingLineNumber = "157"
+            endingLineNumber = "157"
             landmarkName = "+cellSizeWithWidth:withInfo:"
             landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "1E881045-681A-4E20-A80E-9FC5ABEEF1F7"
-            shouldBeEnabled = "No"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "50"
-            endingLineNumber = "50"
-            landmarkName = "-updateModel"
-            landmarkType = "7">
-            <Locations>
-               <Location
-                  uuid = "1E881045-681A-4E20-A80E-9FC5ABEEF1F7 - 7ac6adfa38828b30"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[RecommendMainViewModel updateModel]_block_invoke"
-                  moduleName = "ComLib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cuixianglong/Desktop/ComLib/ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "1162">
-               </Location>
-               <Location
-                  uuid = "1E881045-681A-4E20-A80E-9FC5ABEEF1F7 - 7ac6adfa38828b30"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "__37-[RecommendMainViewModel updateModel]_block_invoke"
-                  moduleName = "ComLib"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/cuixianglong/Desktop/ComLib/ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "32"
-                  endingLineNumber = "32"
-                  offsetFromSymbolStart = "1184">
-               </Location>
-            </Locations>
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
@@ -1266,8 +1166,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/MainRecommendVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-endRefresh"
             landmarkType = "7">
          </BreakpointContent>
@@ -1282,8 +1182,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "15"
-            endingLineNumber = "15"
+            startingLineNumber = "18"
+            endingLineNumber = "18"
             landmarkName = "-updateModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -1292,14 +1192,14 @@
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
             uuid = "AC45C218-2413-435D-AE15-2E86FF6C84E7"
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "18"
-            endingLineNumber = "18"
+            startingLineNumber = "21"
+            endingLineNumber = "21"
             landmarkName = "-updateModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -1330,8 +1230,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "27"
-            endingLineNumber = "27"
+            startingLineNumber = "30"
+            endingLineNumber = "30"
             landmarkName = "-updateModel"
             landmarkType = "7">
          </BreakpointContent>
@@ -1378,8 +1278,8 @@
             filePath = "ComLib/MainRecommendCombine/MainRecommend/MainRecommendVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "61"
-            endingLineNumber = "61"
+            startingLineNumber = "62"
+            endingLineNumber = "62"
             landmarkName = "-loadNewData"
             landmarkType = "7">
          </BreakpointContent>
@@ -1426,8 +1326,8 @@
             filePath = "ComLib/DetailInfoVC/DerailInfoVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "30"
-            endingLineNumber = "30"
+            startingLineNumber = "32"
+            endingLineNumber = "32"
             landmarkName = "-initWithData:"
             landmarkType = "7">
          </BreakpointContent>
@@ -1490,8 +1390,8 @@
             filePath = "ComLib/DetailInfoVC/DerailInfoVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "71"
-            endingLineNumber = "71"
+            startingLineNumber = "72"
+            endingLineNumber = "72"
             landmarkName = "-collectionView"
             landmarkType = "7">
          </BreakpointContent>
@@ -1540,7 +1440,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "20"
                   endingLineNumber = "20"
-                  offsetFromSymbolStart = "144">
+                  offsetFromSymbolStart = "128">
                </Location>
                <Location
                   uuid = "17B0D1A1-E787-4AC3-A962-B3AB3DE6A590 - 29a9d49c631fa8e7"
@@ -1555,7 +1455,7 @@
                   endingColumnNumber = "9223372036854775807"
                   startingLineNumber = "21"
                   endingLineNumber = "21"
-                  offsetFromSymbolStart = "172">
+                  offsetFromSymbolStart = "88">
                </Location>
             </Locations>
          </BreakpointContent>
@@ -1698,8 +1598,8 @@
             filePath = "ComLib/DetailInfoVC/DerailInfoVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "89"
-            endingLineNumber = "89"
+            startingLineNumber = "105"
+            endingLineNumber = "105"
             landmarkName = "-jumpCommitVC"
             landmarkType = "7">
          </BreakpointContent>
@@ -1714,9 +1614,197 @@
             filePath = "ComLib/DetailInfoVC/DerailInfoVC.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "82"
-            endingLineNumber = "82"
+            startingLineNumber = "83"
+            endingLineNumber = "83"
             landmarkName = "-didSelectItemInfo:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.ExceptionBreakpoint">
+         <BreakpointContent
+            uuid = "99541521-E426-42AD-B54C-95D7FE68E7AF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            breakpointStackSelectionBehavior = "1"
+            scope = "1"
+            stopOnStyle = "0">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "3C6A25FC-44CA-4DEA-ABBA-E8328413E65B"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/Common/CommonModel/ComTrue.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "34"
+            endingLineNumber = "34"
+            landmarkName = "-compareComTrue:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "AE2EE8BB-6839-4DD4-9B82-3A8F8AA2964E"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/Common/CommonModel/ComTrue.h"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "76"
+            endingLineNumber = "76"
+            landmarkName = "-compareComTrue:"
+            landmarkType = "6">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "463D328A-69B2-4FAC-988F-464E97E5945A"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "54"
+            endingLineNumber = "54"
+            landmarkName = "-updateModel"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "DAB4D3F8-5CB5-4156-BF33-029D6F456BCF"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/Common/CommonCommit/ZMCusCommentView/ZMCusCommentView.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "177"
+            endingLineNumber = "177"
+            landmarkName = "-showCommentWithSourceId:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "7A1C5773-A4E3-4FC5-8123-7D9EA91852AA"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "22"
+            endingLineNumber = "22"
+            landmarkName = "-updateModel"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "C94D52DE-FCC6-4053-8292-ED80A7B01011"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "56"
+            endingLineNumber = "56"
+            landmarkName = "-updateModel"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "ED4E182A-9A13-4B69-B9AC-8BF2DBD6BCA4"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "74"
+            endingLineNumber = "74"
+            landmarkName = "-updateModelWithTabId:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "1EA55591-19BE-4C59-B168-34DCFF1DEB6C"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "64"
+            endingLineNumber = "64"
+            landmarkName = "-updateModelWithTabId:"
+            landmarkType = "7">
+            <Locations>
+               <Location
+                  uuid = "1EA55591-19BE-4C59-B168-34DCFF1DEB6C - 39375720c24ce82a"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "-[RecommendMainViewModel updateModelWithTabId:]"
+                  moduleName = "ComLib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cuixianglong/Desktop/ComLib/ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "64"
+                  endingLineNumber = "64"
+                  offsetFromSymbolStart = "108">
+               </Location>
+               <Location
+                  uuid = "1EA55591-19BE-4C59-B168-34DCFF1DEB6C - 4c989a5174f0a0d8"
+                  shouldBeEnabled = "Yes"
+                  ignoreCount = "0"
+                  continueAfterRunningActions = "No"
+                  symbolName = "__47-[RecommendMainViewModel updateModelWithTabId:]_block_invoke"
+                  moduleName = "ComLib"
+                  usesParentBreakpointCondition = "Yes"
+                  urlString = "file:///Users/cuixianglong/Desktop/ComLib/ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+                  startingColumnNumber = "9223372036854775807"
+                  endingColumnNumber = "9223372036854775807"
+                  startingLineNumber = "65"
+                  endingLineNumber = "65"
+                  offsetFromSymbolStart = "64">
+               </Location>
+            </Locations>
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "B0F649E0-3E84-4129-AA19-731CEF017BCB"
+            shouldBeEnabled = "Yes"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "ComLib/MainRecommendCombine/MainRecommend/Model/RecommendMainViewModel.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "71"
+            endingLineNumber = "71"
+            landmarkName = "-updateModelWithTabId:"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

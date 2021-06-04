@@ -6,6 +6,7 @@
 //
 
 #import "RecommendModel.h"
+#import <YYKit/YYKit.h>
 
 @implementation RecommendModel
 
@@ -14,6 +15,27 @@
         _array = [NSMutableArray new];
     }
     return _array;
+}
+
+- (NSMutableArray *)likeArray {
+    if (!_likeArray) {
+        _likeArray = [NSMutableArray new];
+    }
+    return _likeArray;
+}
+
++ (NSDictionary *)modelCustomPropertyMapper {
+    return @{@"name" : @"n",
+             @"page" : @"p",
+             @"desc" : @"ext.desc",
+             @"bookID" : @[@"id",@"ID",@"book_id"]};
+}
+
+
+- (void)sortArray1 {
+    NSMutableArray *array = self.array;
+    [array sortUsingSelector:@selector(compareComTrue:)];
+    self.array = array;
 }
 
 @end

@@ -8,6 +8,9 @@
 #import "RecommendMainViewModel.h"
 #import <BmobSDK/Bmob.h>
 #import "ComTrue.h"
+#import <SVProgressHUD/SVProgressHUD.h>
+#import <YYKit/YYKit.h>
+#import "NSString+check.h"
 
 @implementation RecommendMainViewModel
 
@@ -40,21 +43,44 @@
             item.use.comRequseUse = [obj objectForKey:@"C_RequstUse"]; //
             item.like = [obj objectForKey:@"C_Like"]; //
             item.ownerID = [obj objectForKey:@"C_OwnerID"]; //
-            item.createdAt = [obj.createdAt description]; //
+            item.createdAt = [[obj.createdAt description] substringToIndex:20]; //
             item.commit = [obj objectForKey:@"C_Viewed"]; //
             item.url = [obj objectForKey:@"C_Detail"]; //
             [self.model.array addObject:item];
             NSLog(@"obj.C_ProName = %@", [obj objectForKey:@"C_ProName"]);
-            //NSLog(@"obj.C_ProName = %@", [obj objectForKey:@"C_ProName"]);
-            //NSLog(@"obj.C_ProName = %@", [obj objectForKey:@"C_ProName"]);
-            //NSLog(@"obj.C_ProName = %@", [obj objectForKey:@"C_ProName"]);
-            //打印objectId,createdAt,updatedAt
         }
+        //[self.model sortArray];
         [self.delegate setNewStyle];
         [self.delegate endFresh];
         NSLog(@"complt");
+        NSLog(@"%@",error);
     }];
     
+}
+
+- (void)updateModelWithTabId:(NSString *) str {
+    NSMutableDictionary *dict = [[NSMutableDictionary alloc]init];
+    [dict setValue:str forKey:@"C_CodeType"];
+    [BmobCloud callFunctionInBackground:@"RecommendWithTabId" withParameters:dict block:^(id object, NSError *error) {
+        if (error) {
+            NSString *errorDetail = error.description;
+            [SVProgressHUD showErrorWithStatus:errorDetail];
+        } else {
+            NSLog(@"%@",object);
+            
+            self.model.likeArray = [NSString stringToJson:object];
+            //self.model.array = [NSString stringToJson:object];
+            //[self.tableView reloadData];
+            [self.delegate endFresh];
+            //[self.tableView.mj_header endRefreshing];
+        }
+    }];
+}
+
++(id)stringToJson:(NSString *)str{
+    NSData * data = [str dataUsingEncoding:NSUTF8StringEncoding];
+    
+    return [NSJSONSerialization JSONObjectWithData:data options:NSJSONReadingMutableContainers error:nil];
 }
 
 - (RecommendModel *)model {
@@ -63,4 +89,6 @@
     }
     return _model;
 }
+
+
 @end

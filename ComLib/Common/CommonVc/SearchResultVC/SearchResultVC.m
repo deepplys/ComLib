@@ -54,8 +54,6 @@
     self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
     // 马上进入刷新状态
     [self.collectionView.mj_header beginRefreshing];
-    // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
-    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 - (void)endFresh {
@@ -73,11 +71,6 @@
     NSLog(@"wtf");
     [self.dataSources.viewModel updateModelWithName:self.name];
     [self.collectionView reloadData];
-}
-
-- (void)loadMoreData {
-    NSLog(@"tth");
-    [self.collectionView.mj_footer beginRefreshing];
 }
 
 - (UICollectionView *)collectionView {

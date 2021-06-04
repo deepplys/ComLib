@@ -11,17 +11,22 @@
 #import "CommonStyleOneCell.h"
 #import "DetailHeadCell.h"
 #import "ComTypeCell.h"
-
 static NSString * const RecommendCellIdentifier = @"RecommendCellIdentifier";
 static NSString * const RecommenHeadCellIdentifier = @"RecommenHeadCellIdentifier";
 static NSString * const CommonStyleOneCellIdentifier = @"CommonStyleOneCellIdentifier";
 static NSString * const DetailHeadCellIdentifier = @"DetailHeadCellIdentifier";
 static NSString * const ComTypeCellIdentifier = @"ComTypeCellIdentifier";
+static NSString * const CommonStyleThrCellIdentifier = @"CommonStyleThrCellIdentifier";
 
-@implementation DetailInfoDataSources
+
+@implementation DetailInfoDataSources 
 
 - (void)updateInfos:(NSMutableArray *)Infos {
 
+}
+
+- (void)jumpDetailVC {
+    [self.delegate jumpDetailVC];
 }
 
 - (void)registCollectionViewCells:(UICollectionView *)collectionView {
@@ -32,6 +37,7 @@ static NSString * const ComTypeCellIdentifier = @"ComTypeCellIdentifier";
     [collectionView registerClass:[CommonStyleOneCell class] forCellWithReuseIdentifier:CommonStyleOneCellIdentifier];
     [collectionView registerClass:[DetailHeadCell class] forCellWithReuseIdentifier:DetailHeadCellIdentifier];
     [collectionView registerClass:[ComTypeCell class] forCellWithReuseIdentifier:ComTypeCellIdentifier];
+    [collectionView registerClass:[CommonStyleThrCell class] forCellWithReuseIdentifier:CommonStyleThrCellIdentifier];
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
@@ -40,7 +46,7 @@ static NSString * const ComTypeCellIdentifier = @"ComTypeCellIdentifier";
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row == 0) {
-        return [self DetailHeadCellInCollectionView:collectionView atIndexPath:indexPath];
+        return [self CommonStyleThrCellInCollectionView:collectionView atIndexPath:indexPath];
     } else {
         return [self ComTypeCellInCollectionView:collectionView atIndexPath:indexPath];
     }
@@ -53,7 +59,7 @@ static NSString * const ComTypeCellIdentifier = @"ComTypeCellIdentifier";
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
     CGFloat width = collectionView.frame.size.width;
     if (indexPath.row == 0) {
-        return [DetailHeadCell cellSizeWithWidth:width];
+        return [CommonStyleThrCell cellSizeWithWidth:width];
     } else {
         NSString *str =[[NSString alloc] initWithFormat:@"%ld",indexPath.row - 1];
         return [ComTypeCell cellSizeWithWidth:width withType:str withModel:self.recommendModel.dict];
@@ -97,6 +103,16 @@ static NSString * const ComTypeCellIdentifier = @"ComTypeCellIdentifier";
     ComTypeCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:ComTypeCellIdentifier forIndexPath:indexPath];
     NSString *str =[[NSString alloc] initWithFormat:@"%ld",indexPath.row - 1];
     [cell updateDataWithType:str withModel:self.recommendModel.dict];
+    return cell;
+}
+
+- (CommonStyleThrCell *)CommonStyleThrCellInCollectionView:(UICollectionView *)collectionView
+                                                        atIndexPath:(NSIndexPath *)indexPath {
+    CommonStyleThrCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CommonStyleThrCellIdentifier forIndexPath:indexPath];
+    //NSString *str =[[NSString alloc] initWithFormat:@"%ld",indexPath.row - 1];
+    NSDictionary *dict =[NSDictionary new];
+    cell.delegate = self;
+    [cell configWithModel:dict];
     return cell;
 }
 
