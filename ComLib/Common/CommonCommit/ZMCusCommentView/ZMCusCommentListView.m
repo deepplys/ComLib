@@ -11,10 +11,10 @@
 #import "ZMCusCommentListContentCell.h"
 #import "ZMCusCommentListReplyContentCell.h"
 #import "ZMColorDefine.h"
+#import "CommitModel.h"
 
 
 @interface ZMCusCommentListView()<UITableViewDelegate,UITableViewDataSource>
-@property (nonatomic, strong) UITableView *tableView;
 @property (nonatomic, strong) ZMCusCommentListTableHeaderView *headerView;
 @property (nonatomic, assign) BOOL isSelect;
 
@@ -72,29 +72,40 @@
 
 }
 
+- (void)setComObjId:(NSString *)comObjId {
+    _comObjId = comObjId;
+    [self.viewModel updateModelWithObjectId:comObjId];
+}
 
-#pragma mark -
+- (CommitViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[CommitViewModel alloc] init];
+    }
+    return _viewModel;
+}
+
+
 #pragma mark UITableViewDataSource, UITableViewDelegate
 
 -(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
 {
-    return 1;
+    return self.viewModel.model.array1.count;
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    return 50;
+    NSMutableArray *array = [self.viewModel.model.array1 objectAtIndex:section];
+    return array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
 {
     //如果你需要做成多级回复的话，可以改一下tableview为section 的形式去做
-    if (indexPath.row==1||indexPath.row==3||indexPath.row==4) {
+    if (indexPath.row != 0) {
         ZMCusCommentListReplyContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ZMCusCommentListReplyContentCell class]) forIndexPath:indexPath];
-        [cell configData:nil];
+        [cell configData:[self modelAtIndexPath:indexPath]];
         return cell;
     }else{
         ZMCusCommentListContentCell *cell = [tableView dequeueReusableCellWithIdentifier:NSStringFromClass([ZMCusCommentListContentCell class]) forIndexPath:indexPath];
-        [cell configData:nil];
+        [cell configData:[self modelAtIndexPath:indexPath]];
         return cell;
     }
 
@@ -109,22 +120,34 @@
     if (!self.isSelect) {
         self.isSelect = YES;
         [self performSelector:@selector(repeatDelay) withObject:nil afterDelay:1.0f];
-        self.toolView.textView.placeholder = @"回复：愤怒的小栗子";
+        CommitItemModel *item = [self modelAtIndexPath:indexPath];
+        NSString *str = [[NSString alloc] initWithFormat:@"回复：%@", item.commitName];
+        self.toolView.textView.placeholder = str;
         [self.toolView showTextView];
-
+        self.isReply = @"1";
         if (self.replyBtnBlock) {
             self.replyBtnBlock();
         }
     }
 }
+
 - (void)repeatDelay{
     self.isSelect = NO;
 }
 
-
 - (void)scrollViewDidScroll:(UIScrollView *)scrollView{
-    
+    //self.isReply = @"0";
     [self.toolView hideTextView];
+}
+
+- (CommitItemModel *)modelAtIndexPath:(NSIndexPath *)indexPath {
+    NSMutableArray *array = [self.viewModel.model.array1 objectAtIndex:indexPath.section];
+    if ([[array objectAtIndex:indexPath.row] isKindOfClass:[CommitItemModel class]]) {
+        CommitItemModel *model = [array objectAtIndex:indexPath.row];
+        return model;
+    } else {
+        return nil;
+    }
 }
 
 

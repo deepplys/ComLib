@@ -7,12 +7,17 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "ZMCusCommentListView.h"
 
 @interface ZMCusCommentView : UIView
+
+@property (nonatomic, copy) NSString *comObjId;
+@property (nonatomic, copy) NSString *authorObjId;
+@property (nonatomic, strong) ZMCusCommentListView *commentListView;
 
 @end
 
 @interface ZMCusCommentManager : NSObject
 + (instancetype)shareManager;
-- (void)showCommentWithSourceId:(NSString *)sourceId;
+- (void)showCommentWithComObjId:(NSString *)comObjId WithAuthorID:(NSString *)authorId;
 @end

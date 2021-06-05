@@ -25,6 +25,7 @@
     if (self = [super initWithFrame:frame]) {
         [self setupSubviews];
         [self updateData];
+        [self setActionGes];
     }
     return self;
 }
@@ -40,22 +41,28 @@
 
 - (void)makeConstraints {
     [self.commitInput mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.bottom.equalTo(self);
+        make.top.equalTo(self);
+        make.left.equalTo(self).offset(5);
         make.width.equalTo(@100);
+        make.height.equalTo(@50);
     }];
     [self.commit mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.top.equalTo(self);
-        make.left.equalTo(self.commitInput.mas_right).offset(-5);
+        make.top.equalTo(self);
+        make.left.equalTo(self.commitInput.mas_right).offset(5);
         make.width.equalTo(@50);
+        make.height.equalTo(@50);
     }];
     [self.addLike mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.top.equalTo(self);
-        make.left.equalTo(self.commit.mas_right).offset(-5);
+        make.top.equalTo(self);
+        make.left.equalTo(self.commit.mas_right).offset(5);
         make.width.equalTo(@50);
+        make.height.equalTo(@50);
     }];
     [self.like mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.bottom.top.right.equalTo(self);
-        make.left.equalTo(self.addLike.mas_right).offset(-5);
+        make.top.right.equalTo(self);
+        make.width.equalTo(@50);
+        make.left.equalTo(self.addLike.mas_right).offset(5);
+        make.height.equalTo(@50);
     }];
     [self setNeedsLayout];
     [self layoutIfNeeded];
@@ -68,6 +75,12 @@
 - (void)setActionGes {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setLikeStatus)];
     [self.like addGestureRecognizer:tap];
+    UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpCommit)];
+    [self.commit addGestureRecognizer:tap1];
+}
+
+- (void)jumpCommit {
+    [self.delegate jumpCommitVC];
 }
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width {
@@ -77,13 +90,13 @@
 
 - (void)setLikeStatus {
     BOOL status = YES;
-    if ([self.like.backgroundColor isEqual:[UIColor redColor]]) {
-        status = YES;
-    } else {
+    if ([self.like.image isEqual:[UIImage imageNamed:@"LikeCom"]]) {
         status = NO;
+    } else {
+        status = YES;
     }
     BmobUser *user = [BmobUser currentUser];
-    if (status) {
+    if (!status) {
         //点赞
         BmobObject *like = [[BmobObject alloc] initWithClassName:@"LikeDemo"];
         [like setObject:user forKey:@"user"];
@@ -93,7 +106,7 @@
                 NSString *errorDetail = error.description;
                 [SVProgressHUD showErrorWithStatus:errorDetail];
             } else {
-                self.like.backgroundColor = [UIColor blueColor];
+                self.like.image = [UIImage imageNamed:@"LikeDoneDemo"];
                 if (self.block) {
                     self.block();
                 }
@@ -115,7 +128,7 @@
                         NSString *errorDetail = error.description;
                         [SVProgressHUD showErrorWithStatus:errorDetail];
                     } else {
-                        self.like.backgroundColor = [UIColor redColor];
+                        self.like.image = [UIImage imageNamed:@"LikeCom"];
                         if (self.block) {
                             self.block();
                         }
@@ -148,23 +161,29 @@
 - (UIImageView *)commit {
     if (!_commit) {
         _commit = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _commit.backgroundColor = [UIColor redColor];
+        _commit.backgroundColor = [UIColor whiteColor];
+        _commit.image = [UIImage imageNamed:@"Message"];
+        _commit.userInteractionEnabled = YES;
     }
     return _commit;
 }
 
 - (UIImageView *)addLike {
-    if (!_commit) {
-        _commit = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _commit.backgroundColor = [UIColor blueColor];
+    if (!_addLike) {
+        _addLike = [[UIImageView alloc] initWithFrame:CGRectZero];
+        _addLike.backgroundColor = [UIColor whiteColor];
+        _addLike.image = [UIImage imageNamed:@"Star"];
+        _addLike.userInteractionEnabled = YES;
     }
-    return _commit;
+    return _addLike;
 }
 
 - (UIImageView *)like {
     if (!_like) {
         _like = [[UIImageView alloc] initWithFrame:CGRectZero];
-        _like.backgroundColor = [UIColor blackColor];
+        _like.backgroundColor = [UIColor whiteColor];
+        _like.userInteractionEnabled = YES;
+        _like.image = [UIImage imageNamed:@"LikeCom"];
         _like.userInteractionEnabled = YES;
     }
     return _like;

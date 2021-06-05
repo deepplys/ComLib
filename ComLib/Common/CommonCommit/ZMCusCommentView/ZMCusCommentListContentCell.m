@@ -9,6 +9,7 @@
 #import "ZMCusCommentListContentCell.h"
 #import "NSCommitDefine.h"
 #import "NSString+Size.h"
+#import "CommitModel.h"
 @interface ZMCusCommentListContentCell()
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UIImageView *designerImageView;
@@ -118,9 +119,10 @@
     // Configure the view for the selected state
 }
 - (void)configData:(id)data{
-    self.titleLab.text = @"愤怒的小栗子";
-    self.timeLab.text = @"11分钟前";
-    self.contentLab.text = @"不错挺好的，现在开始还来得及。只不过从某种意上讲事情没有这么简单。";
+    CommitItemModel *model = (CommitItemModel *)data;
+    self.titleLab.text = model.commitName;
+    self.timeLab.text = model.commitTime;
+    self.contentLab.text = model.data;
     CGFloat titleWidth = [self.titleLab.text widthWithFont:[UIFont boldSystemFontOfSize:14] constrainedToHeight:20]+5;
     if (titleWidth>100) {
         titleWidth = 100;

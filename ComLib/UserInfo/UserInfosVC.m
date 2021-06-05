@@ -229,7 +229,7 @@
         //delegate
         _dataSources = [[UserInfoDataSource alloc] init];
         _dataSources.collection = _collectionView;
-        _dataSources.isLogin = @"1";
+        _dataSources.isLogin = @"0";
         [_dataSources registCollectionViewCells:_collectionView];
         _dataSources.delegate = self;
         _collectionView.delegate = _dataSources;

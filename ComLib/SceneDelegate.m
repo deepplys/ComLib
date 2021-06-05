@@ -41,6 +41,8 @@
     BuyViewController *controller = [[BuyViewController alloc] init];
     controller.tabBarItem.title = @"消息";
     controller.view.backgroundColor = [UIColor whiteColor];
+    controller.tabBarItem.image = [UIImage imageNamed:@"Message"];
+    controller.tabBarItem.selectedImage = [UIImage imageNamed:@"Message"];
     //controller.tabBarItem.image = [UIImage imageNamed:@"tabbar_cart_normal"];
     //controller.tabBarItem.selectedImage = [UIImage imageNamed:@"tabbar_cart"];
     LikeRecommendCombineController *likeItemsVC = [[LikeRecommendCombineController alloc] init];

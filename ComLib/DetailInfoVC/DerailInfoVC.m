@@ -52,7 +52,7 @@
     [self.view addSubview:self.bottomBar];
     //self.header.frame = CGRectMake(0, 0, self.view.width, 100);
     self.collectionView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 200);
-    self.bottomBar.frame = CGRectMake(0, self.view.height - 200, self.view.width, 100);
+    self.bottomBar.frame = CGRectMake(0, self.view.height - 200, self.view.width, 200);
 }
 
 - (UICollectionView *)collectionView {
@@ -102,13 +102,14 @@
 }
 
 - (void)jumpCommitVC {
-    [[ZMCusCommentManager shareManager] showCommentWithSourceId:nil];
+    [[ZMCusCommentManager shareManager] showCommentWithComObjId:self.dataSources.recommendModel.dict.objectId WithAuthorID:@"fb02eddd45"];
 }
 
 - (CommitLikeCombineView *)bottomBar {
     if (!_bottomBar) {
         _bottomBar = [[CommitLikeCombineView alloc] initWithFrame:CGRectZero];
         _bottomBar.delegate = self;
+        _bottomBar.proObjectId = self.dict.objectId;
     }
     return _bottomBar;
 }

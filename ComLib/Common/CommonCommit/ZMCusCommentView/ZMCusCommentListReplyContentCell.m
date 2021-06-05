@@ -9,6 +9,7 @@
 #import "ZMCusCommentListReplyContentCell.h"
 #import "NSCommitDefine.h"
 #import "NSString+Size.h"
+#import "CommitModel.h"
 @interface ZMCusCommentListReplyContentCell()
 @property (nonatomic, strong) UIImageView *headImageView;
 @property (nonatomic, strong) UIImageView *designerImageView;

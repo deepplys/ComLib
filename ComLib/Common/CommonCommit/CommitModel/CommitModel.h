@@ -9,9 +9,24 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+
+@interface CommitItemModel : NSObject
+
+@property (nonatomic, copy) NSString *groupId;
+@property (nonatomic, copy) NSString *groupItemId;
+@property (nonatomic, copy) NSString *data;
+@property (nonatomic, copy) NSString *commitName;
+@property (nonatomic, copy) NSString *commitTime;
+
+@end
+
 @interface CommitModel : NSObject
 
-@property (nonatomic, strong)NSMutableArray<NSMutableArray* > *array;
+@property (nonatomic, strong)NSMutableArray *array;
+@property (nonatomic, strong)NSMutableArray *array1;
+@property (nonatomic, copy) NSString *objectId;
+
+- (void)configModel;
 
 @end
 

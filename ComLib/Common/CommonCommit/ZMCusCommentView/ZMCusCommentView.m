@@ -7,16 +7,17 @@
 //
 
 #import "ZMCusCommentView.h"
-#import "ZMCusCommentListView.h"
 #import "ZMCusCommentToolView.h"
 #import "AppDelegate.h"
 #import "NSCommitDefine.h"
+#import <BmobSDK/Bmob.h>
+#import <Masonry.h>
+#import <SVProgressHUD/SVProgressHUD.h>
 
 #define TOOL_VIEW_HEIGHT 47
 
-@interface ZMCusCommentView()
+@interface ZMCusCommentView() <CommitViewModelDelegate>
 @property (nonatomic, strong) UIControl *maskView;
-@property (nonatomic, strong) ZMCusCommentListView *commentListView;
 
 @property (nonatomic, strong) UIControl *topMaskView;
 @property (nonatomic, strong) NSString *historyText;
@@ -64,13 +65,16 @@
     _commentListView.sendBtnBlock = ^(NSString *text){
         @strongify(self)
         NSLog(@"%@",text);
+        [self sendCallBack:text];
         [self endEdit];
     };
     _commentListView.replyBtnBlock = ^{
-         @strongify(self)
+        @strongify(self)
+        //[self endEdit];
         NSLog(@"回复某人");
 
     };
+    _commentListView.viewModel.delegate = self;
     [self addSubview:_commentListView];
 
 
@@ -82,10 +86,78 @@
 
 }
 
+- (void)endFsh {
+    [self.commentListView.tableView reloadData];
+}
+
+- (void)sendCallBack:(NSString *)text {
+    BOOL status = self.commentListView.isReply
+                && [self.commentListView.isReply isEqual:@"1"] ? YES : NO;
+    BmobObject *commit = [[BmobObject alloc] initWithClassName:@"Commit"];
+    BmobUser *user = [BmobUser currentUser];
+    NSString *str = @"0";
+    NSString *group = [[NSString alloc]initWithFormat:@"%lu",(unsigned long)self.commentListView.viewModel.model.array.count];
+    [commit setObject:user forKey:@"CommitPoster"];
+    [commit setObject:text forKey:@"CommitDetail"];
+    if (status) {
+        group = self.commentListView.commitGroup;
+        [commit setObject:self.commentListView.commitGroup forKey:@"CommitGroup"];
+        NSMutableArray *array = [self.commentListView.viewModel.model.array1 objectAtIndex:self.commentListView.commitGroup.intValue];
+        str = [[NSString alloc] initWithFormat:@"%lu", (unsigned long)array.count];
+        [commit setObject:str forKey:@"CommitGroup"];
+    } else {
+        [commit setObject:group forKey:@"CommitGroup"];
+        [commit setObject:@"0" forKey:@"CommitGroupPos"];
+    }
+    [commit setObject:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.comObjId] forKey:@"CommitProId"];
+    [commit setObject:[BmobObject objectWithoutDataWithClassName:@"_User" objectId:self.authorObjId] forKey:@"CommitComOwner"];
+    [commit saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (error) {
+            NSString *errorDetail = error.description;
+            [SVProgressHUD showErrorWithStatus:errorDetail];
+        } else {
+            //添加数据
+            //[self.commentListView.viewModel.model.array addObject:@""];
+            CommitItemModel *item = [[CommitItemModel alloc] init];
+            item.groupId = self.commentListView.commitGroup;
+            item.groupItemId = str;
+            item.commitName = [user objectForKey:@"username"];
+            item.data = text;
+            if (status) {
+                NSMutableArray *tempArray = [self.commentListView.viewModel.model.array1 objectAtIndex:group.intValue];
+                [tempArray addObject:item];
+                [self.commentListView.viewModel.model.array1 replaceObjectAtIndex:group.intValue withObject:tempArray];
+            } else {
+                NSMutableArray *tempArray = [NSMutableArray new];
+                [tempArray addObject:item];
+                [self.commentListView.viewModel.model.array1 addObject:tempArray];
+            }
+            [SVProgressHUD showSuccessWithStatus:@"评论成功"];
+        }
+    }];
+}
+
+- (void)replyCallBack {
+    /*BmobObject *like = [[BmobObject alloc] initWithClassName:@"LikeDemo"];
+    [like setObject:user forKey:@"user"];
+    [like setObject:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.proObjectId] forKey:@"post"];
+    [like saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+        if (error) {
+            NSString *errorDetail = error.description;
+            [SVProgressHUD showErrorWithStatus:errorDetail];
+        } else {
+            self.like.image = [UIImage imageNamed:@"LikeDoneDemo"];
+            if (self.block) {
+                self.block();
+            }
+        }
+    }];*/
+}
+
 #pragma mark - action
 - (void)endEdit{
     [self endEditing:YES];
-
+    self.commentListView.isReply = @"0";
     self.commentListView.toolView.textView.placeholder = @"你也来聊两句吧";
     [UIView animateWithDuration:0.3 animations:^{
         self.commentListView.toolView.frameHeight = ZMCusComentBottomViewHeight+SAFE_AREA_BOTTOM;
@@ -171,9 +243,12 @@
     });
     return instance;
 }
-- (void)showCommentWithSourceId:(NSString *)sourceId{
+- (void)showCommentWithComObjId:(NSString *)comObjId WithAuthorID:(NSString *)authorId{
     
     ZMCusCommentView *view = [[ZMCusCommentView alloc] initWithFrame:CGRectMake(0, 0, SCREEN_WIDTH, SCREEN_HEIGHT)];
+    view.comObjId = comObjId;
+    view.authorObjId = authorId;
+    view.commentListView.comObjId = comObjId;
     AppDelegate *delegate = (AppDelegate*)[UIApplication sharedApplication].delegate;
     [delegate.window addSubview:view];
     [view showView];

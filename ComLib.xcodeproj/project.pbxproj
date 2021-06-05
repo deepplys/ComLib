@@ -1107,8 +1107,8 @@
 		CE4F9DF32664DA0200DBF671 /* ZMCusCommentView */ = {
 			isa = PBXGroup;
 			children = (
-				CE4F9DFB2664DA0200DBF671 /* ZMCusCommentListContentCell.h */,
 				CE4F9DF62664DA0200DBF671 /* ZMCusCommentListContentCell.m */,
+				CE4F9DFB2664DA0200DBF671 /* ZMCusCommentListContentCell.h */,
 				CE4F9DFF2664DA0200DBF671 /* ZMCusCommentListReplyContentCell.h */,
 				CE4F9DF82664DA0200DBF671 /* ZMCusCommentListReplyContentCell.m */,
 				CE4F9E002664DA0200DBF671 /* ZMCusCommentListTableHeaderView.h */,

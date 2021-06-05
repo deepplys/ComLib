@@ -46,6 +46,7 @@
             item.createdAt = [[obj.createdAt description] substringToIndex:20]; //
             item.commit = [obj objectForKey:@"C_Viewed"]; //
             item.url = [obj objectForKey:@"C_Detail"]; //
+            item.objectId = obj.objectId;
             [self.model.array addObject:item];
             NSLog(@"obj.C_ProName = %@", [obj objectForKey:@"C_ProName"]);
         }
