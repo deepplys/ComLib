@@ -10,6 +10,7 @@
 #import <UIKit/UICollectionView.h>
 #import "UserInfosModel.h"
 #import "HeadCell.h"
+#import "SubTabCell.h"
 #import "UserInfoViewModel.h"
 NS_ASSUME_NONNULL_BEGIN
 
@@ -17,7 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, strong) UserInfosModel *userInfosModel;
-@property (nonatomic, weak) id<HeadCellDelegate> delegate;
+@property (nonatomic, weak) id<HeadCellDelegate,SubTabCellDeledate> delegate;
 @property (nonatomic, strong) NSString *isLogin;
 @property (nonatomic, strong) UserInfoViewModel *viewmodel;
 

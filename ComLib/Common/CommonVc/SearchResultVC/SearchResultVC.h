@@ -12,6 +12,8 @@ NS_ASSUME_NONNULL_BEGIN
 @interface SearchResultVC : UIViewController
 
 @property(nonatomic, copy) NSString *name;
+@property (nonatomic,copy) NSMutableDictionary *dict;
+@property (nonatomic, copy) NSString *pos;
 
 @end
 

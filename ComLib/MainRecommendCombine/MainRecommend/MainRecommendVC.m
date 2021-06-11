@@ -52,13 +52,13 @@
     // 马上进入刷新状态
     [self.collectionView.mj_header beginRefreshing];
     // 设置回调（一旦进入刷新状态，就调用target的action，也就是调用self的loadMoreData方法）
-    self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
+    //self.collectionView.mj_footer = [MJRefreshAutoNormalFooter footerWithRefreshingTarget:self refreshingAction:@selector(loadMoreData)];
 }
 
 - (void)loadNewData {
     NSLog(@"wtf");
-    [self.dataSources.recommendViewModel updateModel];
-    [self.dataSources.recommendViewModel updateModelWithTabId:@"Objectivce-C"];
+    [self.dataSources.recommendViewModel updateModelWithPos:self.tabId];
+    [self.dataSources.recommendViewModel updateModelWithTabId:self.tabId];
     [self.collectionView reloadData];
     //[self.collectionView.mj_header endRefreshing];
 }

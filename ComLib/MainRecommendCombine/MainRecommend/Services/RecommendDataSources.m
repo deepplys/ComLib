@@ -9,6 +9,7 @@
 #import "RecommendCell.h"
 #import "RecommenHeadCell.h"
 #import "CommonStyleOneCell.h"
+#import "NSUserNameStatus.h"
 
 static NSString * const RecommendCellIdentifier = @"RecommendCellIdentifier";
 static NSString * const RecommenHeadCellIdentifier = @"RecommenHeadCellIdentifier";
@@ -62,7 +63,25 @@ static NSString * const CommonStyleOneCellIdentifier = @"CommonStyleOneCellIdent
 
 - (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
     if (indexPath.row != 0) {
-        [self.delegate didSelectItemInfo:[self comTrueInArray:indexPath]];
+        ComTrue *item = [self comTrueInArray:indexPath];
+        NSDictionary *demo1 = (NSDictionary *)self.recommendViewModel.model.likeArray[indexPath.row - 1];
+        NSArray *tempArray = [demo1 objectForKey:@"likes"];
+        item.isLike = NO;
+        for (id obj in tempArray) {
+            NSString *name = (NSString *)obj;
+            if (name && [name isEqual:[NSUserNameStatus getForName]]) {
+                item.isLike = YES;
+            }
+        }
+        NSArray *tempArray1 = [demo1 objectForKey:@"commit"];
+        item.isAdd = NO;
+        for (id obj in tempArray1) {
+            NSString *name = (NSString *)obj;
+            if (name && [name isEqual:[NSUserNameStatus getForName]]) {
+                item.isAdd = YES;
+            }
+        }
+        [self.delegate didSelectItemInfo:item];
     }
 }
 

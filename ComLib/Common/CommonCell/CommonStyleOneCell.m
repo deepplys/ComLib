@@ -94,7 +94,7 @@
         make.top.equalTo(self.info.mas_bottom);
         make.bottom.equalTo(self.contentView);
         make.right.equalTo(self.commit.mas_left);
-        make.width.equalTo(@(80));
+        make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
     [self.commit mas_makeConstraints:^(MASConstraintMaker *make) {

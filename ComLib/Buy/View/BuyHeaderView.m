@@ -42,7 +42,7 @@
 - (UILabel *)editLabel {
     if (!_editLabel) {
         _editLabel = [[UILabel alloc] initWithFrame:CGRectZero];
-        _editLabel.text = @"管理";
+        _editLabel.text = @"";
         _editLabel.numberOfLines = 1;
         _editLabel.font = [UIFont systemFontOfSize:14];
         _editLabel.textColor = [UIColor blackColor];

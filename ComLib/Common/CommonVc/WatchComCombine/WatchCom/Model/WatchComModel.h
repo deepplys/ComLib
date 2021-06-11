@@ -13,6 +13,10 @@ NS_ASSUME_NONNULL_BEGIN
 
 @property (nonatomic, copy) NSMutableArray *array; // ComTrue
 
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *detail;
+@property (nonatomic, copy) NSString *objectId;
+
 @end
 
 NS_ASSUME_NONNULL_END

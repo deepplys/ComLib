@@ -15,13 +15,15 @@
 #import "ZMCusCommentView.h"
 #import "NSCommitDefine.h"
 #import "WatchComCombineVC.h"
+#import "DataSaveView.h"
 
-@interface DerailInfoVC () <DetailInfoDataSourcesDelegate, CommitLikeCombineViewDelegate, WatchComCombineVCDelegate>
+@interface DerailInfoVC () <DetailInfoDataSourcesDelegate, CommitLikeCombineViewDelegate, WatchComCombineVCDelegate,DataSaveViewDelegate>
 
 @property (nonatomic, strong)ComTrue *dict;
 @property (nonatomic, strong)DetailInfoHeaderVIew *header;
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) CommitLikeCombineView *bottomBar;
+@property (nonatomic, strong) DataSaveView *dataSave;
 
 @end
 
@@ -50,9 +52,11 @@
     //[self.view addSubview:self.header];
     [self.view addSubview:self.collectionView];
     [self.view addSubview:self.bottomBar];
+    [self.view addSubview:self.dataSave];
     //self.header.frame = CGRectMake(0, 0, self.view.width, 100);
     self.collectionView.frame = CGRectMake(0, 0, self.view.width, self.view.height - 200);
     self.bottomBar.frame = CGRectMake(0, self.view.height - 200, self.view.width, 200);
+    self.dataSave.frame = CGRectMake(self.view.width - 40, self.view.height - 240, 40, 40);
 }
 
 - (UICollectionView *)collectionView {
@@ -86,6 +90,18 @@
      */
 }
 
+- (void)saveData {
+    NSString *doc = [NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,NSUserDomainMask, YES)lastObject];
+    // 拼接文件路径
+    NSString *path = [doc stringByAppendingPathComponent:@"ComDownload.plist"];
+    NSMutableArray *dataArray = [NSMutableArray arrayWithContentsOfFile:path];
+    if (!dataArray) {
+        dataArray = [[NSMutableArray alloc] init];
+    }
+    [dataArray addObject:@{self.dict.base.comName:self.dict.url}];
+    [dataArray writeToFile:path atomically:YES];
+}
+
 - (void)jumpDetailVC {
     WatchComCombineVC *vc = [[WatchComCombineVC alloc] init];
     [self.navigationController pushViewController:vc animated:nil];
@@ -110,6 +126,16 @@
         _bottomBar = [[CommitLikeCombineView alloc] initWithFrame:CGRectZero];
         _bottomBar.delegate = self;
         _bottomBar.proObjectId = self.dict.objectId;
+        if (self.dict.isLike) {
+            _bottomBar.isLike = @"1";
+        } else {
+            _bottomBar.isLike = @"0";
+        }
+        if (self.dict.isAdd) {
+            _bottomBar.isAdd = @"1";
+        } else {
+            _bottomBar.isAdd = @"0";
+        }
     }
     return _bottomBar;
 }
@@ -126,6 +152,14 @@
         _dict = [[ComTrue alloc] init];
     }
     return _dict;
+}
+
+- (DataSaveView *)dataSave {
+    if (!_dataSave) {
+        _dataSave = [[DataSaveView alloc] initWithFrame:CGRectZero];
+        _dataSave.delegate = self;
+    }
+    return _dataSave;
 }
 
 @end

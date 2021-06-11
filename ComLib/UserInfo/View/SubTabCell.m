@@ -22,6 +22,7 @@
 - (instancetype)initWithFrame:(CGRect)frame {
     if (self = [super initWithFrame:frame]) {
         [self setupSubViews];
+        [self setGes];
     }
     return self;
 }
@@ -32,6 +33,7 @@
 }
 
 - (void)setupSubViews {
+    self.userInteractionEnabled = YES;
     [self addSubview:self.line];
     [self.line addSubview:self.setting];
     [self.line addSubview:self.permit];
@@ -58,6 +60,19 @@
     [super updateConstraints];
 }
 
+- (void)setGes {
+    UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpDownload)];
+    [self.like addGestureRecognizer:tap];
+}
+
+- (void)touchesBegan:(NSSet<UITouch *> *)touches withEvent:(UIEvent *)event {
+    [self.delegate jumpDownload];
+}
+
+- (void)jumpDownload {
+    [self.delegate jumpDownload];
+}
+
 - (UIImageView *)setting {
     if (!_setting) {
         _setting = [[UIImageView alloc] initWithFrame:CGRectZero];
@@ -74,6 +89,7 @@
         //_permit.backgroundColor = [UIColor blueColor];
         _permit.contentMode = UIViewContentModeCenter;
         _permit.image = [UIImage imageNamed:@"permit"];
+        _permit.userInteractionEnabled = YES;
     }
     return _permit;
 }
@@ -84,6 +100,7 @@
         //_like.backgroundColor = [UIColor blueColor];
         _like.contentMode = UIViewContentModeCenter;
         _like.image = [UIImage imageNamed:@"likeitem"];
+        _like.userInteractionEnabled = YES;
     }
     return _like;
 }

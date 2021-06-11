@@ -16,7 +16,9 @@ NS_ASSUME_NONNULL_BEGIN
 @interface WatchComVC : UIViewController
 
 @property(nonatomic,assign)NSInteger page;
-@property(nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *detail;
+@property (nonatomic, copy) NSString *objectId;
 
 @end
 

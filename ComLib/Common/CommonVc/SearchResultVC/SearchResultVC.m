@@ -69,7 +69,11 @@
 
 - (void)loadNewData {
     NSLog(@"wtf");
-    [self.dataSources.viewModel updateModelWithName:self.name];
+    if (self.pos && [self.pos isEqual:@"1"]) {
+        [self.dataSources.viewModel updateModelWithDict:self.dict];
+    } else {
+        [self.dataSources.viewModel updateModelWithName:self.name];
+    }
     [self.collectionView reloadData];
 }
 

@@ -7,11 +7,14 @@
 
 #import "LikeItemsVC.h"
 #import <Masonry/Masonry.h>
+#import <MJRefresh/MJRefresh.h>
 #import "LikeItemDataSources.h"
 #import "LikeItemsHeaderView.h"
 #import "NSObjectGetStatus.h"
+#import "NSUserNameStatus.h"
+#import "DerailInfoVC.h"
 
-@interface LikeItemsVC ()
+@interface LikeItemsVC () <LikeItemViewModelDelegate , LikeItemDataSourcesDelegate>
 
 @property (nonatomic, strong) LikeItemDataSources *dataSources;
 @property (nonatomic, strong) UICollectionView *collectionView;
@@ -55,6 +58,32 @@
         make.bottom.left.right.top.equalTo(self.view);
         make.top.equalTo(@(statusBarH));
     }];
+    self.collectionView.mj_header = [MJRefreshHeader headerWithRefreshingBlock:^{
+        NSLog(@"reFresh");
+    }];
+    self.collectionView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
+    // 马上进入刷新状态
+    [self.collectionView.mj_header beginRefreshing];
+}
+
+- (void)loadNewData {
+    NSLog(@"wtf");
+    BmobUser *user = [BmobUser currentUser];
+    [self.dataSources.viewModel updateModelWithTabId:user.objectId];
+    [self.collectionView reloadData];
+    //[self.collectionView.mj_header endRefreshing];
+}
+
+- (void)didSelectItemInfo:(ComTrue *)dict {
+    DerailInfoVC *vc = [[DerailInfoVC alloc] initWithData:dict];
+    vc.title = @"构件详情";
+    vc.view.backgroundColor = [UIColor whiteColor];
+    [self.navigationController pushViewController:vc animated:nil];
+}
+
+- (void)endFrs {
+    [self.collectionView reloadData];
+    [self.collectionView.mj_header endRefreshing];
 }
 
 - (UICollectionView *)collectionView {

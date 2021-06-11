@@ -184,7 +184,7 @@
                     }else if ([self.usernameTF.text isEqualToString:@""]) {
                         [self showSuccessWithMsg:@"请输入用户名"];
                     }else {
-                        [self showSuccessWithMsg:@"请先注册"];
+                        [self showSuccessWithMsg:@"用户名或密码错误，可注册新账号后登陆"];
                     }
                 }
             }];

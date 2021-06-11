@@ -72,7 +72,6 @@
         @strongify(self)
         //[self endEdit];
         NSLog(@"回复某人");
-
     };
     _commentListView.viewModel.delegate = self;
     [self addSubview:_commentListView];
@@ -132,6 +131,7 @@
                 [tempArray addObject:item];
                 [self.commentListView.viewModel.model.array1 addObject:tempArray];
             }
+            [self.commentListView.tableView reloadData];
             [SVProgressHUD showSuccessWithStatus:@"评论成功"];
         }
     }];

@@ -30,6 +30,11 @@
     [self.navigationController setNavigationBarHidden:YES animated:animated];
 }
 
+- (void)configStatus:(NSMutableDictionary *)dict {
+    //self.name.text = [dict objectForKey:@"name"];
+    //self.detail.text = [dict objectForKey:@"detail"];
+    [self.header updataWithDict:dict];
+}
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self.view addSubview:self.header];
@@ -37,13 +42,15 @@
     self.header.frame = CGRectMake(0, height, self.view.width, 50);
     WMZPageParam *param = PageParam()
     .wMenuBgColorSet([UIColor whiteColor])
-    .wTitleArrSet(@[@"动态",@"构件库"])
+    .wTitleArrSet(@[@"构件库"])
     .wMenuWidthSet(PageVCWidth - 100)
     .wViewControllerSet(^UIViewController *(NSInteger index) {
-         WatchComVC *vc = [WatchComVC new];
-         vc.name = [NSUserNameStatus getForName];
-         vc.page = index;
-         return vc;
+        WatchComVC *vc = [WatchComVC new];
+        vc.name = self.name;
+        vc.detail = self.detail;
+        vc.objectId = self.objectId;
+        vc.page = index;
+        return vc;
      })
     .wMenuTitleSelectColorSet([UIColor orangeColor])
     //.wMenuPositionSet(PageMenuPositionCenter)

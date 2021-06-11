@@ -25,12 +25,29 @@
     [super viewDidLoad];
     WMZPageParam *param = PageParam()
     .wMenuBgColorSet([UIColor whiteColor])
-    .wTitleArrSet(@[@"推荐",@"关注",@"热榜",@"C++",@"Python",@"oc",@"前端",@"人工智能"])
+    .wTitleArrSet(@[@"推荐",@"关注",@"C++",@"Python",@"oc",@"Ruby",@"JavaScript"])
     .wMenuFixRightDataSet(@{@"image":@"home_wy_3",@"selectImage":@"more_select"})
     .wMenuImagePositionSet(PageBtnPositionLeft)
     .wViewControllerSet(^UIViewController *(NSInteger index) {
          MainRecommendVC *vc = [MainRecommendVC new];
          vc.page = index;
+        long temp = (long)index;
+        if (temp == 0) {
+            vc.tabId = @"Recommend";
+        } else if (temp == 1) {
+            vc.tabId = @"focus";
+        } else if (temp == 2) {
+            vc.tabId = @"c++";
+        } else if (temp == 3) {
+            vc.tabId = @"python";
+        } else if (temp == 4) {
+            vc.tabId = @"Objectivce-C";
+        } else if (temp == 5) {
+            vc.tabId = @"Ruby";
+        } else if (temp == 6) {
+            vc.tabId = @"JavaScript";
+        }
+        NSLog(@"***** %ld",(long)index);
          return vc;
      })
     .wMenuTitleSelectColorSet([UIColor orangeColor])

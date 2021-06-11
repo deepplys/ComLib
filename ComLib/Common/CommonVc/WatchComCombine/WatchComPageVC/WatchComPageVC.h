@@ -11,6 +11,11 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface WatchComPageVC : WMZPageController
 
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *detail;
+@property (nonatomic, copy) NSString *objectId;
+- (void)configStatus:(NSMutableDictionary *)dict;
+
 @end
 
 NS_ASSUME_NONNULL_END

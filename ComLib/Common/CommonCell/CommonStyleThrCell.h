@@ -18,6 +18,7 @@ NS_ASSUME_NONNULL_BEGIN
 @interface CommonStyleThrCell : UICollectionViewCell
 
 @property (nonatomic, weak) id delegate;
+@property (nonatomic, copy) NSString *objectId;
 
 - (void)configWithModel:(NSDictionary *)dict;
 

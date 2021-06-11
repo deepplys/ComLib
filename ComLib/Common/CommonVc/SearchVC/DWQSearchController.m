@@ -57,9 +57,9 @@ static NSString *const HistoryCellID = @"HistoryCellID";
     /**
      *  造热门搜索的假数据
      */
-    self.historyArr = [NSMutableArray arrayWithObjects:@"C语言",@"C#",@"HTML5",@"objective-c?"@"Swift", nil];
+    //self.historyArr = [NSMutableArray arrayWithObjects:@"C语言",@"C#",@"HTML5",@"objective-c?"@"Swift", nil];
     
-    self.HotArr = [NSMutableArray arrayWithObjects:@"你想要搜索什么呢",@"web编程",@"JAVA8",@"JAVAVEE",@"Objective-c",@"SWift",@"iOS分享之路",@"MacBokPro",@"iOS直播",@"APPLE", nil];
+    self.HotArr = [NSMutableArray arrayWithObjects:@"你想要搜索什么呢",@"oc",@"java",@"yykit",@"Objective-c",@"SWift",@"Masonry",@"SDWebImage",@"Chameleon", nil];
 
 }
 

@@ -74,6 +74,8 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, copy)NSString *createdAt;
 @property (nonatomic, copy)NSString *objectId;
 @property (nonatomic, copy)NSString *ownerName;
+@property (nonatomic, assign)BOOL isLike;
+@property (nonatomic, assign)BOOL isAdd;
 
 - (NSComparisonResult)compareComTrue: (ComTrue *)com;
 @end

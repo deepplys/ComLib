@@ -8,6 +8,7 @@
 #import "LikePageRecommendController.h"
 #import "LikeItemsVC.h"
 #import "CreateNewCom.h"
+#import "MainRecommendVC.h"
 
 @interface LikePageRecommendController ()
 
@@ -33,12 +34,17 @@
     .wTitleArrSet(@[@"收藏",@"新鲜",@"新构件"])
     .wMenuWidthSet(PageVCWidth - 100)
     .wViewControllerSet(^UIViewController *(NSInteger index) {
-        if (index != 2) {
+        if (index == 0 ) {
             LikeItemsVC *vc = [LikeItemsVC new];
              vc.page = index;
              return vc;
-        } else {
+        } else if (index == 2){
             CreateNewCom *vc = [CreateNewCom new];
+            return vc;
+        } else {
+            MainRecommendVC *vc = [MainRecommendVC new];
+            vc.page = index;
+            vc.tabId = @"Recommend";
             return vc;
         }
      })

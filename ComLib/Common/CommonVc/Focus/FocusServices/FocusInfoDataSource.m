@@ -22,7 +22,7 @@ static NSString * const CommonStyleThrCellIdentifier = @"CommonStyleThrCellIdent
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 18;
+    return 1;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -53,6 +53,8 @@ static NSString * const CommonStyleThrCellIdentifier = @"CommonStyleThrCellIdent
 
 - (CommonStyleThrCell *)commonStyleThrCellInCollectionView:(UICollectionView *)collectionView atIndexPath:(NSIndexPath *)indexPath {
     CommonStyleThrCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CommonStyleThrCellIdentifier forIndexPath:indexPath];
+    NSDictionary *dict = [NSDictionary new];
+    [cell configWithModel:dict];
     return cell;
 }
 

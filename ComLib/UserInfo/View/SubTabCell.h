@@ -9,7 +9,15 @@
 
 NS_ASSUME_NONNULL_BEGIN
 
+@protocol SubTabCellDeledate <NSObject>
+
+- (void)jumpDownload;
+
+@end
+
 @interface SubTabCell : UICollectionViewCell
+
+@property (nonatomic, weak) id<SubTabCellDeledate> delegate;
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width;
 

@@ -8,16 +8,23 @@
 #import <Foundation/Foundation.h>
 #import <UIKit/UICollectionViewFlowLayout.h>
 #import <UIKit/UICollectionView.h>
-#import "LikeItemsModel.h"
+#import "LikeItemViewModel.h"
+#import "ComTrue.h"
 
 NS_ASSUME_NONNULL_BEGIN
+
+@protocol LikeItemDataSourcesDelegate <NSObject>
+
+- (void)didSelectItemInfo:(ComTrue *)dict;
+
+@end
 
 @interface LikeItemDataSources : NSObject <UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 
 @property (nonatomic, weak) UICollectionView *collection;
 @property (nonatomic, copy) NSString *canShow;
-@property (nonatomic, strong) LikeItemsModel *likeItemsModel;
-@property (nonatomic, weak) id delegate;
+@property (nonatomic, strong) LikeItemViewModel *viewModel;
+@property (nonatomic, weak) id<LikeItemDataSourcesDelegate> delegate;
 
 - (void)updateInfos:(NSMutableArray *)Infos;
 - (void)registCollectionViewCells:(UICollectionView *)collectionView;

@@ -73,6 +73,9 @@
 - (void)loadNewData {
     NSLog(@"wtf");
     [self.dataSources.viewModel updateModelWithName:self.name];
+    self.dataSources.viewModel.model.name = self.name;
+    self.dataSources.viewModel.model.detail = self.detail;
+    self.dataSources.viewModel.model.objectId = self.objectId;
     [self.collectionView reloadData];
 }
 

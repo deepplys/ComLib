@@ -14,8 +14,10 @@
 #import "UserLoginVC.h"
 #import "WatchComCombineVC.h"
 #import <BmobSDK/Bmob.h>
+#import "SubTabCell.h"
+#import "DownloadVC.h"
 
-@interface UserInfosVC ()<HeadCellDelegate, UserInfosEditViewDelegate, UIImagePickerControllerDelegate, UserLoginVCDelegate ,WatchComCombineVCDelegate>
+@interface UserInfosVC ()<HeadCellDelegate, UserInfosEditViewDelegate, UIImagePickerControllerDelegate, UserLoginVCDelegate ,WatchComCombineVCDelegate, SubTabCellDeledate>
 
 @property (nonatomic, strong) UICollectionView *collectionView;
 @property (nonatomic, strong) UserInfosEditView *editView; //个人资料展开面板
@@ -70,6 +72,10 @@
 - (void)jumpDetail {
     WatchComCombineVC *vc = [[WatchComCombineVC alloc] init];
     vc.delegate = self;
+    NSMutableDictionary *dict = [NSMutableDictionary new];
+    [dict setValue:self.dataSources.userInfosModel.user.name forKey:@"name"];
+    [dict setValue:self.dataSources.userInfosModel.user.detail forKey:@"detail"];
+    [vc configWithDict:dict];
     [self.navigationController pushViewController:vc animated:nil];
 }
 
@@ -79,6 +85,11 @@
 
 - (void)backToVC {
     [self.navigationController popViewControllerAnimated:nil];
+}
+
+- (void)jumpDownload {
+    DownloadVC *vc = [[DownloadVC alloc] init];
+    [self.navigationController pushViewController:vc animated:nil];
 }
 
 - (void)updateModel:(NSString *)loginId {

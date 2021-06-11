@@ -23,6 +23,8 @@ typedef void(^CommitLikeCombineBlock)(void);
 @property (nonatomic, weak)id<CommitLikeCombineViewDelegate> delegate;
 @property (nonatomic, copy)CommitLikeCombineBlock block;
 @property (nonatomic, copy)NSString *proObjectId;
+@property (nonatomic, copy)NSString *isLike;
+@property (nonatomic, copy)NSString *isAdd;
 
 @end
 

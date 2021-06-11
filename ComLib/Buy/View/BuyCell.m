@@ -81,7 +81,7 @@
 
 - (void)updateInfoWithModel {
     [self.coverImageView setImage:[UIImage imageNamed:@"com1"]];
-    [self.nickNameLabel setText:@"拱门"];
+    [self.nickNameLabel setText:@"拱门å"];
 }
 
 + (CGSize)cellSizeWithWidth:(CGFloat)width {

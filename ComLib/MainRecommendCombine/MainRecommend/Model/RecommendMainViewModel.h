@@ -22,7 +22,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)RecommendModel *model;
 @property (nonatomic, weak)id<RecommendMainViewModelDelegate> delegate;
 
-- (void)updateModel;
+- (void)updateModelWithPos:(NSString *)str;
 - (void)updateModelWithTabId:(NSString *)str;
 
 @end

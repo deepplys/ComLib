@@ -14,8 +14,15 @@
 
 @implementation RecommendMainViewModel
 
-- (void)updateModel {
+- (void)updateModelWithPos:(NSString *)str {
     BmobQuery   *bquery = [BmobQuery queryWithClassName:@"Component"];
+    if (str && [str isEqual:@"Recommend"]) {
+        
+    } else if (str && [str isEqual:@"focus"]){
+        //[bquery whereKey:@"C_CodeType" equalTo:str];
+    } else {
+        [bquery whereKey:@"C_CodeType" equalTo:str];
+    }
     //查找Component表的数据
     [bquery findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
         for (BmobObject *obj in array) {
@@ -43,7 +50,7 @@
             item.use.comRequseUse = [obj objectForKey:@"C_RequstUse"]; //
             item.like = [obj objectForKey:@"C_Like"]; //
             item.ownerID = [obj objectForKey:@"C_OwnerID"]; //
-            item.createdAt = [[obj.createdAt description] substringToIndex:20]; //
+            item.createdAt = [[obj.createdAt description] substringToIndex:19]; //
             item.commit = [obj objectForKey:@"C_Viewed"]; //
             item.url = [obj objectForKey:@"C_Detail"]; //
             item.objectId = obj.objectId;
@@ -68,7 +75,6 @@
             [SVProgressHUD showErrorWithStatus:errorDetail];
         } else {
             NSLog(@"%@",object);
-            
             self.model.likeArray = [NSString stringToJson:object];
             //self.model.array = [NSString stringToJson:object];
             //[self.tableView reloadData];

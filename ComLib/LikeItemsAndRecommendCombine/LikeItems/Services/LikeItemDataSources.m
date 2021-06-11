@@ -24,7 +24,7 @@ static NSString * const CommonStyleTwoCellIdentifier = @"CommonStyleTwoCellIdent
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    return 9;
+    return self.viewModel.model.array1.count;
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -34,6 +34,14 @@ static NSString * const CommonStyleTwoCellIdentifier = @"CommonStyleTwoCellIdent
 
 - (NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView {
     return 1;
+}
+
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath {
+    ComTrue *item = [self comTrueInArray:indexPath];
+    if (item) {
+        item.isAdd = YES;
+    }
+    [self.delegate didSelectItemInfo:[self comTrueInArray:indexPath]];
 }
 
 - (CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout*)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath {
@@ -55,7 +63,25 @@ static NSString * const CommonStyleTwoCellIdentifier = @"CommonStyleTwoCellIdent
 - (CommonStyleTwoCell *)CommonStyleTwoCellInInCollectionView:(UICollectionView *)collectionView
                                                  atIndexPath:(NSIndexPath *)indexPath {
     CommonStyleTwoCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:CommonStyleTwoCellIdentifier forIndexPath:indexPath];
+    [cell updataWithModel:[self comTrueInArray:indexPath]];
     //[CommonStyleTwoCell ]
     return cell;
 }
+
+- (ComTrue *)comTrueInArray:(NSIndexPath *)indexPath {
+    if ([self.viewModel.model.array1[indexPath.row] isKindOfClass:[ComTrue class]]) {
+        return (ComTrue *)self.viewModel.model.array1[indexPath.row];
+    } else {
+        return nil;
+    }
+}
+
+- (LikeItemViewModel *)viewModel {
+    if (!_viewModel) {
+        _viewModel = [[LikeItemViewModel alloc] init];
+        _viewModel.delegate = self.delegate;
+    }
+    return _viewModel;
+}
+
 @end

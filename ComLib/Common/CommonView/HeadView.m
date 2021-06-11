@@ -44,6 +44,12 @@
     [self setGesture];
 }
 
+- (void)updataWithDict:(NSMutableDictionary *)dict {
+    self.name.text = [dict objectForKey:@"name"];
+    self.detail.text = [dict objectForKey:@"detail"];
+    /// to do focus status
+}
+
 - (void)makeConstraints {
     [self.icon mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.top.equalTo(self);
@@ -52,13 +58,13 @@
     [self.name mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.icon.mas_right);
         make.top.equalTo(self.icon);
-        make.width.equalTo(@(40));
+        make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
     [self.detail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.name);
         make.bottom.equalTo(self.icon);
-        make.width.equalTo(@(40));
+        make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
     [self.status mas_makeConstraints:^(MASConstraintMaker *make) {

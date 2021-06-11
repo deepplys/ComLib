@@ -78,7 +78,7 @@ static NSString * const HeadCellIdentifier = @"HeadCellIdentifier";
                                                         atIndexPath:(NSIndexPath *)indexPath {
     HeadCell *HeadCell = [collectionView dequeueReusableCellWithReuseIdentifier:HeadCellIdentifier forIndexPath:indexPath];
     [HeadCell updataInfoWithModel:self.userInfosModel];
-    HeadCell.delegate = self;
+    HeadCell.delegate = self.delegate;
     HeadCell.login = self.isLogin;
     return HeadCell;
 }
@@ -106,8 +106,13 @@ static NSString * const HeadCellIdentifier = @"HeadCellIdentifier";
 - (SubTabCell *)recommendHeadCellInCollectionView:(UICollectionView *)collectionView
                                                         atIndexPath:(NSIndexPath *)indexPath {
     SubTabCell *SubTabCell = [collectionView dequeueReusableCellWithReuseIdentifier:SubTabCellIdentifier forIndexPath:indexPath];
+    SubTabCell.delegate = self;
     //[SubTabCell updateUserActivityState: ];
     return SubTabCell;
+}
+
+- (void)jumpDownload {
+    [self.delegate jumpDownload];
 }
 
 - (UserInfoViewModel *)viewmodel {

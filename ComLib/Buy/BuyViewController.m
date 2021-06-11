@@ -29,13 +29,13 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     self.view.backgroundColor = [UIColor whiteColor];
-    [self.view addSubview:self.tabView];
+    //[self.view addSubview:self.tabView];
     [self.view addSubview:self.headerView];
     [self.view addSubview:self.itemView];
     CGFloat statusBarH = [NSObjectGetStatus statusBarH];
     //self.headerView.frame = CGRectMake(0, statusBarH, self.view.width, 40);
     //self.itemView.frame = CGRectMake(0, 40+statusBarH, self.view.width, 40);
-    self.tabView.frame = CGRectMake(0, 100+statusBarH, self.view.width, self.view.height- (100+statusBarH));
+    //self.tabView.frame = CGRectMake(0, 100+statusBarH, self.view.width, self.view.height- (100+statusBarH));
     [self.view setNeedsLayout];
     [self.view layoutIfNeeded];
 }

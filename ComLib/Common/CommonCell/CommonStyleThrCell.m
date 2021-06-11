@@ -66,7 +66,7 @@
     [self.detail mas_makeConstraints:^(MASConstraintMaker *make) {
         make.left.equalTo(self.name);
         make.bottom.equalTo(self.icon);
-        make.width.equalTo(@(40));
+        make.width.equalTo(@(100));
         make.height.equalTo(@(20));
     }];
     [self.status mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -123,11 +123,11 @@
 - (void)configWithModel:(NSDictionary *)dict {
     NSMutableDictionary *dict1 = [NSMutableDictionary new];
     [dict1 setValue:@"Biz" forKey:@"name"];
-    [dict1 setValue:@"totoooooo " forKey:@"detail"];
+    [dict1 setValue:@"Daydreamer" forKey:@"detail"];
     [dict1 setValue:@"0" forKey:@"status"];
-    self.name.text = [dict valueForKey:@"name"];
-    self.detail.text = [dict valueForKey:@"detail"];
-    NSString *temp = [dict valueForKey:@"status"];
+    self.name.text = [dict1 valueForKey:@"name"];
+    self.detail.text = [dict1 valueForKey:@"detail"];
+    NSString *temp = [dict1 valueForKey:@"status"];
     if (temp && [temp isEqual:@"1"]) {
         self.isfocus = YES;
         self.status.image = [UIImage imageNamed:@"focusdone"];

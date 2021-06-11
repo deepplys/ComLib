@@ -1,16 +1,16 @@
 //
-//  BuyDataSources.m
+//  DownloadServices.m
 //  ComLib
 //
-//  Created by 崔祥龙 on 2021/3/19.
+//  Created by cuixianglong on 2021/6/11.
 //
 
-#import "BuyDataSources.h"
+#import "DownloadServices.h"
 #import "BuyCell.h"
 
 static NSString * const BuyCellIdentifier = @"BuyCellIdentifier";
 
-@implementation BuyDataSources
+@implementation DownloadServices
 
 - (void)registTabViewCells:(UITableView *)tableView {
     [tableView registerClass:[BuyCell class] forCellReuseIdentifier:BuyCellIdentifier];
@@ -21,7 +21,7 @@ static NSString * const BuyCellIdentifier = @"BuyCellIdentifier";
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return 0;
+    return self.array.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -36,8 +36,21 @@ static NSString * const BuyCellIdentifier = @"BuyCellIdentifier";
                                                         atIndexPath:(NSIndexPath *)indexPath {
     
     BuyCell *buyCell = [tableView dequeueReusableCellWithIdentifier:BuyCellIdentifier forIndexPath:indexPath];
-    [buyCell updateInfoWithModel];
+    NSDictionary *dict = (NSDictionary *)[self.array objectAtIndex:indexPath.row];
+    NSArray *arr = dict.allKeys;
+    for (id obj in arr) {
+        NSString *str = (NSString *)obj;
+        buyCell.topText = str;
+        buyCell.detailText = (NSString *)[dict objectForKey:str];
+    }
     return buyCell;
+}
+
+- (NSMutableArray *)array {
+    if (!_array) {
+        _array = [[NSMutableArray alloc] init];
+    }
+    return _array;
 }
 
 @end

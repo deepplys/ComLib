@@ -50,6 +50,10 @@
     [self.pageViewController didMoveToParentViewController:self];
 }
 
+- (void)configWithDict:(NSMutableDictionary *)dict {
+    [self.pageViewController configStatus:dict];
+}
+
 - (CommonNavigationBackBar *)backBar {
     if (!_backBar) {
         _backBar = [[CommonNavigationBackBar alloc] initWithFrame:CGRectZero];
@@ -61,6 +65,9 @@
 - (WatchComPageVC *)pageViewController {
     if (!_pageViewController) {
         _pageViewController = [[WatchComPageVC alloc]init];
+        _pageViewController.name = self.name;
+        _pageViewController.detail = self.detail;
+        _pageViewController.objectId = self.objectId;
     }
     return _pageViewController;
 }

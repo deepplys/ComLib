@@ -21,7 +21,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (nonatomic, strong)SearchResultModel *model;
 @property (nonatomic, weak)id<SearchResultViewModelDelagate> delegate;
 - (void)updateModelWithName:(NSString *)name;
-
+- (void)updateModelWithDict:(NSDictionary *)dict;
 @end
 
 NS_ASSUME_NONNULL_END

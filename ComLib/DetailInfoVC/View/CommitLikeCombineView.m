@@ -72,11 +72,16 @@
     
 }
 
+
+
+
 - (void)setActionGes {
     UITapGestureRecognizer *tap = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setLikeStatus)];
     [self.like addGestureRecognizer:tap];
     UITapGestureRecognizer *tap1 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(jumpCommit)];
     [self.commit addGestureRecognizer:tap1];
+    UITapGestureRecognizer *tap2 = [[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(setAddLikeStatus)];
+    [self.addLike addGestureRecognizer:tap2];
 }
 
 - (void)jumpCommit {
@@ -87,7 +92,23 @@
     CGSize size = CGSizeMake(width, 60);
     return size;
 }
+- (void)setIsLike:(NSString *)isLike {
+    _isLike = isLike;
+    if (_isLike && [isLike isEqual:@"1"]) {
+        self.like.image = [UIImage imageNamed:@"LikeDoneDemo"];
+    } else {
+        self.like.image = [UIImage imageNamed:@"LikeCom"];
+    }
+}
 
+- (void)setIsAdd:(NSString *)isAdd {
+    _isAdd = isAdd;
+    if (_isAdd && [_isAdd isEqual:@"1"]) {
+        self.addLike.image = [UIImage imageNamed:@"Stardone"];
+    } else {
+        self.addLike.image = [UIImage imageNamed:@"Star"];
+    }
+}
 - (void)setLikeStatus {
     BOOL status = YES;
     if ([self.like.image isEqual:[UIImage imageNamed:@"LikeCom"]]) {
@@ -129,6 +150,58 @@
                         [SVProgressHUD showErrorWithStatus:errorDetail];
                     } else {
                         self.like.image = [UIImage imageNamed:@"LikeCom"];
+                        if (self.block) {
+                            self.block();
+                        }
+                    }
+                }];
+            }
+        }];
+    }
+}
+
+- (void)setAddLikeStatus {
+    BOOL status = YES;
+    if ([self.addLike.image isEqual:[UIImage imageNamed:@"Star"]]) {
+        status = NO;
+    } else {
+        status = YES;
+    }
+    BmobUser *user = [BmobUser currentUser];
+    if (!status) {
+        //点赞
+        BmobObject *like = [[BmobObject alloc] initWithClassName:@"ComLikeOwner"];
+        [like setObject:user forKey:@"ComLikePoster"];
+        [like setObject:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.proObjectId] forKey:@"ComProId"];
+        //[like setObjectId:user ]
+        [like saveInBackgroundWithResultBlock:^(BOOL isSuccessful, NSError *error) {
+            if (error) {
+                NSString *errorDetail = error.description;
+                [SVProgressHUD showErrorWithStatus:errorDetail];
+            } else {
+                self.addLike.image = [UIImage imageNamed:@"Stardone"];
+                if (self.block) {
+                    self.block();
+                }
+            }
+        }];
+    } else {
+        BmobQuery *query = [[BmobQuery alloc] initWithClassName:@"ComLikeOwner"];
+        [query whereKey:@"ComLikePoster" equalTo:user];
+        [query whereKey:@"ComProId" equalTo:[BmobObject objectWithoutDataWithClassName:@"Component" objectId:self.proObjectId]];
+        [query findObjectsInBackgroundWithBlock:^(NSArray *array, NSError *error) {
+            if (error) {
+                NSString *errorDetail = error.description;
+                [SVProgressHUD showErrorWithStatus:errorDetail];
+            } else {
+                //删除点赞记录
+                BmobObject *object = [array firstObject];
+                [object deleteInBackgroundWithBlock:^(BOOL isSuccessful, NSError *error) {
+                    if (error) {
+                        NSString *errorDetail = error.description;
+                        [SVProgressHUD showErrorWithStatus:errorDetail];
+                    } else {
+                        self.addLike.image = [UIImage imageNamed:@"Star"];
                         if (self.block) {
                             self.block();
                         }

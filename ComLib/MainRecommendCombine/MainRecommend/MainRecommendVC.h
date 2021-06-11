@@ -11,6 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface MainRecommendVC : UIViewController
 @property(nonatomic,assign)NSInteger page;
+@property(nonatomic,copy) NSString *tabId;
 @end
 
 NS_ASSUME_NONNULL_END
